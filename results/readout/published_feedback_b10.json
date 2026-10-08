@@ -1,0 +1,41 @@
+{
+ "name": "published_feedback_b10",
+ "settings": {
+  "observable": "f = 1 (total probability)",
+  "quantity": "sqrt(|S| / S_eff(p_hat_T)), S_eff = (sum p)^2 / sum p^2 on the Phase F box",
+  "fsp": "qcme.fsp.propagate (uniformization)",
+  "box_and_T": "published_models/<instance>.json"
+ },
+ "environment": {
+  "python": "3.13.5",
+  "numpy": "2.2.6",
+  "scipy": "1.17.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "timestamp": "2026-10-06T19:30:59+0530",
+  "hardware": "Intel Core i9-14900HX, 32 GB RAM; CPU double precision"
+ },
+ "data": {
+  "row": "feedback_b10",
+  "n_states": 314,
+  "widths": [
+   2,
+   157
+  ],
+  "T": 0.4999999999910364,
+  "leak": 1.662966011561906e-07,
+  "S_eff": 2.430007019115583,
+  "readout_factor": 11.36739784415234,
+  "log10_readout_factor": 1.055661060003138,
+  "species": [
+   "G",
+   "P"
+  ],
+  "n_count_species": 1,
+  "consistency": {
+   "n_states_equal": true,
+   "leak_rel_diff": 0.0
+  },
+  "seconds": 0.1999073028564453
+ }
+}

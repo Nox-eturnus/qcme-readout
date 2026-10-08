@@ -1,0 +1,989 @@
+{
+ "name": "feedback_b100",
+ "settings": {
+  "leak_tol": 1e-06,
+  "ceiling": 10000000,
+  "large_box": 200000,
+  "n_cont": 129,
+  "sub": 5,
+  "families": [
+   "sqrt_mu",
+   "resolvent"
+  ],
+  "eta": 0.001,
+  "mean_floor": 0.001,
+  "tail_level": 0.05,
+  "tail_grow": 1.5,
+  "huge_box": 5000000,
+  "huge_work": 10000000000.0,
+  "large_nnz": 1000000,
+  "stream_box": 1000000,
+  "schedules": {
+   "uniform J=5": [
+    0.0,
+    0.2,
+    0.4,
+    0.6000000000000001,
+    0.8,
+    1.0
+   ],
+   "uniform J=10": [
+    0.0,
+    0.1,
+    0.2,
+    0.30000000000000004,
+    0.4,
+    0.5,
+    0.6000000000000001,
+    0.7000000000000001,
+    0.8,
+    0.9,
+    1.0
+   ],
+   "uniform J=20": [
+    0.0,
+    0.05,
+    0.1,
+    0.15000000000000002,
+    0.2,
+    0.25,
+    0.30000000000000004,
+    0.35000000000000003,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6000000000000001,
+    0.65,
+    0.7000000000000001,
+    0.75,
+    0.8,
+    0.8500000000000001,
+    0.9,
+    0.9500000000000001,
+    1.0
+   ],
+   "uniform J=40": [
+    0.0,
+    0.025,
+    0.05,
+    0.07500000000000001,
+    0.1,
+    0.125,
+    0.15000000000000002,
+    0.17500000000000002,
+    0.2,
+    0.225,
+    0.25,
+    0.275,
+    0.30000000000000004,
+    0.325,
+    0.35000000000000003,
+    0.375,
+    0.4,
+    0.42500000000000004,
+    0.45,
+    0.47500000000000003,
+    0.5,
+    0.525,
+    0.55,
+    0.5750000000000001,
+    0.6000000000000001,
+    0.625,
+    0.65,
+    0.675,
+    0.7000000000000001,
+    0.7250000000000001,
+    0.75,
+    0.775,
+    0.8,
+    0.8250000000000001,
+    0.8500000000000001,
+    0.875,
+    0.9,
+    0.925,
+    0.9500000000000001,
+    0.9750000000000001,
+    1.0
+   ],
+   "uniform J=80": [
+    0.0,
+    0.0125,
+    0.025,
+    0.037500000000000006,
+    0.05,
+    0.0625,
+    0.07500000000000001,
+    0.08750000000000001,
+    0.1,
+    0.1125,
+    0.125,
+    0.1375,
+    0.15000000000000002,
+    0.1625,
+    0.17500000000000002,
+    0.1875,
+    0.2,
+    0.21250000000000002,
+    0.225,
+    0.23750000000000002,
+    0.25,
+    0.2625,
+    0.275,
+    0.28750000000000003,
+    0.30000000000000004,
+    0.3125,
+    0.325,
+    0.3375,
+    0.35000000000000003,
+    0.36250000000000004,
+    0.375,
+    0.3875,
+    0.4,
+    0.41250000000000003,
+    0.42500000000000004,
+    0.4375,
+    0.45,
+    0.4625,
+    0.47500000000000003,
+    0.48750000000000004,
+    0.5,
+    0.5125000000000001,
+    0.525,
+    0.5375,
+    0.55,
+    0.5625,
+    0.5750000000000001,
+    0.5875,
+    0.6000000000000001,
+    0.6125,
+    0.625,
+    0.6375000000000001,
+    0.65,
+    0.6625000000000001,
+    0.675,
+    0.6875,
+    0.7000000000000001,
+    0.7125,
+    0.7250000000000001,
+    0.7375,
+    0.75,
+    0.7625000000000001,
+    0.775,
+    0.7875000000000001,
+    0.8,
+    0.8125,
+    0.8250000000000001,
+    0.8375,
+    0.8500000000000001,
+    0.8625,
+    0.875,
+    0.8875000000000001,
+    0.9,
+    0.9125000000000001,
+    0.925,
+    0.9375,
+    0.9500000000000001,
+    0.9625,
+    0.9750000000000001,
+    0.9875,
+    1.0
+   ],
+   "geometric J=20": [
+    0.0,
+    0.000976562500000001,
+    0.0022853303504736106,
+    0.004039312595781321,
+    0.006389961502492612,
+    0.0095402501085518,
+    0.013762198470611147,
+    0.019420361960017084,
+    0.027003309766898936,
+    0.03716581170760045,
+    0.05078537606765503,
+    0.06903802039087611,
+    0.09349981784507017,
+    0.1262829874556648,
+    0.17021827928078573,
+    0.2290994030612854,
+    0.30801060618824866,
+    0.41376568657968493,
+    0.5554963482020221,
+    0.7454407023602747,
+    1.0
+   ]
+  },
+  "model": "feedback_b100",
+  "provenance": "Kuntz, Thomas, Stan, Barahona, JCP 2019 (arXiv:1702.05468v4), Sec. V.B, eq. (114), pp. 17-18; k3 = k4 = 10, k1 = k2 = k5 = 1, <b> = 100 (Fig. 7 caption, p. 20; model of their ref. 58); stationary study, x0 = 0 with the gene off",
+  "params": {
+   "b_mean": 100.0,
+   "k1": 1.0,
+   "k2": 1.0,
+   "k3": 10.0,
+   "k4": 10.0,
+   "k5": 1.0
+  },
+  "x0": [
+   0.0,
+   0.0
+  ],
+  "envelope": {
+   "kind": "nb",
+   "means": [
+    0.5,
+    1000.0
+   ],
+   "q": [
+    0.0,
+    0.9900990099009901
+   ]
+  }
+ },
+ "environment": {
+  "python": "3.13.5",
+  "numpy": "2.2.6",
+  "scipy": "1.17.0",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "timestamp": "2026-09-29T08:25:40+0530",
+  "hardware": "Intel Core i9-14900HX, 32 GB RAM; CPU double precision"
+ },
+ "data": {
+  "level": "P",
+  "provenance": "Kuntz, Thomas, Stan, Barahona, JCP 2019 (arXiv:1702.05468v4), Sec. V.B, eq. (114), pp. 17-18; k3 = k4 = 10, k1 = k2 = k5 = 1, <b> = 100 (Fig. 7 caption, p. 20; model of their ref. 58); stationary study, x0 = 0 with the gene off",
+  "T": 0.4999999999709641,
+  "horizon": {
+   "rule": "registry",
+   "T_relaxation": 0.4999999999709641,
+   "box_capped_at_ceiling": false
+  },
+  "widths": [
+   2,
+   1563
+  ],
+  "n_states": 3126,
+  "leak": 5.898597765785496e-08,
+  "large_box_rule": true,
+  "very_large_box_rule": false,
+  "references": {
+   "R-P": {
+    "log10_psi0": 1.5161789269050703e-17,
+    "schedules": {
+     "uniform J=5": {
+      "K": {
+       "sqrt_mu": "inf",
+       "resolvent": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 4.166344808251618,
+      "measured_log10_growth": 1474.1102995297294,
+      "log10_Gamma": {
+       "sqrt_mu": "inf",
+       "resolvent": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf",
+       "resolvent": "inf"
+      }
+     },
+     "uniform J=10": {
+      "K": {
+       "sqrt_mu": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 4.370031560720364,
+      "measured_log10_growth": 1460.5780271435008,
+      "log10_Gamma": {
+       "sqrt_mu": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf"
+      }
+     },
+     "uniform J=20": {
+      "K": {
+       "sqrt_mu": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 4.490327088793242,
+      "measured_log10_growth": 1454.6673565077097,
+      "log10_Gamma": {
+       "sqrt_mu": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf"
+      }
+     },
+     "uniform J=40": {
+      "K": {
+       "sqrt_mu": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 4.526183398597618,
+      "measured_log10_growth": 1451.8960464660202,
+      "log10_Gamma": {
+       "sqrt_mu": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf"
+      }
+     },
+     "uniform J=80": {
+      "K": {
+       "sqrt_mu": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 4.547356397366785,
+      "measured_log10_growth": 1450.5532576192993,
+      "log10_Gamma": {
+       "sqrt_mu": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf"
+      }
+     },
+     "geometric J=20": {
+      "K": {
+       "sqrt_mu": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 4.141425680441291,
+      "measured_log10_growth": 1482.6511693218126,
+      "log10_Gamma": {
+       "sqrt_mu": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf"
+      }
+     }
+    },
+    "K_continuous_estimate": {
+     "sqrt_mu": "inf"
+    },
+    "int_kappa_continuous": "inf",
+    "measured_log10_growth_continuous": 1449.2379484559326,
+    "log10_R_continuous": {
+     "sqrt_mu": "inf"
+    }
+   },
+   "R-NB": {
+    "log10_psi0": 1.5161789269050703e-17,
+    "schedules": {
+     "uniform J=5": {
+      "K": {
+       "sqrt_mu": "inf",
+       "resolvent": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 4.96523546838303,
+      "measured_log10_growth": 0.17901678177542765,
+      "log10_Gamma": {
+       "sqrt_mu": "inf",
+       "resolvent": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf",
+       "resolvent": "inf"
+      }
+     },
+     "uniform J=10": {
+      "K": {
+       "sqrt_mu": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 6.260155639299588,
+      "measured_log10_growth": 0.18284301691784666,
+      "log10_Gamma": {
+       "sqrt_mu": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf"
+      }
+     },
+     "uniform J=20": {
+      "K": {
+       "sqrt_mu": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 6.4222606966908975,
+      "measured_log10_growth": 0.18480267691311236,
+      "log10_Gamma": {
+       "sqrt_mu": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf"
+      }
+     },
+     "uniform J=40": {
+      "K": {
+       "sqrt_mu": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 6.891050671206899,
+      "measured_log10_growth": 0.18578777601390747,
+      "log10_Gamma": {
+       "sqrt_mu": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf"
+      }
+     },
+     "uniform J=80": {
+      "K": {
+       "sqrt_mu": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 7.513622853468142,
+      "measured_log10_growth": 0.18628100395637862,
+      "log10_Gamma": {
+       "sqrt_mu": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf"
+      }
+     },
+     "geometric J=20": {
+      "K": {
+       "sqrt_mu": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 7.803290654559765,
+      "measured_log10_growth": 0.17702552022250073,
+      "log10_Gamma": {
+       "sqrt_mu": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf"
+      }
+     }
+    },
+    "K_continuous_estimate": {
+     "sqrt_mu": "inf"
+    },
+    "int_kappa_continuous": "inf",
+    "measured_log10_growth_continuous": 0.18677446658708816,
+    "log10_R_continuous": {
+     "sqrt_mu": "inf"
+    }
+   },
+   "R-mix(P,E1)": {
+    "log10_psi0": 0.0002172558870088612,
+    "schedules": {
+     "uniform J=5": {
+      "K": {
+       "sqrt_mu": 556769455324795.44
+      },
+      "int_kappa": 556769455324787.1,
+      "K_kappa": 556769455324795.44,
+      "max_kappa": 5555962057046068.0,
+      "sum_log_rho": 4.166344808251618,
+      "measured_log10_growth": 4.964682496944113,
+      "log10_Gamma": {
+       "sqrt_mu": 120900951069918.86
+      },
+      "log10_R": {
+       "sqrt_mu": 120900951069913.89
+      }
+     },
+     "uniform J=10": {
+      "K": {
+       "sqrt_mu": 284795684649816.4
+      },
+      "int_kappa": 284795684649807.6,
+      "K_kappa": 284795684649816.4,
+      "max_kappa": 5555962057046068.0,
+      "sum_log_rho": 4.370031560720364,
+      "measured_log10_growth": 4.935594572264794,
+      "log10_Gamma": {
+       "sqrt_mu": 61842597156636.94
+      },
+      "log10_R": {
+       "sqrt_mu": 61842597156632.0
+      }
+     },
+     "uniform J=20": {
+      "K": {
+       "sqrt_mu": 159829107501128.84
+      },
+      "int_kappa": 159829107501119.88,
+      "K_kappa": 159829107501128.84,
+      "max_kappa": 5555962057046068.0,
+      "sum_log_rho": 4.490327088793241,
+      "measured_log10_growth": 4.922778043810404,
+      "log10_Gamma": {
+       "sqrt_mu": 34706449717630.94
+      },
+      "log10_R": {
+       "sqrt_mu": 34706449717626.023
+      }
+     },
+     "uniform J=40": {
+      "K": {
+       "sqrt_mu": 114470011110316.77
+      },
+      "int_kappa": 114470011110307.72,
+      "K_kappa": 114470011110316.77,
+      "max_kappa": 5555962057046068.0,
+      "sum_log_rho": 4.526183398597618,
+      "measured_log10_growth": 4.916740534689199,
+      "log10_Gamma": {
+       "sqrt_mu": 24856847084307.246
+      },
+      "log10_R": {
+       "sqrt_mu": 24856847084302.332
+      }
+     },
+     "uniform J=80": {
+      "K": {
+       "sqrt_mu": 99230553045331.39
+      },
+      "int_kappa": 99230553045322.3,
+      "K_kappa": 99230553045331.39,
+      "max_kappa": 5555962057046068.0,
+      "sum_log_rho": 4.547356397366785,
+      "measured_log10_growth": 4.9138097552679865,
+      "log10_Gamma": {
+       "sqrt_mu": 21547640811897.67
+      },
+      "log10_R": {
+       "sqrt_mu": 21547640811892.758
+      }
+     },
+     "geometric J=20": {
+      "K": {
+       "sqrt_mu": 96564568571988.47,
+       "resolvent": 1527431.7257823723
+      },
+      "int_kappa": 96564568571980.19,
+      "K_kappa": 96564568571988.47,
+      "max_kappa": 8764049334079020.0,
+      "sum_log_rho": 4.141425680441291,
+      "measured_log10_growth": 4.982858130077606,
+      "log10_Gamma": {
+       "sqrt_mu": 20968729639091.383,
+       "resolvent": 331677.5852128784
+      },
+      "log10_R": {
+       "sqrt_mu": 20968729639086.4,
+       "resolvent": 331672.6021374925
+      }
+     }
+    },
+    "K_continuous_estimate": {
+     "sqrt_mu": 81494236701340.77
+    },
+    "int_kappa_continuous": 81494236701340.77,
+    "measured_log10_growth_continuous": 4.910935994546733,
+    "log10_R_continuous": {
+     "sqrt_mu": 17696248653149.97
+    }
+   },
+   "R-mix(P,E2)": {
+    "log10_psi0": 0.00021637072961281346,
+    "schedules": {
+     "uniform J=5": {
+      "K": {
+       "sqrt_mu": "inf",
+       "resolvent": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 4.165379493712496,
+      "measured_log10_growth": 1450.6615935383932,
+      "log10_Gamma": {
+       "sqrt_mu": "inf",
+       "resolvent": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf",
+       "resolvent": "inf"
+      }
+     },
+     "uniform J=10": {
+      "K": {
+       "sqrt_mu": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 4.368677412799741,
+      "measured_log10_growth": 1450.6615935383932,
+      "log10_Gamma": {
+       "sqrt_mu": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf"
+      }
+     },
+     "uniform J=20": {
+      "K": {
+       "sqrt_mu": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 4.488752060405881,
+      "measured_log10_growth": 1450.6615935356913,
+      "log10_Gamma": {
+       "sqrt_mu": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf"
+      }
+     },
+     "uniform J=40": {
+      "K": {
+       "sqrt_mu": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 4.52449145451295,
+      "measured_log10_growth": 1450.6606505296584,
+      "log10_Gamma": {
+       "sqrt_mu": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf"
+      }
+     },
+     "uniform J=80": {
+      "K": {
+       "sqrt_mu": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 4.5456043911645825,
+      "measured_log10_growth": 1450.4313784322947,
+      "log10_Gamma": {
+       "sqrt_mu": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf"
+      }
+     },
+     "geometric J=20": {
+      "K": {
+       "sqrt_mu": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 4.140640320163483,
+      "measured_log10_growth": 1450.6615935383932,
+      "log10_Gamma": {
+       "sqrt_mu": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf"
+      }
+     }
+    },
+    "K_continuous_estimate": {
+     "sqrt_mu": "inf"
+    },
+    "int_kappa_continuous": "inf",
+    "measured_log10_growth_continuous": 1449.2374881562328,
+    "log10_R_continuous": {
+     "sqrt_mu": "inf"
+    }
+   },
+   "R-mix(NB,E1)": {
+    "log10_psi0": 0.0002172558870088612,
+    "schedules": {
+     "uniform J=5": {
+      "K": {
+       "sqrt_mu": 555596205678583.25
+      },
+      "int_kappa": 555596205678581.7,
+      "K_kappa": 555596205678583.25,
+      "max_kappa": 5555962057046068.0,
+      "sum_log_rho": 0.779690208702719,
+      "measured_log10_growth": 0.17406007171520602,
+      "log10_Gamma": {
+       "sqrt_mu": 120646183146296.42
+      },
+      "log10_R": {
+       "sqrt_mu": 120646183146296.23
+      }
+     },
+     "uniform J=10": {
+      "K": {
+       "sqrt_mu": 277798102843184.28
+      },
+      "int_kappa": 277798102843182.56,
+      "K_kappa": 277798102843184.28,
+      "max_kappa": 5555962057046068.0,
+      "sum_log_rho": 0.8526553330545451,
+      "measured_log10_growth": 0.177104785093933,
+      "log10_Gamma": {
+       "sqrt_mu": 60323091573993.484
+      },
+      "log10_R": {
+       "sqrt_mu": 60323091573993.31
+      }
+     },
+     "uniform J=20": {
+      "K": {
+       "sqrt_mu": 138899051425489.61
+      },
+      "int_kappa": 138899051425487.77,
+      "K_kappa": 138899051425489.61,
+      "max_kappa": 5555962057046068.0,
+      "sum_log_rho": 0.9198230476277904,
+      "measured_log10_growth": 0.1786682874024863,
+      "log10_Gamma": {
+       "sqrt_mu": 30161545787843.066
+      },
+      "log10_R": {
+       "sqrt_mu": 30161545787842.887
+      }
+     },
+     "uniform J=40": {
+      "K": {
+       "sqrt_mu": 69449525716642.73
+      },
+      "int_kappa": 69449525716640.04,
+      "K_kappa": 69449525716642.73,
+      "max_kappa": 5555962057046068.0,
+      "sum_log_rho": 1.3422605270898873,
+      "measured_log10_growth": 0.1794538763311124,
+      "log10_Gamma": {
+       "sqrt_mu": 15080772894767.957
+      },
+      "log10_R": {
+       "sqrt_mu": 15080772894767.777
+      }
+     },
+     "uniform J=80": {
+      "K": {
+       "sqrt_mu": 34724762862430.29
+      },
+      "int_kappa": 34724762862426.41,
+      "K_kappa": 34724762862430.29,
+      "max_kappa": 5555962057046068.0,
+      "sum_log_rho": 1.93952211456721,
+      "measured_log10_growth": 0.17984698888473294,
+      "log10_Gamma": {
+       "sqrt_mu": 7540386448276.221
+      },
+      "log10_R": {
+       "sqrt_mu": 7540386448276.041
+      }
+     },
+     "geometric J=20": {
+      "K": {
+       "sqrt_mu": 2712872107143.23,
+       "resolvent": 20663.33611004406
+      },
+      "int_kappa": 2712872107137.663,
+      "K_kappa": 2712872107143.23,
+      "max_kappa": 5555962057046068.0,
+      "sum_log_rho": 2.783489580229669,
+      "measured_log10_growth": 0.17249006495138716,
+      "log10_Gamma": {
+       "sqrt_mu": 589092693120.7762,
+       "resolvent": 4486.9866424080565
+      },
+      "log10_R": {
+       "sqrt_mu": 589092693120.6035,
+       "resolvent": 4486.813935087218
+      }
+     }
+    },
+    "K_continuous_estimate": {
+     "sqrt_mu": 10851488400194.754,
+     "resolvent": 73048.27915430961
+    },
+    "int_kappa_continuous": 10851488400194.754,
+    "measured_log10_growth_continuous": 0.18024009632788246,
+    "log10_R_continuous": {
+     "sqrt_mu": 2356370766320.6836,
+     "resolvent": 15862.052034526172
+    }
+   },
+   "R-mix(NB,E2)": {
+    "log10_psi0": 0.00021637072961281346,
+    "schedules": {
+     "uniform J=5": {
+      "K": {
+       "sqrt_mu": "inf",
+       "resolvent": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 4.965235435701652,
+      "measured_log10_growth": 0.17900463905781772,
+      "log10_Gamma": {
+       "sqrt_mu": "inf",
+       "resolvent": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf",
+       "resolvent": "inf"
+      }
+     },
+     "uniform J=10": {
+      "K": {
+       "sqrt_mu": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 6.260155624753416,
+      "measured_log10_growth": 0.18283219683182964,
+      "log10_Gamma": {
+       "sqrt_mu": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf"
+      }
+     },
+     "uniform J=20": {
+      "K": {
+       "sqrt_mu": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 6.422260682144726,
+      "measured_log10_growth": 0.1847924012903271,
+      "log10_Gamma": {
+       "sqrt_mu": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf"
+      }
+     },
+     "uniform J=40": {
+      "K": {
+       "sqrt_mu": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 6.889042874981113,
+      "measured_log10_growth": 0.18577774924639565,
+      "log10_Gamma": {
+       "sqrt_mu": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf"
+      }
+     },
+     "uniform J=80": {
+      "K": {
+       "sqrt_mu": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 7.503812104551586,
+      "measured_log10_growth": 0.18627109634497943,
+      "log10_Gamma": {
+       "sqrt_mu": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf"
+      }
+     },
+     "geometric J=20": {
+      "K": {
+       "sqrt_mu": "inf"
+      },
+      "int_kappa": "inf",
+      "K_kappa": "inf",
+      "max_kappa": "inf",
+      "sum_log_rho": 7.7364040595623225,
+      "measured_log10_growth": 0.17701248253169014,
+      "log10_Gamma": {
+       "sqrt_mu": "inf"
+      },
+      "log10_R": {
+       "sqrt_mu": "inf"
+      }
+     }
+    },
+    "K_continuous_estimate": {
+     "sqrt_mu": "inf"
+    },
+    "int_kappa_continuous": "inf",
+    "measured_log10_growth_continuous": 0.18676467481099204,
+    "log10_R_continuous": {
+     "sqrt_mu": "inf"
+    }
+   }
+  },
+  "best": {
+   "K": 20663.33611004406,
+   "reference": "R-mix(NB,E1)",
+   "family": "resolvent",
+   "schedule": "geometric J=20",
+   "K_uniform_J20": {
+    "sqrt_mu": 138899051425489.61
+   },
+   "K_continuous_estimate": 73048.27915430961,
+   "int_kappa": 2712872107137.663,
+   "log10_psi0": 0.0002172558870088612,
+   "log10_Gamma": 4486.9866424080565,
+   "log10_R": 4486.813935087218
+  },
+  "decomposition": {
+   "window_penalty": -11375.238099438953,
+   "non_normality": 15861.859986364683,
+   "instance_slack": 0.19204816148844145,
+   "log10_W_c": 0.3722882578163239
+  },
+  "tail": {
+   "widths": [
+    2,
+    2345
+   ],
+   "n_states": 4690,
+   "K_grown": 22272.13353421749,
+   "log10_Gamma_grown": 4836.332564317399,
+   "log10_Gamma_box": 4486.9866424080565,
+   "tail_term": 349.3459219093429,
+   "seconds": 4184.384193181992
+  },
+  "validity": {
+   "I2": 1.3413638854923903e-12,
+   "I3": 0.0,
+   "I4": 6.735723090400825e-13,
+   "stabilized_max_lognorm": 0.0,
+   "box": [
+    2,
+    1563
+   ],
+   "valid": true
+  },
+  "seconds": 26172.261993408203
+ }
+}

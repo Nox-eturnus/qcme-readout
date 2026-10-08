@@ -1,0 +1,62 @@
+{
+ "name": "swap_test",
+ "settings": {
+  "observable": "f = 1 (total probability)",
+  "quantity": "sqrt(|S| / S_eff(p_hat_T)), S_eff = (sum p)^2 / sum p^2 on the Phase F box",
+  "fsp": "qcme.fsp.propagate (uniformization)",
+  "box_and_T": "published_models/<instance>.json"
+ },
+ "environment": {
+  "python": "3.13.5",
+  "numpy": "2.2.6",
+  "scipy": "1.17.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "timestamp": "2026-10-06T16:31:53+0530",
+  "hardware": "Intel Core i9-14900HX, 32 GB RAM; CPU double precision"
+ },
+ "data": {
+  "source": "analytic evaluation (analysis/readout.py, swap_test)",
+  "width": 32,
+  "sigma": 0.08,
+  "rows": [
+   {
+    "d": 1,
+    "F1_uniform_overlap_sq": 0.28359261596290297,
+    "F2_payoff_overlap_sq": 0.0070292699693090864,
+    "rel_error_at_1e6_shots": 0.07114947540399243,
+    "shots_for_1pct": 50622478.50263324,
+    "sqrt_S_over_Seff": 1.8778138617648468
+   },
+   {
+    "d": 2,
+    "F1_uniform_overlap_sq": 0.0804247718286826,
+    "F2_payoff_overlap_sq": 0.001937656847242993,
+    "rel_error_at_1e6_shots": 0.2581175395076451,
+    "shots_for_1pct": 666246642.0148072,
+    "sqrt_S_over_Seff": 3.5261848994362057
+   },
+   {
+    "d": 3,
+    "F1_uniform_overlap_sq": 0.022807871431115685,
+    "F2_payoff_overlap_sq": 0.0005988673922611826,
+    "rel_error_at_1e6_shots": 0.835196832653438,
+    "shots_for_1pct": 6975537492.743349,
+    "sqrt_S_over_Seff": 6.621518883307191
+   },
+   {
+    "d": 4,
+    "F1_uniform_overlap_sq": 0.006468143923695634,
+    "F2_payoff_overlap_sq": 0.00018689318315514403,
+    "rel_error_at_1e6_shots": 2.676441442329779,
+    "shots_for_1pct": 71633387942.2031,
+    "sqrt_S_over_Seff": 12.433979945011938
+   }
+  ],
+  "shots_ratio_per_asset": [
+   13.161083015327884,
+   10.469902664947794,
+   10.269228431031056
+  ]
+ }
+}

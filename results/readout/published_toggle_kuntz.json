@@ -1,0 +1,41 @@
+{
+ "name": "published_toggle_kuntz",
+ "settings": {
+  "observable": "f = 1 (total probability)",
+  "quantity": "sqrt(|S| / S_eff(p_hat_T)), S_eff = (sum p)^2 / sum p^2 on the Phase F box",
+  "fsp": "qcme.fsp.propagate (uniformization)",
+  "box_and_T": "published_models/<instance>.json"
+ },
+ "environment": {
+  "python": "3.13.5",
+  "numpy": "2.2.6",
+  "scipy": "1.17.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "timestamp": "2026-10-06T16:20:11+0530",
+  "hardware": "Intel Core i9-14900HX, 32 GB RAM; CPU double precision"
+ },
+ "data": {
+  "row": "toggle_kuntz",
+  "n_states": 1800,
+  "widths": [
+   60,
+   30
+  ],
+  "T": 1.4772159721873772,
+  "leak": 6.342250058466448e-10,
+  "S_eff": 67.7824741693374,
+  "readout_factor": 5.153206476443164,
+  "log10_readout_factor": 0.712077543932727,
+  "species": [
+   "P1",
+   "P2"
+  ],
+  "n_count_species": 2,
+  "consistency": {
+   "n_states_equal": true,
+   "leak_rel_diff": 0.0
+  },
+  "seconds": 0.03388190269470215
+ }
+}

@@ -1,0 +1,167 @@
+{
+ "name": "published_summary",
+ "settings": {
+  "observable": "f = 1 (total probability)",
+  "quantity": "sqrt(|S| / S_eff(p_hat_T)), S_eff = (sum p)^2 / sum p^2 on the Phase F box",
+  "fsp": "qcme.fsp.propagate (uniformization)",
+  "box_and_T": "published_models/<instance>.json"
+ },
+ "environment": {
+  "python": "3.13.5",
+  "numpy": "2.2.6",
+  "scipy": "1.17.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "timestamp": "2026-10-06T19:33:13+0530",
+  "hardware": "Intel Core i9-14900HX, 32 GB RAM; CPU double precision"
+ },
+ "data": {
+  "published_rows": [
+   {
+    "row": "schlogl",
+    "n_states": 200,
+    "leak": -3.7969627442180354e-13,
+    "S_eff": 41.566073914540794,
+    "readout_factor": 2.193539680400191,
+    "log10_readout_factor": 0.34114549505414943,
+    "n_count_species": 1
+   },
+   {
+    "row": "toggle_hegland",
+    "n_states": 4096,
+    "leak": 2.1394576110722596e-09,
+    "S_eff": 70.1719794489696,
+    "readout_factor": 7.640083590316596,
+    "log10_readout_factor": 0.8830981102268212,
+    "n_count_species": 2
+   },
+   {
+    "row": "toggle_kuntz",
+    "n_states": 1800,
+    "leak": 6.342250058466448e-10,
+    "S_eff": 67.7824741693374,
+    "readout_factor": 5.153206476443164,
+    "log10_readout_factor": 0.712077543932727,
+    "n_count_species": 2
+   },
+   {
+    "row": "toggle_gardner",
+    "skipped": "3,655,744 states: too large for one direct solve"
+   },
+   {
+    "row": "feedback_b1",
+    "n_states": 80,
+    "leak": 2.3042678876095124e-12,
+    "S_eff": 2.1978881110050157,
+    "readout_factor": 6.03312333382589,
+    "log10_readout_factor": 0.7805422035946278,
+    "n_count_species": 1
+   },
+   {
+    "row": "feedback_b10",
+    "n_states": 314,
+    "leak": 1.662966011561906e-07,
+    "S_eff": 2.430007019115583,
+    "readout_factor": 11.36739784415234,
+    "log10_readout_factor": 1.055661060003138,
+    "n_count_species": 1
+   },
+   {
+    "row": "feedback_b100",
+    "n_states": 3126,
+    "leak": 5.898597765785496e-08,
+    "S_eff": 2.4856668950250262,
+    "readout_factor": 35.462799995363376,
+    "log10_readout_factor": 1.5497730227067592,
+    "n_count_species": 1
+   },
+   {
+    "row": "lambda_phage",
+    "n_states": 7428456,
+    "S_eff": 331.10015893054447,
+    "log10_readout_factor": 2.1754695830416506,
+    "n_count_species": 5,
+    "source": "readout/lambda_phage.json (same box and horizon)"
+   },
+   {
+    "row": "toggle_tang",
+    "n_states": 40000,
+    "leak": 3.8173089467186117e-07,
+    "S_eff": 174.23294483620086,
+    "readout_factor": 15.151821911350929,
+    "log10_readout_factor": 1.180464857159983,
+    "n_count_species": 2
+   },
+   {
+    "row": "autoreg_tang_1",
+    "n_states": 120,
+    "leak": 1.1368683772161603e-13,
+    "S_eff": 10.22777313212338,
+    "readout_factor": 3.425311557701462,
+    "log10_readout_factor": 0.5347000799559554,
+    "n_count_species": 1
+   },
+   {
+    "row": "autoreg_tang_2",
+    "n_states": 120,
+    "leak": 3.0044556842412362e-09,
+    "S_eff": 13.14657666435219,
+    "readout_factor": 3.0212334461420816,
+    "log10_readout_factor": 0.4801842838480299,
+    "n_count_species": 1
+   },
+   {
+    "row": "autoreg_tang_3",
+    "n_states": 120,
+    "leak": 8.087372749265853e-08,
+    "S_eff": 2.595565276443082,
+    "readout_factor": 6.799463475994141,
+    "log10_readout_factor": 0.8324746452638941,
+    "n_count_species": 1
+   }
+  ],
+  "cascade": [
+   {
+    "d": 1,
+    "n_states": 12,
+    "S_eff": 5.481465952176961,
+    "log10_S_over_Seff_half": 0.17014226259542867
+   },
+   {
+    "d": 2,
+    "n_states": 144,
+    "S_eff": 18.37877478024826,
+    "log10_S_over_Seff_half": 0.44702296814590053
+   },
+   {
+    "d": 3,
+    "n_states": 1728,
+    "S_eff": 31.63475133544671,
+    "log10_S_over_Seff_half": 0.8686896565502209
+   },
+   {
+    "d": 4,
+    "n_states": 20736,
+    "S_eff": 36.6793332762608,
+    "log10_S_over_Seff_half": 1.3761517756664936
+   },
+   {
+    "d": 5,
+    "n_states": 248832,
+    "S_eff": 37.83522187123685,
+    "log10_S_over_Seff_half": 1.9090049725805722
+   },
+   {
+    "d": 6,
+    "n_states": 2985984,
+    "S_eff": 38.09112655367885,
+    "log10_S_over_Seff_half": 2.4471318295386904
+   }
+  ],
+  "lambda_phage_barrier_file": {
+   "n_states": 7428456,
+   "S_eff": 331.10015893054447,
+   "log10_readout_factor": 2.1754695830416506
+  }
+ }
+}

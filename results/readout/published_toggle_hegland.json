@@ -1,0 +1,41 @@
+{
+ "name": "published_toggle_hegland",
+ "settings": {
+  "observable": "f = 1 (total probability)",
+  "quantity": "sqrt(|S| / S_eff(p_hat_T)), S_eff = (sum p)^2 / sum p^2 on the Phase F box",
+  "fsp": "qcme.fsp.propagate (uniformization)",
+  "box_and_T": "published_models/<instance>.json"
+ },
+ "environment": {
+  "python": "3.13.5",
+  "numpy": "2.2.6",
+  "scipy": "1.17.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "timestamp": "2026-10-06T16:20:11+0530",
+  "hardware": "Intel Core i9-14900HX, 32 GB RAM; CPU double precision"
+ },
+ "data": {
+  "row": "toggle_hegland",
+  "n_states": 4096,
+  "widths": [
+   64,
+   64
+  ],
+  "T": 146.65919551398179,
+  "leak": 2.1394576110722596e-09,
+  "S_eff": 70.1719794489696,
+  "readout_factor": 7.640083590316596,
+  "log10_readout_factor": 0.8830981102268212,
+  "species": [
+   "S1",
+   "S2"
+  ],
+  "n_count_species": 2,
+  "consistency": {
+   "n_states_equal": true,
+   "leak_rel_diff": 0.0
+  },
+  "seconds": 0.28677964210510254
+ }
+}
