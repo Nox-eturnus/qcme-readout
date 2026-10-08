@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qcme"
+version = "1.0.0"
+description = "Readout costs, reweighted encodings with certificates, and fault-tolerant resource counts for quantum solvers of the chemical master equation"
+readme = "README.md"
+requires-python = ">=3.13"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Aarush Das Bansiwal" }]
+keywords = ["chemical master equation", "quantum algorithms", "finite state projection", "gene regulatory networks", "resource estimation"]
+dependencies = ["numpy>=2.2.6", "scipy>=1.17.0"]
+
+[project.optional-dependencies]
+analysis = ["matplotlib>=3.11.2"]
+test = ["pytest>=8.4.2"]
+crosscheck = ["qualtran==0.7.0", "mpmath"]
+
+[tool.setuptools]
+packages = ["qcme", "analysis"]

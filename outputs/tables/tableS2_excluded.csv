@@ -1,0 +1,17 @@
+Work,Reason
+"Ikeda et al., arXiv:2609.08432 (2026), polymerization rate matrices","I1: deterministic mass-action concentrations, not the law of a stochastic process (and it defers 'state preparation and readout overheads', Sec. 4)"
+"Amaro, Inigo Gamiz, Vranic, J. Plasma Phys. (2025); arXiv:2411.17517",I3: variational demonstration without a complexity or resource claim
+"Miyamoto, arXiv:2604.24133 (2026)","I2: amplitudes encode a sample path $X_t$, not the law"
+"Jin, Liu, Wei, arXiv:2412.14868",I2: sample paths of linear SDEs
+"Bravyi, Byrne, Zayats, Zhuk, arXiv:2606.08349 (2026)","I2: correlation functions via a Carleman/oscillator embedding, not the law"
+"Paine, Elfving, Kyriienko, Adv. Quantum Technol. (2023)",I2: quantile-function representation for sampling
+"Weidner et al., Patterns 4, 100705 (2023)",I1: deterministic Boolean network dynamics
+"del Razo, Lamma, Merbis, review (2025)",not a quantum algorithm (its 'quantum methods' are the Fock-space formalism)
+"Twelve solvers for heat, advection–diffusion, Liouville and lattice-Boltzmann equations","I1: deterministic transport fields, not framed as the law of a stochastic process"
+"Li, arXiv:2607.18113 (2026); Linden, Montanaro and Shao",I1: parabolic PDE / heat equation framing; discussed as readout context
+quantum Monte Carlo / amplitude estimation over classical randomized algorithms,"baseline (trajectory sampling or density-matrix embedding), listed separately"
+"stochastic simulators embedded as quantum trajectories (Phys. Rev. A 109, 022434, 2024)","baseline (trajectory sampling or density-matrix embedding), listed separately"
+"QMCI for McKean-Vlasov SDEs, EPJ Quantum Technol. (2025)","baseline (trajectory sampling or density-matrix embedding), listed separately"
+"collision-coalescence master equation via transition-history encoding and amplitude estimation, Phys. Rev. Appl. (2026); arXiv:2603.06353","baseline (trajectory sampling or density-matrix embedding), listed separately"
+"Kolmogorov-Lindblad mapping (density-matrix embedding), arXiv:2608.09903","baseline (trajectory sampling or density-matrix embedding), listed separately"
+"universal dilation of linear Ito SDEs via Lindblad simulation of second moments, Quantum (2026)","baseline (trajectory sampling or density-matrix embedding), listed separately"

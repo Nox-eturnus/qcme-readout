@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the article."
+title: "qcme-readout: code and data for 'Readout costs decide whether quantum computers can speed up stochastic simulation of gene networks'"
+version: 1.0.0
+license: MIT
+authors:
+  - family-names: "Das Bansiwal"
+    given-names: "Aarush"
+keywords:
+  - chemical master equation
+  - quantum algorithms
+  - finite state projection
+  - amplitude estimation
+  - resource estimation

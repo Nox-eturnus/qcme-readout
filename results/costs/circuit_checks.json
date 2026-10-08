@@ -1,0 +1,1092 @@
+{
+ "name": "circuit_checks",
+ "settings": {
+  "leak_tol": 1e-06,
+  "eps": 0.01,
+  "delta_fail": 0.01,
+  "eps_sweep": [
+   0.1,
+   0.01,
+   0.001,
+   0.0001
+  ],
+  "tail_level": 0.05,
+  "weighted": {
+   "R-mix(NB,E1)": "mix",
+   "R-NB": "product"
+  },
+  "kernels": [
+   "K1(beta=0.6)",
+   "K1(beta=0.7)",
+   "K1(beta=0.8)",
+   "K2(c=1)",
+   "K2(c=2)"
+  ],
+  "variants": [
+   "single",
+   "per_window"
+  ],
+  "families": [
+   "sqrt_mu",
+   "resolvent"
+  ],
+  "headline_growth": "W",
+  "eta": 0.001,
+  "lchs_safety": 1.25
+ },
+ "environment": {
+  "python": "3.13.5",
+  "numpy": "2.2.6",
+  "scipy": "1.17.0",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "timestamp": "2026-09-28T00:04:15+0530",
+  "hardware": "Intel Core i9-14900HX, 32 GB RAM; CPU double precision"
+ },
+ "data": {
+  "I8_I9": [
+   {
+    "model": "birth_death",
+    "widths": [
+     8
+    ],
+    "reference": "uniform",
+    "t": 0.0,
+    "qubits": 7,
+    "alpha": 34.5,
+    "I8": 1.1102230246251565e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 1,
+    "permutations_ok": true,
+    "lognorm_M": -0.8199776556359946
+   },
+   {
+    "model": "birth_death",
+    "widths": [
+     8
+    ],
+    "reference": "uniform",
+    "t": 0.5000000000189289,
+    "qubits": 7,
+    "alpha": 34.5,
+    "I8": 1.1102230246251565e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 1,
+    "permutations_ok": true,
+    "lognorm_M": -0.8199776556359946
+   },
+   {
+    "model": "birth_death",
+    "widths": [
+     8
+    ],
+    "reference": "R-NB",
+    "t": 0.0,
+    "qubits": 7,
+    "alpha": 47.44994432064366,
+    "I8": 1.1102230246251565e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 1,
+    "permutations_ok": true,
+    "lognorm_M": -5.332573441930996
+   },
+   {
+    "model": "birth_death",
+    "widths": [
+     8
+    ],
+    "reference": "R-NB",
+    "t": 0.5000000000189289,
+    "qubits": 7,
+    "alpha": 35.0656326032948,
+    "I8": 1.1102230246251565e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 1,
+    "permutations_ok": true,
+    "lognorm_M": -1.3834864264023663
+   },
+   {
+    "model": "birth_death",
+    "widths": [
+     8
+    ],
+    "reference": "R-mix(NB,E1)",
+    "t": 0.0,
+    "qubits": 7,
+    "alpha": 47.254756997861236,
+    "I8": 1.1102230246251565e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 1,
+    "permutations_ok": true,
+    "lognorm_M": -5.316536556263386
+   },
+   {
+    "model": "birth_death",
+    "widths": [
+     8
+    ],
+    "reference": "R-mix(NB,E1)",
+    "t": 0.5000000000189289,
+    "qubits": 7,
+    "alpha": 35.064344472692696,
+    "I8": 1.1102230246251565e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 1,
+    "permutations_ok": true,
+    "lognorm_M": -1.3836235722100814
+   },
+   {
+    "model": "toggle",
+    "widths": [
+     4,
+     4
+    ],
+    "reference": "uniform",
+    "t": 0.0,
+    "qubits": 9,
+    "alpha": 128.69230769230768,
+    "I8": 1.1102230246251565e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 8,
+    "permutations_ok": true,
+    "lognorm_M": -11.883186583486578
+   },
+   {
+    "model": "toggle",
+    "widths": [
+     4,
+     4
+    ],
+    "reference": "uniform",
+    "t": 1.5000000001172655,
+    "qubits": 9,
+    "alpha": 128.69230769230768,
+    "I8": 1.1102230246251565e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 8,
+    "permutations_ok": true,
+    "lognorm_M": -11.883186583486578
+   },
+   {
+    "model": "toggle",
+    "widths": [
+     4,
+     4
+    ],
+    "reference": "R-NB",
+    "t": 0.0,
+    "qubits": 9,
+    "alpha": 97.03349246218131,
+    "I8": 1.1102230246251565e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 8,
+    "permutations_ok": true,
+    "lognorm_M": -19.8496671024141
+   },
+   {
+    "model": "toggle",
+    "widths": [
+     4,
+     4
+    ],
+    "reference": "R-NB",
+    "t": 1.5000000001172655,
+    "qubits": 9,
+    "alpha": 101.02818214166858,
+    "I8": 2.7755575615628914e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 8,
+    "permutations_ok": true,
+    "lognorm_M": -16.054137499198713
+   },
+   {
+    "model": "toggle",
+    "widths": [
+     4,
+     4
+    ],
+    "reference": "R-mix(NB,E1)",
+    "t": 0.0,
+    "qubits": 9,
+    "alpha": 97.0334924621813,
+    "I8": 1.1102230246251565e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 8,
+    "permutations_ok": true,
+    "lognorm_M": -19.84966710241409
+   },
+   {
+    "model": "toggle",
+    "widths": [
+     4,
+     4
+    ],
+    "reference": "R-mix(NB,E1)",
+    "t": 1.5000000001172655,
+    "qubits": 9,
+    "alpha": 101.02818214166858,
+    "I8": 2.7755575615628914e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 8,
+    "permutations_ok": true,
+    "lognorm_M": -16.054137499198735
+   },
+   {
+    "model": "cascade2",
+    "widths": [
+     4,
+     4
+    ],
+    "reference": "uniform",
+    "t": 0.0,
+    "qubits": 8,
+    "alpha": 21.0,
+    "I8": 1.1102230246251565e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 7,
+    "permutations_ok": true,
+    "lognorm_M": -1.6240268864041423
+   },
+   {
+    "model": "cascade2",
+    "widths": [
+     4,
+     4
+    ],
+    "reference": "uniform",
+    "t": 0.5000000000133777,
+    "qubits": 8,
+    "alpha": 21.0,
+    "I8": 1.1102230246251565e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 7,
+    "permutations_ok": true,
+    "lognorm_M": -1.6240268864041423
+   },
+   {
+    "model": "cascade2",
+    "widths": [
+     4,
+     4
+    ],
+    "reference": "R-NB",
+    "t": 0.0,
+    "qubits": 8,
+    "alpha": 6226.644295257834,
+    "I8": 1.1102230246251565e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 7,
+    "permutations_ok": true,
+    "lognorm_M": -5852.402239861283
+   },
+   {
+    "model": "cascade2",
+    "widths": [
+     4,
+     4
+    ],
+    "reference": "R-NB",
+    "t": 0.5000000000133777,
+    "qubits": 8,
+    "alpha": 26.391649394184107,
+    "I8": 1.6653345369377348e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 7,
+    "permutations_ok": true,
+    "lognorm_M": -3.5135796353117463
+   },
+   {
+    "model": "cascade2",
+    "widths": [
+     4,
+     4
+    ],
+    "reference": "R-mix(NB,E1)",
+    "t": 0.0,
+    "qubits": 8,
+    "alpha": 2137.6859058951245,
+    "I8": 1.1102230246251565e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 7,
+    "permutations_ok": true,
+    "lognorm_M": -1927.0845121515893
+   },
+   {
+    "model": "cascade2",
+    "widths": [
+     4,
+     4
+    ],
+    "reference": "R-mix(NB,E1)",
+    "t": 0.5000000000133777,
+    "qubits": 8,
+    "alpha": 26.23665066619477,
+    "I8": 2.220446049250313e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 7,
+    "permutations_ok": true,
+    "lognorm_M": -3.386847630205523
+   },
+   {
+    "model": "self_repressor",
+    "widths": [
+     2,
+     2,
+     8
+    ],
+    "reference": "uniform",
+    "t": 0.0,
+    "qubits": 10,
+    "alpha": 57.675000000000004,
+    "I8": 1.6653345369377348e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 3,
+    "permutations_ok": true,
+    "lognorm_M": -1.2776405145583813
+   },
+   {
+    "model": "self_repressor",
+    "widths": [
+     2,
+     2,
+     8
+    ],
+    "reference": "uniform",
+    "t": 0.37555649202157015,
+    "qubits": 10,
+    "alpha": 57.675000000000004,
+    "I8": 1.6653345369377348e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 3,
+    "permutations_ok": true,
+    "lognorm_M": -1.2776405145583813
+   },
+   {
+    "model": "self_repressor",
+    "widths": [
+     2,
+     2,
+     8
+    ],
+    "reference": "R-NB",
+    "t": 0.0,
+    "qubits": 10,
+    "alpha": 71765.01109531979,
+    "I8": 4.440892098500626e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 3,
+    "permutations_ok": true,
+    "lognorm_M": -68691.09198257184
+   },
+   {
+    "model": "self_repressor",
+    "widths": [
+     2,
+     2,
+     8
+    ],
+    "reference": "R-NB",
+    "t": 0.37555649202157015,
+    "qubits": 10,
+    "alpha": 109.74263192760978,
+    "I8": 2.220446049250313e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 3,
+    "permutations_ok": true,
+    "lognorm_M": -46.487666657314946
+   },
+   {
+    "model": "self_repressor",
+    "widths": [
+     2,
+     2,
+     8
+    ],
+    "reference": "R-mix(NB,E1)",
+    "t": 0.0,
+    "qubits": 10,
+    "alpha": 20952.60761924294,
+    "I8": 1.1102230246251565e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 3,
+    "permutations_ok": true,
+    "lognorm_M": -19422.04397432708
+   },
+   {
+    "model": "self_repressor",
+    "widths": [
+     2,
+     2,
+     8
+    ],
+    "reference": "R-mix(NB,E1)",
+    "t": 0.37555649202157015,
+    "qubits": 10,
+    "alpha": 109.73875269269597,
+    "I8": 3.3306690738754696e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 3,
+    "permutations_ok": true,
+    "lognorm_M": -46.48342883516308
+   },
+   {
+    "model": "michaelis_menten_small",
+    "widths": [
+     3,
+     4,
+     3,
+     4
+    ],
+    "reference": "uniform",
+    "t": 0.0,
+    "qubits": 12,
+    "alpha": 34.5,
+    "I8": 1.1102230246251565e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 0,
+    "permutations_ok": true,
+    "lognorm_M": -3.6782217910498454
+   },
+   {
+    "model": "michaelis_menten_small",
+    "widths": [
+     3,
+     4,
+     3,
+     4
+    ],
+    "reference": "uniform",
+    "t": 3.8708299620064808,
+    "qubits": 12,
+    "alpha": 34.5,
+    "I8": 1.1102230246251565e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 0,
+    "permutations_ok": true,
+    "lognorm_M": -3.6782217910498454
+   },
+   {
+    "model": "michaelis_menten_small",
+    "widths": [
+     3,
+     4,
+     3,
+     4
+    ],
+    "reference": "R-NB",
+    "t": 0.0,
+    "qubits": 12,
+    "alpha": 6197.626824300697,
+    "I8": 2.220446049250313e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 0,
+    "permutations_ok": true,
+    "lognorm_M": -5879.58315637585
+   },
+   {
+    "model": "michaelis_menten_small",
+    "widths": [
+     3,
+     4,
+     3,
+     4
+    ],
+    "reference": "R-NB",
+    "t": 3.8708299620064808,
+    "qubits": 12,
+    "alpha": 25.023459744890857,
+    "I8": 1.1102230246251565e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 0,
+    "permutations_ok": true,
+    "lognorm_M": -0.6832530044888692
+   },
+   {
+    "model": "michaelis_menten_small",
+    "widths": [
+     3,
+     4,
+     3,
+     4
+    ],
+    "reference": "R-mix(NB,E1)",
+    "t": 0.0,
+    "qubits": 12,
+    "alpha": 3161.966091600081,
+    "I8": 2.220446049250313e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 0,
+    "permutations_ok": true,
+    "lognorm_M": -2867.589419947835
+   },
+   {
+    "model": "michaelis_menten_small",
+    "widths": [
+     3,
+     4,
+     3,
+     4
+    ],
+    "reference": "R-mix(NB,E1)",
+    "t": 3.8708299620064808,
+    "qubits": 12,
+    "alpha": 25.023244296374894,
+    "I8": 1.1102230246251565e-16,
+    "M_equals_Btilde_on_S": 0.0,
+    "I9": true,
+    "boundary_transitions": 0,
+    "permutations_ok": true,
+    "lognorm_M": -0.6832913569558913
+   }
+  ],
+  "I8_pass": true,
+  "I9_pass": true,
+  "walk": {
+   "rows": [
+    {
+     "k": 0.0,
+     "block_err": 2.0309061916778964e-18,
+     "V2_err": 6.661338147750939e-16,
+     "herm_err": 3.469446951953614e-18
+    },
+    {
+     "k": 1.7,
+     "block_err": 3.469446951953614e-18,
+     "V2_err": 6.66133823017553e-16,
+     "herm_err": 3.469446951953614e-18
+    },
+    {
+     "k": -12.5,
+     "block_err": 5.553824967135427e-17,
+     "V2_err": 8.881787735524112e-16,
+     "herm_err": 1.3904866443919908e-17
+    }
+   ],
+   "pass": true
+  },
+  "kernels": {
+   "rows": [
+    {
+     "case": "random0",
+     "kernel": "K1(beta=0.6)",
+     "delta": 0.0001,
+     "Lnorm": 9.08988177612863,
+     "bound": 6.645464812490167e-05,
+     "actual": 9.088265912849248e-07,
+     "ok": true,
+     "K": 95.24293284717429,
+     "nodes": 611,
+     "l1": 1.1699313338198922
+    },
+    {
+     "case": "random0",
+     "kernel": "K1(beta=0.6)",
+     "delta": 1e-08,
+     "Lnorm": 9.08988177612863,
+     "bound": 6.645039273638318e-09,
+     "actual": 6.201632488319657e-11,
+     "ok": true,
+     "K": 290.32863341641655,
+     "nodes": 2729,
+     "l1": 1.16995757528621
+    },
+    {
+     "case": "random0",
+     "kernel": "K1(beta=0.7)",
+     "delta": 0.0001,
+     "Lnorm": 9.08988177612863,
+     "bound": 6.648556997832025e-05,
+     "actual": 1.005103386258461e-06,
+     "ok": true,
+     "K": 70.40544673604828,
+     "nodes": 457,
+     "l1": 1.3049292535360093
+    },
+    {
+     "case": "random0",
+     "kernel": "K1(beta=0.7)",
+     "delta": 1e-08,
+     "Lnorm": 9.08988177612863,
+     "bound": 6.632764890142682e-09,
+     "actual": 9.83882217829511e-11,
+     "ok": true,
+     "K": 185.03760764013091,
+     "nodes": 1753,
+     "l1": 1.3049553886385457
+    },
+    {
+     "case": "random0",
+     "kernel": "K1(beta=0.8)",
+     "delta": 0.0001,
+     "Lnorm": 9.08988177612863,
+     "bound": 6.664040482455914e-05,
+     "actual": 1.5230734717365198e-06,
+     "ok": true,
+     "K": 65.41263071592044,
+     "nodes": 431,
+     "l1": 1.542748462807112
+    },
+    {
+     "case": "random0",
+     "kernel": "K1(beta=0.8)",
+     "delta": 1e-08,
+     "Lnorm": 9.08988177612863,
+     "bound": 6.63853325533671e-09,
+     "actual": 1.1563091314671887e-10,
+     "ok": true,
+     "K": 154.0998315269026,
+     "nodes": 1475,
+     "l1": 1.5427746493413945
+    },
+    {
+     "case": "random0",
+     "kernel": "K2(c=1)",
+     "delta": 0.0001,
+     "Lnorm": 9.08988177612863,
+     "bound": 6.19669405485398e-05,
+     "actual": 4.858406171105416e-06,
+     "ok": true,
+     "K": 16.236468839300652,
+     "nodes": 117,
+     "l1": 2.268438901561933
+    },
+    {
+     "case": "random0",
+     "kernel": "K2(c=1)",
+     "delta": 1e-08,
+     "Lnorm": 9.08988177612863,
+     "bound": 6.457555972448351e-09,
+     "actual": 6.261950769618537e-10,
+     "ok": true,
+     "K": 33.32671652604946,
+     "nodes": 339,
+     "l1": 2.3822869513744993
+    },
+    {
+     "case": "random0",
+     "kernel": "K2(c=2)",
+     "delta": 0.0001,
+     "Lnorm": 9.08988177612863,
+     "bound": 6.652766175291793e-05,
+     "actual": 9.585470598527195e-06,
+     "ok": true,
+     "K": 9.268954682322343,
+     "nodes": 73,
+     "l1": 5.088409124554697
+    },
+    {
+     "case": "random0",
+     "kernel": "K2(c=2)",
+     "delta": 1e-08,
+     "Lnorm": 9.08988177612863,
+     "bound": 6.182312165209543e-09,
+     "actual": 6.85297129528376e-10,
+     "ok": true,
+     "K": 18.014650356564506,
+     "nodes": 195,
+     "l1": 5.625032347527519
+    },
+    {
+     "case": "random1",
+     "kernel": "K1(beta=0.6)",
+     "delta": 0.0001,
+     "Lnorm": 9.781576594176457,
+     "bound": 6.613406916521369e-05,
+     "actual": 4.969575730008144e-07,
+     "ok": true,
+     "K": 95.39889688396025,
+     "nodes": 633,
+     "l1": 1.1699315792092257
+    },
+    {
+     "case": "random1",
+     "kernel": "K1(beta=0.6)",
+     "delta": 1e-08,
+     "Lnorm": 9.781576594176457,
+     "bound": 6.643893066260453e-09,
+     "actual": 3.389402894200599e-11,
+     "ok": true,
+     "K": 290.3376899629539,
+     "nodes": 2793,
+     "l1": 1.1699575752868558
+    },
+    {
+     "case": "random1",
+     "kernel": "K1(beta=0.7)",
+     "delta": 0.0001,
+     "Lnorm": 9.781576594176457,
+     "bound": 6.624686983078433e-05,
+     "actual": 7.760419558221949e-07,
+     "ok": true,
+     "K": 70.48017984725395,
+     "nodes": 473,
+     "l1": 1.3049294292246338
+    },
+    {
+     "case": "random1",
+     "kernel": "K1(beta=0.7)",
+     "delta": 1e-08,
+     "Lnorm": 9.781576594176457,
+     "bound": 6.650301659953328e-09,
+     "actual": 5.299059870212085e-11,
+     "ok": true,
+     "K": 184.96170346824854,
+     "nodes": 1793,
+     "l1": 1.3049553886241712
+    },
+    {
+     "case": "random1",
+     "kernel": "K1(beta=0.8)",
+     "delta": 0.0001,
+     "Lnorm": 9.781576594176457,
+     "bound": 6.57344306304122e-05,
+     "actual": 1.0722844129912455e-06,
+     "ok": true,
+     "K": 65.64802200848892,
+     "nodes": 447,
+     "l1": 1.5427491607701767
+    },
+    {
+     "case": "random1",
+     "kernel": "K1(beta=0.8)",
+     "delta": 1e-08,
+     "Lnorm": 9.781576594176457,
+     "bound": 6.636177990144877e-09,
+     "actual": 8.210320538024857e-11,
+     "ok": true,
+     "K": 154.10743838814375,
+     "nodes": 1509,
+     "l1": 1.542774649342681
+    },
+    {
+     "case": "random1",
+     "kernel": "K2(c=1)",
+     "delta": 0.0001,
+     "Lnorm": 9.781576594176457,
+     "bound": 6.060514078718847e-05,
+     "actual": 4.470695634827452e-06,
+     "ok": true,
+     "K": 16.29420635069783,
+     "nodes": 121,
+     "l1": 2.268439842781069
+    },
+    {
+     "case": "random1",
+     "kernel": "K2(c=1)",
+     "delta": 1e-08,
+     "Lnorm": 9.781576594176457,
+     "bound": 6.286523170152235e-09,
+     "actual": 5.069468324468834e-10,
+     "ok": true,
+     "K": 33.390645951832454,
+     "nodes": 347,
+     "l1": 2.3822869514985143
+    },
+    {
+     "case": "random1",
+     "kernel": "K2(c=2)",
+     "delta": 0.0001,
+     "Lnorm": 9.781576594176457,
+     "bound": 6.695714752477678e-05,
+     "actual": 7.624304819719874e-06,
+     "ok": true,
+     "K": 9.26385050726463,
+     "nodes": 75,
+     "l1": 5.0884087634650745
+    },
+    {
+     "case": "random1",
+     "kernel": "K2(c=2)",
+     "delta": 1e-08,
+     "Lnorm": 9.781576594176457,
+     "bound": 6.1712758634176146e-09,
+     "actual": 7.484153380751561e-10,
+     "ok": true,
+     "K": 18.01771361686461,
+     "nodes": 199,
+     "l1": 5.62503234753151
+    },
+    {
+     "case": "random2",
+     "kernel": "K1(beta=0.6)",
+     "delta": 0.0001,
+     "Lnorm": 9.044298466545738,
+     "bound": 6.665548147329367e-05,
+     "actual": 8.201735468657152e-07,
+     "ok": true,
+     "K": 95.14616593549144,
+     "nodes": 609,
+     "l1": 1.1699311753906927
+    },
+    {
+     "case": "random2",
+     "kernel": "K1(beta=0.6)",
+     "delta": 1e-08,
+     "Lnorm": 9.044298466545738,
+     "bound": 6.642171576303023e-09,
+     "actual": 5.3896598164099505e-11,
+     "ok": true,
+     "K": 290.3511939523612,
+     "nodes": 2725,
+     "l1": 1.169957575288513
+    },
+    {
+     "case": "random2",
+     "kernel": "K1(beta=0.7)",
+     "delta": 0.0001,
+     "Lnorm": 9.044298466545738,
+     "bound": 6.598076297131495e-05,
+     "actual": 1.111047491187002e-06,
+     "ok": true,
+     "K": 70.5634999376162,
+     "nodes": 457,
+     "l1": 1.3049296520989333
+    },
+    {
+     "case": "random2",
+     "kernel": "K1(beta=0.7)",
+     "delta": 1e-08,
+     "Lnorm": 9.044298466545738,
+     "bound": 6.664958886424503e-09,
+     "actual": 7.227360136190689e-11,
+     "ok": true,
+     "K": 184.89844366523457,
+     "nodes": 1749,
+     "l1": 1.3049553886130127
+    },
+    {
+     "case": "random2",
+     "kernel": "K1(beta=0.8)",
+     "delta": 0.0001,
+     "Lnorm": 9.044298466545738,
+     "bound": 6.607958983780425e-05,
+     "actual": 1.383501698041593e-06,
+     "ok": true,
+     "K": 65.55731265656611,
+     "nodes": 431,
+     "l1": 1.5427489045031002
+    },
+    {
+     "case": "random2",
+     "kernel": "K1(beta=0.8)",
+     "delta": 1e-08,
+     "Lnorm": 9.044298466545738,
+     "bound": 6.63080503918244e-09,
+     "actual": 1.2519173914851964e-10,
+     "ok": true,
+     "K": 154.1245041826748,
+     "nodes": 1473,
+     "l1": 1.5427746493475556
+    },
+    {
+     "case": "random2",
+     "kernel": "K2(c=1)",
+     "delta": 0.0001,
+     "Lnorm": 9.044298466545738,
+     "bound": 6.115537315538286e-05,
+     "actual": 7.353390921474349e-06,
+     "ok": true,
+     "K": 16.26951002211853,
+     "nodes": 117,
+     "l1": 2.268439494524004
+    },
+    {
+     "case": "random2",
+     "kernel": "K2(c=1)",
+     "delta": 1e-08,
+     "Lnorm": 9.044298466545738,
+     "bound": 6.327612361787658e-09,
+     "actual": 5.992066330288447e-10,
+     "ok": true,
+     "K": 33.37446259591592,
+     "nodes": 339,
+     "l1": 2.382286951471254
+    },
+    {
+     "case": "random2",
+     "kernel": "K2(c=2)",
+     "delta": 0.0001,
+     "Lnorm": 9.044298466545738,
+     "bound": 6.55165033745949e-05,
+     "actual": 7.692249703333502e-06,
+     "ok": true,
+     "K": 9.286300540379155,
+     "nodes": 73,
+     "l1": 5.088409821589118
+    },
+    {
+     "case": "random2",
+     "kernel": "K2(c=2)",
+     "delta": 1e-08,
+     "Lnorm": 9.044298466545738,
+     "bound": 6.059213869381615e-09,
+     "actual": 8.849892368158672e-10,
+     "ok": true,
+     "K": 18.038955057101887,
+     "nodes": 195,
+     "l1": 5.625032347614614
+    },
+    {
+     "case": "toggle8x8_RNB_J3",
+     "kernel": "K1(beta=0.6)",
+     "delta": 0.0001,
+     "Lnorm": 107.87431812448074,
+     "bound": 6.661561347787905e-05,
+     "actual": 5.200479761251182e-08,
+     "ok": true,
+     "K": 95.16847093521324,
+     "nodes": 3603,
+     "l1": 1.169930995880749
+    },
+    {
+     "case": "toggle8x8_RNB_J3",
+     "kernel": "K1(beta=0.6)",
+     "delta": 1e-08,
+     "Lnorm": 107.87431812448074,
+     "bound": 6.661041046376203e-09,
+     "actual": 2.9117331956713097e-12,
+     "ok": true,
+     "K": 290.2039515683529,
+     "nodes": 11853,
+     "l1": 1.1699575752651388
+    },
+    {
+     "case": "toggle8x8_RNB_J3",
+     "kernel": "K1(beta=0.7)",
+     "delta": 0.0001,
+     "Lnorm": 107.87431812448074,
+     "bound": 6.665623125064616e-05,
+     "actual": 8.532170007918644e-08,
+     "ok": true,
+     "K": 70.35720247717671,
+     "nodes": 2669,
+     "l1": 1.3049288007999547
+    },
+    {
+     "case": "toggle8x8_RNB_J3",
+     "kernel": "K1(beta=0.7)",
+     "delta": 1e-08,
+     "Lnorm": 107.87431812448074,
+     "bound": 6.657533786011507e-09,
+     "actual": 5.195358109485403e-12,
+     "ok": true,
+     "K": 184.93191602787883,
+     "nodes": 7567,
+     "l1": 1.304955388604096
+    },
+    {
+     "case": "toggle8x8_RNB_J3",
+     "kernel": "K1(beta=0.8)",
+     "delta": 0.0001,
+     "Lnorm": 107.87431812448074,
+     "bound": 6.654163873415605e-05,
+     "actual": 1.1145212153325258e-07,
+     "ok": true,
+     "K": 65.4432432066277,
+     "nodes": 2489,
+     "l1": 1.5427481667289529
+    },
+    {
+     "case": "toggle8x8_RNB_J3",
+     "kernel": "K1(beta=0.8)",
+     "delta": 1e-08,
+     "Lnorm": 107.87431812448074,
+     "bound": 6.666165172907405e-09,
+     "actual": 7.032329330096485e-12,
+     "ok": true,
+     "K": 154.01403484945746,
+     "nodes": 6317,
+     "l1": 1.5427746492997745
+    },
+    {
+     "case": "toggle8x8_RNB_J3",
+     "kernel": "K2(c=1)",
+     "delta": 0.0001,
+     "Lnorm": 107.87431812448074,
+     "bound": 6.578917602521834e-05,
+     "actual": 1.375591632157184e-06,
+     "ok": true,
+     "K": 16.11880561219785,
+     "nodes": 623,
+     "l1": 2.268434233485051
+    },
+    {
+     "case": "toggle8x8_RNB_J3",
+     "kernel": "K2(c=1)",
+     "delta": 1e-08,
+     "Lnorm": 107.87431812448074,
+     "bound": 6.630080766329578e-09,
+     "actual": 8.324976442795621e-11,
+     "ok": true,
+     "K": 33.2803751076033,
+     "nodes": 1385,
+     "l1": 2.3822869511084988
+    },
+    {
+     "case": "toggle8x8_RNB_J3",
+     "kernel": "K2(c=2)",
+     "delta": 0.0001,
+     "Lnorm": 107.87431812448074,
+     "bound": 6.523138056671582e-05,
+     "actual": 2.6735118338839644e-06,
+     "ok": true,
+     "K": 9.33389451314571,
+     "nodes": 367,
+     "l1": 5.088407337381401
+    },
+    {
+     "case": "toggle8x8_RNB_J3",
+     "kernel": "K2(c=2)",
+     "delta": 1e-08,
+     "Lnorm": 107.87431812448074,
+     "bound": 6.634855258240536e-09,
+     "actual": 2.2061986151045758e-10,
+     "ok": true,
+     "K": 17.95652193338042,
+     "nodes": 759,
+     "l1": 5.625032346996283
+    }
+   ],
+   "pass": true
+  },
+  "reversible": {
+   "b": 24,
+   "pieces": 1024,
+   "degree": 2,
+   "max_abs_error": 1.1924550746833518e-07,
+   "error_bound": 4.76837158203125e-07,
+   "workspace_restored": true,
+   "injective": true,
+   "pass": true
+  }
+ }
+}

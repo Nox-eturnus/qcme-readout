@@ -1,0 +1,282 @@
+{
+ "name": "cascade4_baselines",
+ "settings": {
+  "leak_tol": 1e-06,
+  "eps": 0.01,
+  "delta_fail": 0.01,
+  "eps_sweep": [
+   0.1,
+   0.01,
+   0.001,
+   0.0001
+  ],
+  "tail_level": 0.05,
+  "weighted": {
+   "R-mix(NB,E1)": "mix",
+   "R-NB": "product"
+  },
+  "kernels": [
+   "K1(beta=0.6)",
+   "K1(beta=0.7)",
+   "K1(beta=0.8)",
+   "K2(c=1)",
+   "K2(c=2)"
+  ],
+  "variants": [
+   "single",
+   "per_window"
+  ],
+  "families": [
+   "sqrt_mu",
+   "resolvent"
+  ],
+  "headline_growth": "W",
+  "eta": 0.001,
+  "lchs_safety": 1.25,
+  "model": "cascade4"
+ },
+ "environment": {
+  "python": "3.13.5",
+  "numpy": "2.2.6",
+  "scipy": "1.17.0",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "timestamp": "2026-09-28T02:57:51+0530",
+  "hardware": "Intel Core i9-14900HX, 32 GB RAM; CPU double precision"
+ },
+ "data": {
+  "model": "cascade4",
+  "T": 1.0000000000267555,
+  "widths": [
+   15,
+   15,
+   15,
+   15
+  ],
+  "rows": [
+   {
+    "observable": "one",
+    "kind": "ssa",
+    "method": "uniformization",
+    "label": "coherent SSA (uniformization)",
+    "Lambda": 60.0,
+    "N_steps": 83,
+    "b": 21,
+    "step": 609.0,
+    "per_A": 50721.0,
+    "M": 45,
+    "n": 24,
+    "uses": 2160,
+    "total": 112092120.0,
+    "qubits": 2348,
+    "P": 0.9999998231453321
+   },
+   {
+    "observable": "one",
+    "kind": "ssa",
+    "method": "direct",
+    "label": "coherent SSA (direct)",
+    "Lambda": 60.0,
+    "N_steps": 83,
+    "b": 21,
+    "step": 13804.0,
+    "per_A": 1145906.0,
+    "M": 45,
+    "n": 24,
+    "uses": 2160,
+    "total": 2477691720.0,
+    "qubits": 2348,
+    "P": 0.9999998231453321
+   },
+   {
+    "observable": "one",
+    "kind": "lindblad",
+    "label": "Lindblad (DLL order 1)",
+    "order": 1,
+    "N_steps": 1,
+    "emulated_error": 1.7685466835448693e-07,
+    "Lambda_H": 16.966629547095764,
+    "q": 25,
+    "b": 15,
+    "step": 31050.0,
+    "per_A": 31050.0,
+    "M": 45,
+    "n": 24,
+    "uses": 2160,
+    "total": 67177080.0,
+    "qubits": 102,
+    "P": 0.9999998231453321,
+    "search": {
+     "history": [
+      [
+       16,
+       1.7663078677454536e-07
+      ]
+     ],
+     "method": "bisection"
+    }
+   },
+   {
+    "observable": "one",
+    "kind": "lindblad",
+    "label": "Lindblad (DLL order 2)",
+    "order": 2,
+    "N_steps": 1,
+    "emulated_error": 1.7685466813244233e-07,
+    "Lambda_H": 519.6341784041358,
+    "q": 544,
+    "b": 18,
+    "step": 188428544.0,
+    "per_A": 188428544.0,
+    "M": 45,
+    "n": 24,
+    "uses": 2160,
+    "total": 407005784640.0,
+    "qubits": 121,
+    "P": 0.9999998231453321,
+    "search": {
+     "history": [
+      [
+       16,
+       4.440861511856298e-08
+      ]
+     ],
+     "method": "bisection"
+    }
+   },
+   {
+    "observable": "tail",
+    "kind": "ssa",
+    "method": "uniformization",
+    "label": "coherent SSA (uniformization)",
+    "Lambda": 60.0,
+    "N_steps": 96,
+    "b": 30,
+    "step": 789.0,
+    "per_A": 75944.0,
+    "M": 23695,
+    "n": 24,
+    "uses": 1137360,
+    "total": 88421778480.0,
+    "qubits": 3599,
+    "P": 0.0028118978606185606
+   },
+   {
+    "observable": "tail",
+    "kind": "ssa",
+    "method": "direct",
+    "label": "coherent SSA (direct)",
+    "Lambda": 60.0,
+    "N_steps": 96,
+    "b": 30,
+    "step": 34582.0,
+    "per_A": 3320072.0,
+    "M": 23695,
+    "n": 24,
+    "uses": 1137360,
+    "total": 3778163200560.0,
+    "qubits": 3599,
+    "P": 0.0028118978606185606
+   },
+   {
+    "observable": "tail",
+    "kind": "lindblad",
+    "label": "Lindblad (DLL order 1)",
+    "order": 1,
+    "N_steps": 12859,
+    "emulated_error": 6.702233225879938e-06,
+    "Lambda_H": 16.966629547095764,
+    "q": 6,
+    "b": 38,
+    "step": 13800.0,
+    "per_A": 177454208.0,
+    "M": 23695,
+    "n": 24,
+    "uses": 1137360,
+    "total": 201858689195520.0,
+    "qubits": 51649,
+    "P": 0.0028118978606185606,
+    "search": {
+     "history": [
+      [
+       16,
+       0.002503120269337436
+      ],
+      [
+       32,
+       0.0018064015180608588
+      ],
+      [
+       64,
+       0.001100345804646658
+      ],
+      [
+       128,
+       0.0006086509314840432
+      ],
+      [
+       256,
+       0.0003202160148598459
+      ]
+     ],
+     "method": "extrapolated then verified",
+     "N_pred": 11662,
+     "checks": [
+      [
+       11662,
+       7.389385039850271e-06
+      ],
+      [
+       12246,
+       7.037369219226909e-06
+      ],
+      [
+       12859,
+       6.702233225879938e-06
+      ]
+     ]
+    }
+   },
+   {
+    "observable": "tail",
+    "kind": "lindblad",
+    "label": "Lindblad (DLL order 2)",
+    "order": 2,
+    "N_steps": 84,
+    "emulated_error": 6.882511061277654e-06,
+    "Lambda_H": 38.37066383146568,
+    "q": 15,
+    "b": 33,
+    "step": 27442050.0,
+    "per_A": 2305132208.0,
+    "M": 23695,
+    "n": 24,
+    "uses": 1137360,
+    "total": 2621765562186120.0,
+    "qubits": 694,
+    "P": 0.0028118978606185606,
+    "search": {
+     "history": [
+      [
+       16,
+       0.0002713299200695217
+      ],
+      [
+       32,
+       5.609745332021184e-05
+      ],
+      [
+       64,
+       1.2286685339850216e-05
+      ],
+      [
+       128,
+       2.8441408615157045e-06
+      ]
+     ],
+     "method": "bisection"
+    }
+   }
+  ]
+ }
+}

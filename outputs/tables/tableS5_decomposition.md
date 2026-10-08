@@ -1,0 +1,14 @@
+| Instance | |S| | Best cheap reference | K_T | Window | Non-normality | Slack | Tail | K_T, exact reference |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| schlogl | 200 | R-mix(NB,E1) | 12.56 | 2.51 | 0.188 | 0.00461 | -2.62e-08 | 53.72 |
+| toggle_hegland | 4096 | R-mix(NB,E1) | 160.1 | 13.2 | 20.5 | 0.0165 | 3.68 | 348.3 |
+| toggle_kuntz | 1800 | R-mix(NB,E2) | 27.11 | 3.65 | 1.33 | 0.00124 | -6.91e-08 | 91.64 |
+| toggle_gardner | 3655744 | R-mix(NB,E2) | 1087 | 5.39e+03 | 1.53e+03 | 0.00149 | n/a | not computable |
+| feedback_b1 | 80 | R-mix(NB,E1) | 41.32 | -0.251 | 9.22 | 0.000204 | 1.31 | 2.01e+67 |
+| feedback_b10 | 314 | R-mix(NB,E1) | 306 | -3.67 | 70.1 | 0.00754 | 33.9 | not computable |
+| feedback_b100 | 3126 | R-mix(NB,E1) | 2.066e+04 | -1.14e+04 | 1.59e+04 | 0.192 | 349 | not computable |
+| lambda_phage | 7428456 | R-mix(NB,E2) | 305.9 | 6.71 | 57.7 | 0.238 | n/a | 745.6 |
+| toggle_tang | 40000 | R-mix(NB,E2) | 1315 | 109 | 176 | 0.000217 | 1.74e-07 | 1.129e+04 |
+| autoreg_tang_1 | 120 | R-mix(NB,E1) | 47 | 7.21 | 2.43 | 0.0011 | 1.78e-15 | 86.55 |
+| autoreg_tang_2 | 120 | R-mix(NB,E2) | 67.42 | 5.16 | 8.9 | 0.000383 | 1.05 | 103.9 |
+| autoreg_tang_3 | 120 | R-mix(NB,E1) | 224.4 | 9.53 | 38.4 | 0.00248 | 0 | 113.5 |

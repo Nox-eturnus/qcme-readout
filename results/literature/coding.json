@@ -1,0 +1,392 @@
+{
+ "name": "coding",
+ "data": {
+  "screen": {
+   "logged_hits": 2335,
+   "after_mechanical_title_step": 176,
+   "plus_register_and_memos": true
+  },
+  "n_included": 14,
+  "verdict_counts": {
+   "omitted, bounded": 2,
+   "omitted, growing": 5,
+   "accounted": 7
+  },
+  "included": [
+   {
+    "key": "R1",
+    "ref": "Kabengele, Lokare, Marston, Rubenstein, J. Chem. Phys. 164, 194117 (2026); arXiv:2404.08770",
+    "task": "Schlogl CME (1 species): eigenvalues and the steady-state zero mode via VQD, QPE + VQSVD",
+    "encoding": "L2 of p (zero mode of a Hermitian dilation)",
+    "readout": "R3 (eigenvector components compared directly, 2-4 qubits)",
+    "counted": "no",
+    "claim": "classical cost 'exponentially costly'; 'at least 5 qubits' for an exact solution (abstract)",
+    "setting": "one species, up to 4-5 qubits",
+    "in_T1_class": "no (eigen-solver; readout of a few components)",
+    "verdict": "omitted, bounded",
+    "note": "one-species instance; the omitted factor is small at 1-2 species",
+    "where": "abstract; Sec. II-III"
+   },
+   {
+    "key": "R2",
+    "ref": "Yao, Eur. Phys. J. B 98:81 (2025); arXiv:2406.10645",
+    "task": "reaction-diffusion master equation on a lattice (spin representation), Trotter + PITE",
+    "encoding": "L2 of p: |psi> = sum P_i|i> / ||P|| (Eq. 17)",
+    "readout": "R1: normalization <P|psi_t> = 2^{n/2} <0|H^n|psi_t> from the all-zeros probability (Eqs. 19-20)",
+    "counted": "no",
+    "claim": "'eliminating the requirement for exponential classical post-processing' (Sec. I; Sec. V)",
+    "setting": "lattice of sites; n qubits",
+    "in_T1_class": "yes (C1: overlap with the uniform state)",
+    "verdict": "omitted, growing",
+    "note": "the all-zeros probability equals S_eff/|S| for the normalized state; the paper notes the PITE success probability decays exponentially in Trotter steps (Sec. V), a separate cost",
+    "where": "Sec. III C, Eqs. 17-20; Sec. V"
+   },
+   {
+    "key": "R3",
+    "ref": "Jin, Liu, Yu, Commun. Comput. Phys. 39, 969-1001 (2026); arXiv:2404.13585",
+    "task": "Fokker-Planck equation via Schrodingerisation",
+    "encoding": "weighted: e^{V/(2 eps)} f, the sqrt(stationary) symmetrization (Conservation II)",
+    "readout": "R3: measurement in the computational basis and reconstruction (Remark 3.5); post-selection probability stated (Eq. 2.7)",
+    "counted": "yes",
+    "claim": "complexity of the Schrodingerised dynamics",
+    "setting": "reversible FP with potential V",
+    "in_T1_class": "no (exact stationary weight)",
+    "verdict": "accounted",
+    "note": "the exact stationary weight removes the localization factor for reversible dynamics (as R25)",
+    "where": "Sec. 2, Eq. 2.7; Sec. 3, Remark 3.5"
+   },
+   {
+    "key": "R4",
+    "ref": "Tennie, Magri, Proc. R. Soc. A (2025), doi:10.1098/rspa.2025.0016; arXiv:2401.13500",
+    "task": "Fokker-Planck equation of low-dimensional nonlinear ODEs (block encoding, Schrodingerisation, LCU)",
+    "encoding": "L2 of p",
+    "readout": "post-selection; the decay of the 2-norm against the conserved 1-norm is noted",
+    "counted": "partly",
+    "claim": "'potential to achieve' a scalable advantage (Sec. I); emulations only",
+    "setting": "2-3 dimensional dynamical systems",
+    "in_T1_class": "yes for observable readout",
+    "verdict": "omitted, bounded",
+    "note": "no dimension-scaling claim is made; the examples are low-dimensional",
+    "where": "abstract; Sec. I; Sec. III"
+   },
+   {
+    "key": "R5",
+    "ref": "Guseynov et al., 'Quantum algorithm for local-volatility option pricing via the Kolmogorov equation', arXiv:2511.04942 (2025)",
+    "task": "Kolmogorov forward equation (price density), Schrodingerisation",
+    "encoding": "L2 of p",
+    "readout": "R1: swap tests <C0|p> and <+|p>; retrieval cost O(1/V0^2) (Table II) and post-selection ||p(0)||^2/||p(T)||^2 (Eq. 22)",
+    "counted": "partly",
+    "claim": "'exponential speedups' for baskets of options, 'mitigate the curse of dimensionality' (Sec. I)",
+    "setting": "d assets (basket)",
+    "in_T1_class": "yes (C1)",
+    "verdict": "omitted, growing",
+    "note": "V0 appears as a parameter but is not bounded in d; Phase A check 7 measured the swap-test estimator's error growing about 3.5x per asset at fixed shots for a localized product Gaussian (d = 1-4)",
+    "where": "Sec. I; Sec. III C; Table II; Eq. 22"
+   },
+   {
+    "key": "R20",
+    "ref": "Claudon, Piquemal, Monmarche, Nat. Commun. (2025); arXiv:2501.05868",
+    "task": "sampling the stationary law of non-reversible Markov chains",
+    "encoding": "sqrt(pi) (qsample)",
+    "readout": "R3: sampling the qsample",
+    "counted": "yes",
+    "claim": "up-to-exponential speedup over the reversible case",
+    "setting": "Markov chains",
+    "in_T1_class": "no (sqrt(p) encoding)",
+    "verdict": "accounted",
+    "note": "the sqrt(pi) encoding gives samples directly; no localization factor",
+    "where": "abstract; Sec. 2"
+   },
+   {
+    "key": "R25",
+    "ref": "'Provable quantum speedups for reaction-rate estimation in high-dimensional Fokker-Planck dynamics', arXiv:2601.15523 (2026)",
+    "task": "reactive flux for overdamped Langevin dynamics",
+    "encoding": "weighted: sqrt(Boltzmann) similarity transform",
+    "readout": "R1 with the exact weight: Hadamard-test overlap <P|e^{tH}|R>",
+    "counted": "yes",
+    "claim": "provable speedups in particle number",
+    "setting": "reversible, exact stationary weight",
+    "in_T1_class": "no (exact stationary weight; outside C, as a reference-informed encoding)",
+    "verdict": "accounted",
+    "note": "the closest prior art; the weight that makes it work exists only for reversible dynamics",
+    "where": "Sec. III.D, Eqs. (1), (5), (28)-(32)"
+   },
+   {
+    "key": "R27",
+    "ref": "'Efficient quantum algorithms for nonlinear stochastic dynamical systems', IEEE QCE 2023; arXiv:2303.02463",
+    "task": "Fokker-Planck equation by the quantum linear-systems algorithm (Chang-Cooper, finite differences)",
+    "encoding": "L2 of p: QLSA 'produces a normalized solution state' (Thm. 4)",
+    "readout": "none specified beyond the normalized state",
+    "counted": "no",
+    "claim": "'exponential speed-up over traditional approaches' in dimension d (abstract; Sec. II)",
+    "setting": "d-dimensional FP",
+    "in_T1_class": "yes for any overlap readout of an observable",
+    "verdict": "omitted, growing",
+    "note": "the stated complexity O(e^T d^3 log(1/eps)) is for preparing the normalized state",
+    "where": "abstract; Thm. 4; Thm. 7"
+   },
+   {
+    "key": "R28",
+    "ref": "Leng, Ding, Chen, Lin, arXiv:2505.05301 (2025)",
+    "task": "Gibbs sampling via the Witten Laplacian",
+    "encoding": "sqrt(sigma) (Gibbs measure in the amplitudes)",
+    "readout": "R3: sampling",
+    "counted": "yes",
+    "claim": "up to quartic speedup over Langevin methods",
+    "setting": "continuous potentials",
+    "in_T1_class": "no (sqrt(p) encoding)",
+    "verdict": "accounted",
+    "note": "sampling a sqrt(sigma) state gives the law directly",
+    "where": "abstract; Sec. 2"
+   },
+   {
+    "key": "ZHANG",
+    "ref": "Zhang, Yang, Meng, Lu et al., Proc. Combust. Inst. (2026), doi:10.1016/j.proci.2026.106601; arXiv:2512.07918",
+    "task": "PDF transport equation of reacting flows (history state + QLSA)",
+    "encoding": "L2 of p: psi_j proportional to f(phi_j) (Sec. 3.1)",
+    "readout": "R1: Hadamard test <q|psi> with the p-independent state U H^n|0> (Eqs. 3-4)",
+    "counted": "no",
+    "claim": "measurement 'complexity polynomial in the logarithm of the system size ... retaining the quantum advantage' (abstract)",
+    "setting": "one composition variable in the tests; the formulation is 'high-dimensional'",
+    "in_T1_class": "yes (C1)",
+    "verdict": "omitted, growing",
+    "note": "the counted cost is the circuit size of U; the number of repetitions scales with the amplitude, which shrinks as sqrt(S_eff/N) for localized PDFs and with the number of composition variables",
+    "where": "abstract; Sec. 3.1, Eqs. 3-4; Sec. 4.1"
+   },
+   {
+    "key": "GOPAL",
+    "ref": "Gopalakrishnan Meena, Kishore, Parks, Bertels et al., arXiv:2607.27571 (2026) [Perspective]",
+    "task": "whole-cell modelling; CME and SSA",
+    "encoding": "L2 of p (CME generator as a linear operator)",
+    "readout": "not specified; 'measurement constraints' listed as a practical bottleneck (Sec. 3)",
+    "counted": "partly",
+    "claim": "'Hamiltonian simulation-based approaches with logarithmic dependence on the effective state-space dimension' for the CME (Sec. 2.2); Table 1: SSA sampling O(N) -> O(log N s^2 kappa log(1/eps)) (QLSA), 'exponential in N'",
+    "setting": "gene regulatory and metabolic networks",
+    "in_T1_class": "yes for overlap readout",
+    "verdict": "omitted, growing",
+    "note": "perspective with complexity claims of its own (coded per Sec. 3.1)",
+    "where": "Sec. 2.2; Table 1; Sec. 3"
+   },
+   {
+    "key": "DEVEREUX",
+    "ref": "Devereux, PhD thesis, University of Warwick (2025), WRAP 202423; arXiv:2509.21509 (with Datta)",
+    "task": "multi-dimensional drift-diffusion (Fokker-Planck) equation",
+    "encoding": "L2 of p (Eq. 3.4)",
+    "readout": "R5: multidimensional amplitude estimation of the full distribution to additive infinity-norm error (Eq. 3.5; Thm. 16)",
+    "counted": "yes",
+    "claim": "quantum advantage at fixed final time for the QFT-diagonalisation method (abstract)",
+    "setting": "d spatial dimensions, periodic box",
+    "in_T1_class": "no (additive-error tomography)",
+    "verdict": "accounted",
+    "note": "the measurement protocol is in the stated complexity; additive error in the infinity norm (relative accuracy on a localized law would need the target to shrink with its peak)",
+    "where": "Ch. 3, Eqs. 3.4-3.5; Ch. 4, Thm. 16"
+   },
+   {
+    "key": "GOVAERS",
+    "ref": "Govaers, 'Quantum prediction of transport dynamics in discretized state spaces', arXiv:2604.24161 (2026)",
+    "task": "Fokker-Planck prediction step of Bayesian state estimation",
+    "encoding": "sqrt(p) (Eq. 5)",
+    "readout": "R3: 'measurement probabilities reproduce the classical density'; low-order statistics 'from repeated measurements' (Sec. VI)",
+    "counted": "partly",
+    "claim": "'exponential reduction in memory ... polynomial reduction in computational complexity' with respect to grid points (Sec. VI)",
+    "setting": "position-velocity grid",
+    "in_T1_class": "no (sqrt(p) encoding with sampling)",
+    "verdict": "accounted",
+    "note": "T1's factor does not arise for sqrt(p) encodings; the paper states that extracting the full density needs many measurements; the diffusion step is a unitary surrogate (an approximation), not exact",
+    "where": "Sec. II, Eq. 5; Sec. VI; Sec. VII"
+   },
+   {
+    "key": "HARIHARAN",
+    "ref": "Hariharan, Schoutens, Kinge, Visscher, arXiv:2607.11217 (2026) [Perspective]",
+    "task": "multiscale chemistry: quantum walks for mesoscopic kinetics (kMC / CRN)",
+    "encoding": "walk operators (spectral)",
+    "readout": "R4: phase and amplitude estimation of two steady-state observables",
+    "counted": "yes",
+    "claim": "speedups 'depend heavily on ... classical readout costs' (abstract); 'conditional on ... efficient observable readout' (Table)",
+    "setting": "CO oxidation on Pt(111)",
+    "in_T1_class": "no",
+    "verdict": "accounted",
+    "note": "perspective; states the readout condition explicitly",
+    "where": "abstract; Sec. 2; Table 1"
+   }
+  ],
+  "excluded": [
+   {
+    "key": "IKEDA",
+    "ref": "Ikeda et al., arXiv:2609.08432 (2026), polymerization rate matrices",
+    "reason": "I1: deterministic mass-action concentrations, not the law of a stochastic process (and it defers 'state preparation and readout overheads', Sec. 4)"
+   },
+   {
+    "key": "AMARO",
+    "ref": "Amaro, Inigo Gamiz, Vranic, J. Plasma Phys. (2025); arXiv:2411.17517",
+    "reason": "I3: variational demonstration without a complexity or resource claim"
+   },
+   {
+    "key": "MIYAMOTO-SDE",
+    "ref": "Miyamoto, arXiv:2604.24133 (2026)",
+    "reason": "I2: amplitudes encode a sample path $X_t$, not the law"
+   },
+   {
+    "key": "JIN-SDE",
+    "ref": "Jin, Liu, Wei, arXiv:2412.14868",
+    "reason": "I2: sample paths of linear SDEs"
+   },
+   {
+    "key": "BRAVYI",
+    "ref": "Bravyi, Byrne, Zayats, Zhuk, arXiv:2606.08349 (2026)",
+    "reason": "I2: correlation functions via a Carleman/oscillator embedding, not the law"
+   },
+   {
+    "key": "QUANTILE",
+    "ref": "Paine, Elfving, Kyriienko, Adv. Quantum Technol. (2023)",
+    "reason": "I2: quantile-function representation for sampling"
+   },
+   {
+    "key": "WEIDNER",
+    "ref": "Weidner et al., Patterns 4, 100705 (2023)",
+    "reason": "I1: deterministic Boolean network dynamics"
+   },
+   {
+    "key": "DELRAZO",
+    "ref": "del Razo, Lamma, Merbis, review (2025)",
+    "reason": "not a quantum algorithm (its 'quantum methods' are the Fock-space formalism)"
+   },
+   {
+    "key": "HEAT/ADVECTION",
+    "ref": "Twelve solvers for heat, advection–diffusion, Liouville and lattice-Boltzmann equations",
+    "reason": "I1: deterministic transport fields, not framed as the law of a stochastic process"
+   },
+   {
+    "key": "LI-R37",
+    "ref": "Li, arXiv:2607.18113 (2026); Linden, Montanaro and Shao",
+    "reason": "I1: parabolic PDE / heat equation framing; discussed as readout context"
+   }
+  ],
+  "baselines": [
+   {
+    "key": "Montanaro 2015",
+    "ref": "quantum Monte Carlo / amplitude estimation over classical randomized algorithms"
+   },
+   {
+    "key": "quantum trajectories",
+    "ref": "stochastic simulators embedded as quantum trajectories (Phys. Rev. A 109, 022434, 2024)"
+   },
+   {
+    "key": "Miyamoto MV-SDE",
+    "ref": "QMCI for McKean-Vlasov SDEs, EPJ Quantum Technol. (2025)"
+   },
+   {
+    "key": "Droplets 2026",
+    "ref": "collision-coalescence master equation via transition-history encoding and amplitude estimation, Phys. Rev. Appl. (2026); arXiv:2603.06353"
+   },
+   {
+    "key": "Kolmogorov-Lindblad",
+    "ref": "Kolmogorov-Lindblad mapping (density-matrix embedding), arXiv:2608.09903"
+   },
+   {
+    "key": "Ito dilation 2026",
+    "ref": "universal dilation of linear Ito SDEs via Lindblad simulation of second moments, Quantum (2026)"
+   }
+  ],
+  "display": {
+   "R1": {
+    "ref": "kabengele2026",
+    "who": "Kabengele et al.",
+    "encoding": "$p/\\lVert p \\rVert$ (zero mode of a Hermitian dilation)",
+    "readout": "R3: eigenvector components compared directly (2 to 4 qubits)",
+    "claim": "classical cost 'exponentially costly'; 'at least 5 qubits' for an exact solution"
+   },
+   "R2": {
+    "ref": "yao2025",
+    "who": "Yao",
+    "encoding": "$p/\\lVert p \\rVert$ (Eq. 17)",
+    "readout": "R1: normalization from the all-zeros probability (Eqs. 19–20)",
+    "claim": "'eliminating the requirement for exponential classical post-processing'"
+   },
+   "R3": {
+    "ref": "jin2026",
+    "who": "Jin, Liu and Yu",
+    "encoding": "weighted by the square root of the stationary law",
+    "readout": "R3: measurement in the computational basis and reconstruction; post-selection probability stated",
+    "claim": "complexity of the Schrödingerised dynamics"
+   },
+   "R4": {
+    "ref": "tennie2025",
+    "who": "Tennie and Magri",
+    "encoding": "$p/\\lVert p \\rVert$",
+    "readout": "post-selection; the decay of the 2-norm against the conserved 1-norm is noted",
+    "claim": "'potential to achieve' a scalable advantage; emulations only"
+   },
+   "R5": {
+    "ref": "guseynov2025",
+    "who": "Guseynov et al.",
+    "encoding": "$p/\\lVert p \\rVert$",
+    "readout": "R1: swap tests against the payoff state and $|+\\rangle$; retrieval cost $O(1/V_0^2)$ (Table II) and post-selection (Eq. 22)",
+    "claim": "'exponential speedups' for baskets of options, 'mitigate the curse of dimensionality'"
+   },
+   "R20": {
+    "ref": "claudon2025",
+    "who": "Claudon et al.",
+    "encoding": "$\\sqrt{\\pi}$ (qsample)",
+    "readout": "R3: sampling the qsample",
+    "claim": "up-to-exponential speedup over the reversible case"
+   },
+   "R25": {
+    "ref": "reactionrate2026",
+    "who": "Kharazi et al.",
+    "encoding": "weighted by the square root of the Boltzmann law",
+    "readout": "R1 with the exact weight: Hadamard-test overlap",
+    "claim": "provable speedups in particle number"
+   },
+   "R27": {
+    "ref": "qce2023",
+    "who": "Gnanasekaran et al.",
+    "encoding": "$p/\\lVert p \\rVert$: the linear-systems solver 'produces a normalized solution state' (Thm. 4)",
+    "readout": "none specified beyond the normalized state",
+    "claim": "'exponential speed-up over traditional approaches' in dimension"
+   },
+   "R28": {
+    "ref": "leng2025",
+    "who": "Leng et al.",
+    "encoding": "square root of the Gibbs measure",
+    "readout": "R3: sampling",
+    "claim": "up to quartic speedup over Langevin methods"
+   },
+   "ZHANG": {
+    "ref": "zhang2026",
+    "who": "Zhang et al.",
+    "encoding": "$p/\\lVert p \\rVert$ (Sec. 3.1)",
+    "readout": "R1: Hadamard test against a state that does not depend on $p$ (Eqs. 3–4)",
+    "claim": "measurement 'complexity polynomial in the logarithm of the system size ... retaining the quantum advantage'"
+   },
+   "GOPAL": {
+    "ref": "gopalakrishnan2026",
+    "who": "Gopalakrishnan Meena et al.",
+    "encoding": "$p/\\lVert p \\rVert$ (CME generator as a linear operator)",
+    "readout": "not specified; 'measurement constraints' listed as a practical bottleneck",
+    "claim": "'Hamiltonian simulation-based approaches with logarithmic dependence on the effective state-space dimension'; 'exponential in N' (Table 1)"
+   },
+   "DEVEREUX": {
+    "ref": "devereux2025",
+    "who": "Devereux and Datta",
+    "encoding": "$p/\\lVert p \\rVert$ (Eq. 3.4)",
+    "readout": "R5: amplitude estimation of the full distribution to additive error in the maximum norm (Eq. 3.5; Thm. 16)",
+    "claim": "quantum advantage at fixed final time for the QFT-diagonalisation method"
+   },
+   "GOVAERS": {
+    "ref": "govaers2026",
+    "who": "Govaers",
+    "encoding": "$\\sqrt{p}$ (Eq. 5)",
+    "readout": "R3: 'measurement probabilities reproduce the classical density'; low-order statistics 'from repeated measurements'",
+    "claim": "'exponential reduction in memory ... polynomial reduction in computational complexity' in the number of grid points"
+   },
+   "HARIHARAN": {
+    "ref": "hariharan2026",
+    "who": "Hariharan et al.",
+    "encoding": "walk operators (spectral)",
+    "readout": "R4: phase and amplitude estimation of two steady-state observables",
+    "claim": "speedups 'depend heavily on ... classical readout costs'; 'conditional on ... efficient observable readout'"
+   }
+  }
+ }
+}

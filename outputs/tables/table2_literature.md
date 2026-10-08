@@ -1,0 +1,16 @@
+| Work | Reference key | Task | Encoding | Readout | Cost counted | Scaling claimed | Verdict |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Gopalakrishnan Meena et al. | gopalakrishnan2026 | whole-cell CME / SSA (perspective) | p/‖p‖ | not specified | partly | log in state-space dimension | omitted, growing |
+| Yao | yao2025 | reaction–diffusion master equation | p/‖p‖ | overlap with uniform state | no | removes exponential post-processing | omitted, growing |
+| Gnanasekaran et al. | qce2023 | Fokker–Planck via linear solvers | p/‖p‖ | normalized state only | no | exponential in dimension | omitted, growing |
+| Guseynov et al. | guseynov2025 | Kolmogorov forward (option baskets) | p/‖p‖ | swap tests, cost O(1/V₀²) | partly | exponential in assets | omitted, growing |
+| Zhang et al. | zhang2026 | PDF transport, reacting flows | p/‖p‖ | Hadamard test vs fixed state | no | polylog in system size | omitted, growing |
+| Kabengele et al. | kabengele2026 | CME, 1 species (Schlögl), eigenproblem | p/‖p‖ (zero mode) | components of a 2-4 qubit state | no | qubit count | omitted, bounded |
+| Tennie and Magri | tennie2025 | Fokker–Planck of low-dim. ODEs | p/‖p‖ | post-selection (norm decay noted) | partly | potential advantage | omitted, bounded |
+| Devereux and Datta | devereux2025 | drift–diffusion, d dimensions | p/‖p‖ | AE tomography, additive error | yes | advantage at fixed time | accounted |
+| Govaers | govaers2026 | Fokker–Planck prediction (Bayesian) | √p | sampling | partly | polynomial in grid points | accounted |
+| Hariharan et al. | hariharan2026 | multiscale kinetics (perspective) | walk operators | phase / amplitude estimation | yes | conditional on readout | accounted |
+| Claudon et al. | claudon2025 | non-reversible Markov chains | √π | sampling | yes | up-to-exponential (mixing) | accounted |
+| Kharazi et al. | reactionrate2026 | Fokker–Planck reaction rates (reversible) | exact √Boltzmann weight | Hadamard test | yes | polynomial in particles | accounted |
+| Leng et al. | leng2025 | Gibbs sampling (Langevin) | √σ | sampling | yes | up to quartic | accounted |
+| Jin, Liu and Yu | jin2026 | Fokker–Planck (reversible) | exact stationary weight | basis sampling | yes | Schrödingerisation cost | accounted |

@@ -1,0 +1,646 @@
+{
+ "name": "qualtran_crosscheck",
+ "settings": {},
+ "environment": {
+  "hardware": "Intel Core i9-14900HX, 32 GB RAM; CPU double precision"
+ },
+ "data": {
+  "qualtran": "0.7.0",
+  "python": "3.13.5",
+  "rows": [
+   {
+    "subroutine": "add",
+    "size": 4,
+    "own": 3,
+    "qualtran": 3,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "cadd_const",
+    "size": 4,
+    "own": 3,
+    "qualtran": 3,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "add_const",
+    "size": 4,
+    "own": 3,
+    "qualtran": 3,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "cmp_const",
+    "size": 4,
+    "own": 4,
+    "qualtran": 4,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "cmp",
+    "size": 4,
+    "own": 7,
+    "qualtran": 7,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "mult",
+    "size": 4,
+    "own": 28,
+    "qualtran": 28,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "phasegrad",
+    "size": 4,
+    "own": 2,
+    "qualtran": 2,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "mcz",
+    "size": 4,
+    "own": 3,
+    "qualtran": 3,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "add",
+    "size": 8,
+    "own": 7,
+    "qualtran": 7,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "cadd_const",
+    "size": 8,
+    "own": 7,
+    "qualtran": 7,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "add_const",
+    "size": 8,
+    "own": 7,
+    "qualtran": 7,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "cmp_const",
+    "size": 8,
+    "own": 8,
+    "qualtran": 8,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "cmp",
+    "size": 8,
+    "own": 15,
+    "qualtran": 15,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "mult",
+    "size": 8,
+    "own": 120,
+    "qualtran": 120,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "phasegrad",
+    "size": 8,
+    "own": 6,
+    "qualtran": 6,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "mcz",
+    "size": 8,
+    "own": 7,
+    "qualtran": 7,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "add",
+    "size": 16,
+    "own": 15,
+    "qualtran": 15,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "cadd_const",
+    "size": 16,
+    "own": 15,
+    "qualtran": 15,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "add_const",
+    "size": 16,
+    "own": 15,
+    "qualtran": 15,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "cmp_const",
+    "size": 16,
+    "own": 16,
+    "qualtran": 16,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "cmp",
+    "size": 16,
+    "own": 31,
+    "qualtran": 31,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "mult",
+    "size": 16,
+    "own": 496,
+    "qualtran": 496,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "phasegrad",
+    "size": 16,
+    "own": 14,
+    "qualtran": 14,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "mcz",
+    "size": 16,
+    "own": 15,
+    "qualtran": 15,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "add",
+    "size": 32,
+    "own": 31,
+    "qualtran": 31,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "cadd_const",
+    "size": 32,
+    "own": 31,
+    "qualtran": 31,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "add_const",
+    "size": 32,
+    "own": 31,
+    "qualtran": 31,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "cmp_const",
+    "size": 32,
+    "own": 32,
+    "qualtran": 32,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "cmp",
+    "size": 32,
+    "own": 63,
+    "qualtran": 63,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "mult",
+    "size": 32,
+    "own": 2016,
+    "qualtran": 2016,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "phasegrad",
+    "size": 32,
+    "own": 30,
+    "qualtran": 30,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "mcz",
+    "size": 32,
+    "own": 31,
+    "qualtran": 31,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "qrom",
+    "size": 4,
+    "own": 2,
+    "qualtran": 2,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "alias(mu=6)",
+    "size": 4,
+    "own": 15,
+    "qualtran": 15,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "mu_used": 6,
+    "documented": false
+   },
+   {
+    "subroutine": "alias(mu=10)",
+    "size": 4,
+    "own": 23,
+    "qualtran": 23,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "mu_used": 10,
+    "documented": false
+   },
+   {
+    "subroutine": "qrom",
+    "size": 16,
+    "own": 14,
+    "qualtran": 14,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "alias(mu=6)",
+    "size": 16,
+    "own": 29,
+    "qualtran": 29,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "mu_used": 6,
+    "documented": false
+   },
+   {
+    "subroutine": "alias(mu=10)",
+    "size": 16,
+    "own": 37,
+    "qualtran": 37,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "mu_used": 10,
+    "documented": false
+   },
+   {
+    "subroutine": "qrom",
+    "size": 64,
+    "own": 62,
+    "qualtran": 62,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "alias(mu=6)",
+    "size": 64,
+    "own": 79,
+    "qualtran": 79,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "mu_used": 6,
+    "documented": false
+   },
+   {
+    "subroutine": "alias(mu=10)",
+    "size": 64,
+    "own": 87,
+    "qualtran": 87,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "mu_used": 10,
+    "documented": false
+   },
+   {
+    "subroutine": "qrom",
+    "size": 256,
+    "own": 254,
+    "qualtran": 254,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "alias(mu=6)",
+    "size": 256,
+    "own": 273,
+    "qualtran": 273,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "mu_used": 6,
+    "documented": false
+   },
+   {
+    "subroutine": "alias(mu=10)",
+    "size": 256,
+    "own": 281,
+    "qualtran": 281,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "mu_used": 10,
+    "documented": false
+   },
+   {
+    "subroutine": "qrom",
+    "size": 1024,
+    "own": 1022,
+    "qualtran": 1022,
+    "qualtran_rotations": 0,
+    "match": true,
+    "error": "",
+    "documented": false
+   },
+   {
+    "subroutine": "alias(mu=6)",
+    "size": 1024,
+    "own": 1041,
+    "qualtran": 1036,
+    "qualtran_rotations": 0,
+    "match": false,
+    "error": "",
+    "mu_used": 5,
+    "documented": true
+   },
+   {
+    "subroutine": "alias(mu=10)",
+    "size": 1024,
+    "own": 1049,
+    "qualtran": 1047,
+    "qualtran_rotations": 0,
+    "match": false,
+    "error": "",
+    "mu_used": 9,
+    "documented": true
+   },
+   {
+    "subroutine": "uniform_prep",
+    "size": 3,
+    "own": 5,
+    "qualtran": 5,
+    "qualtran_rotations": 2,
+    "match": true,
+    "error": "",
+    "documented": false,
+    "rotations_match": true
+   },
+   {
+    "subroutine": "uniform_prep",
+    "size": 5,
+    "own": 8,
+    "qualtran": 8,
+    "qualtran_rotations": 2,
+    "match": true,
+    "error": "",
+    "documented": false,
+    "rotations_match": true
+   },
+   {
+    "subroutine": "uniform_prep",
+    "size": 12,
+    "own": 5,
+    "qualtran": 5,
+    "qualtran_rotations": 2,
+    "match": true,
+    "error": "",
+    "documented": false,
+    "rotations_match": true
+   },
+   {
+    "subroutine": "uniform_prep",
+    "size": 100,
+    "own": 14,
+    "qualtran": 14,
+    "qualtran_rotations": 2,
+    "match": true,
+    "error": "",
+    "documented": false,
+    "rotations_match": true
+   },
+   {
+    "subroutine": "uniform_prep",
+    "size": 1000,
+    "own": 20,
+    "qualtran": 20,
+    "qualtran_rotations": 2,
+    "match": true,
+    "error": "",
+    "documented": false,
+    "rotations_match": true
+   }
+  ],
+  "jacobi_anger": [
+   {
+    "tau": 1.0,
+    "eps": 1e-06,
+    "qualtran_degree": 7,
+    "own_degree": 7,
+    "own_ge_qualtran": true
+   },
+   {
+    "tau": 1.0,
+    "eps": 1e-12,
+    "qualtran_degree": 11,
+    "own_degree": 12,
+    "own_ge_qualtran": true
+   },
+   {
+    "tau": 1.0,
+    "eps": 1e-30,
+    "qualtran_degree": 23,
+    "own_degree": 23,
+    "own_ge_qualtran": true
+   },
+   {
+    "tau": 10.0,
+    "eps": 1e-06,
+    "qualtran_degree": 21,
+    "own_degree": 22,
+    "own_ge_qualtran": true
+   },
+   {
+    "tau": 10.0,
+    "eps": 1e-12,
+    "qualtran_degree": 30,
+    "own_degree": 30,
+    "own_ge_qualtran": true
+   },
+   {
+    "tau": 10.0,
+    "eps": 1e-30,
+    "qualtran_degree": 50,
+    "own_degree": 50,
+    "own_ge_qualtran": true
+   },
+   {
+    "tau": 100.0,
+    "eps": 1e-06,
+    "qualtran_degree": 123,
+    "own_degree": 125,
+    "own_ge_qualtran": true
+   },
+   {
+    "tau": 100.0,
+    "eps": 1e-12,
+    "qualtran_degree": 141,
+    "own_degree": 142,
+    "own_ge_qualtran": true
+   },
+   {
+    "tau": 100.0,
+    "eps": 1e-30,
+    "qualtran_degree": 180,
+    "own_degree": 181,
+    "own_ge_qualtran": true
+   },
+   {
+    "tau": 1000.0,
+    "eps": 1e-06,
+    "qualtran_degree": 1048,
+    "own_degree": 1054,
+    "own_ge_qualtran": true
+   },
+   {
+    "tau": 1000.0,
+    "eps": 1e-12,
+    "qualtran_degree": 1086,
+    "own_degree": 1090,
+    "own_ge_qualtran": true
+   },
+   {
+    "tau": 1000.0,
+    "eps": 1e-30,
+    "qualtran_degree": 1168,
+    "own_degree": 1171,
+    "own_ge_qualtran": true
+   }
+  ],
+  "gqsp_walk_calls": {
+   "degree": 22,
+   "walk_calls": 44,
+   "own_rule": 44,
+   "match": true
+  },
+  "documented": {
+   "alias": "Qualtran's QROM prunes unary-iteration branches whose data bits are all zero, so its count depends on the loaded data (N - 3 at N = 512, N - 7 at N = 1024 for random alias tables). Own qrom(N) = N - 2 is the data-independent count and an upper bound; accepted when own >= Qualtran and the difference is <= 1%",
+   "jacobi_anger_degree": "Qualtran truncates where |J_{d+1}(t)| <= eps/2 (a single-term criterion); own q uses the rigorous tail 2 sum_{l>q} |J_l(t)| <= eps, so q >= d"
+  },
+  "unexplained_mismatches": [],
+  "pass": true
+ }
+}

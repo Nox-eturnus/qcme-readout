@@ -1,0 +1,333 @@
+{
+ "name": "michaelis_menten_baselines",
+ "settings": {
+  "leak_tol": 1e-06,
+  "eps": 0.01,
+  "delta_fail": 0.01,
+  "eps_sweep": [
+   0.1,
+   0.01,
+   0.001,
+   0.0001
+  ],
+  "tail_level": 0.05,
+  "weighted": {
+   "R-mix(NB,E1)": "mix",
+   "R-NB": "product"
+  },
+  "kernels": [
+   "K1(beta=0.6)",
+   "K1(beta=0.7)",
+   "K1(beta=0.8)",
+   "K2(c=1)",
+   "K2(c=2)"
+  ],
+  "variants": [
+   "single",
+   "per_window"
+  ],
+  "families": [
+   "sqrt_mu",
+   "resolvent"
+  ],
+  "headline_growth": "W",
+  "eta": 0.001,
+  "lchs_safety": 1.25,
+  "model": "michaelis_menten"
+ },
+ "environment": {
+  "python": "3.13.5",
+  "numpy": "2.2.6",
+  "scipy": "1.17.0",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "timestamp": "2026-09-28T10:08:34+0530",
+  "hardware": "Intel Core i9-14900HX, 32 GB RAM; CPU double precision"
+ },
+ "data": {
+  "model": "michaelis_menten",
+  "T": 3.06969549596953,
+  "widths": [
+   11,
+   41,
+   11,
+   41
+  ],
+  "rows": [
+   {
+    "observable": "one",
+    "kind": "ssa",
+    "method": "uniformization",
+    "label": "coherent SSA (uniformization)",
+    "Lambda": 400.0,
+    "N_steps": 1327,
+    "b": 25,
+    "step": 3037.0,
+    "per_A": 4032205.0,
+    "M": 45,
+    "n": 24,
+    "uses": 2160,
+    "total": 8751264840.0,
+    "qubits": 38614,
+    "P": 0.99999999999988
+   },
+   {
+    "observable": "one",
+    "kind": "ssa",
+    "method": "direct",
+    "label": "coherent SSA (direct)",
+    "Lambda": 400.0,
+    "N_steps": 1327,
+    "b": 25,
+    "step": 22796.0,
+    "per_A": 30252398.0,
+    "M": 45,
+    "n": 24,
+    "uses": 2160,
+    "total": 65386881720.0,
+    "qubits": 38614,
+    "P": 0.99999999999988
+   },
+   {
+    "observable": "one",
+    "kind": "lindblad",
+    "label": "Lindblad (DLL order 1)",
+    "order": 1,
+    "N_steps": 1,
+    "emulated_error": 1.2001510896197942e-13,
+    "Lambda_H": 30.233345472033854,
+    "q": 64,
+    "b": 15,
+    "step": 636416.0,
+    "per_A": 636416.0,
+    "M": 45,
+    "n": 24,
+    "uses": 2160,
+    "total": 1374769800.0,
+    "qubits": 104,
+    "P": 0.99999999999988,
+    "search": {
+     "history": [
+      [
+       16,
+       1.197930643570544e-13
+      ]
+     ],
+     "method": "bisection"
+    }
+   },
+   {
+    "observable": "one",
+    "kind": "lindblad",
+    "label": "Lindblad (DLL order 2)",
+    "order": 2,
+    "N_steps": 1,
+    "emulated_error": 1.2001510896197942e-13,
+    "Lambda_H": 10112.05708831306,
+    "q": 17796,
+    "b": 17,
+    "step": 2706273312.0,
+    "per_A": 2706273312.0,
+    "M": 45,
+    "n": 24,
+    "uses": 2160,
+    "total": 5845550480280.0,
+    "qubits": 118,
+    "P": 0.99999999999988,
+    "search": {
+     "history": [
+      [
+       16,
+       1.1957101975212936e-13
+      ]
+     ],
+     "method": "bisection"
+    }
+   },
+   {
+    "observable": "tail",
+    "kind": "ssa",
+    "method": "uniformization",
+    "label": "coherent SSA (uniformization)",
+    "Lambda": 400.0,
+    "N_steps": 1363,
+    "b": 30,
+    "step": 4187.0,
+    "per_A": 5709009.0,
+    "M": 7050,
+    "n": 24,
+    "uses": 338400,
+    "total": 1939795092000.0,
+    "qubits": 46493,
+    "P": 0.03087739383032518
+   },
+   {
+    "observable": "tail",
+    "kind": "ssa",
+    "method": "direct",
+    "label": "coherent SSA (direct)",
+    "Lambda": 400.0,
+    "N_steps": 1363,
+    "b": 30,
+    "step": 37980.0,
+    "per_A": 51768868.0,
+    "M": 7050,
+    "n": 24,
+    "uses": 338400,
+    "total": 17526451377600.0,
+    "qubits": 46493,
+    "P": 0.03087739383032518
+   },
+   {
+    "observable": "tail",
+    "kind": "lindblad",
+    "label": "Lindblad (DLL order 1)",
+    "order": 1,
+    "N_steps": 454230,
+    "emulated_error": 7.373305097238547e-05,
+    "Lambda_H": 30.233345472033854,
+    "q": 5,
+    "b": 39,
+    "step": 543840.0,
+    "per_A": 247028443212.0,
+    "M": 7050,
+    "n": 24,
+    "uses": 338400,
+    "total": 8.35946557873128e+16,
+    "qubits": 1362911,
+    "P": 0.03087739383032518,
+    "search": {
+     "history": [
+      [
+       16,
+       0.03087739383032518
+      ],
+      [
+       32,
+       0.03087739383032518
+      ],
+      [
+       64,
+       0.03087739383032518
+      ],
+      [
+       128,
+       0.03087739383027642
+      ],
+      [
+       256,
+       0.03083468711950447
+      ],
+      [
+       512,
+       0.028666180948481224
+      ],
+      [
+       1024,
+       0.021416219395289912
+      ],
+      [
+       2048,
+       0.01324068195954551
+      ],
+      [
+       4096,
+       0.007364002818391002
+      ],
+      [
+       8192,
+       0.0038822807318202347
+      ]
+     ],
+     "method": "extrapolated then verified",
+     "N_pred": 412000,
+     "checks": [
+      [
+       412000,
+       8.128280115086983e-05
+      ],
+      [
+       432600,
+       7.741603885517631e-05
+      ],
+      [
+       454230,
+       7.373305097238547e-05
+      ]
+     ]
+    }
+   },
+   {
+    "observable": "tail",
+    "kind": "lindblad",
+    "label": "Lindblad (DLL order 2)",
+    "order": 2,
+    "N_steps": 6374,
+    "emulated_error": 7.119816852278055e-05,
+    "Lambda_H": 39.610132997124225,
+    "q": 8,
+    "b": 34,
+    "step": 7123472.0,
+    "per_A": 45405010540.0,
+    "M": 7050,
+    "n": 24,
+    "uses": 338400,
+    "total": 1.53650609924724e+16,
+    "qubits": 32068,
+    "P": 0.03087739383032518,
+    "search": {
+     "history": [
+      [
+       16,
+       0.03087739383032518
+      ],
+      [
+       32,
+       0.03087739383032518
+      ],
+      [
+       64,
+       0.03087739383032518
+      ],
+      [
+       128,
+       0.03086191161216083
+      ],
+      [
+       256,
+       0.011916894668982207
+      ],
+      [
+       512,
+       0.007557188037614897
+      ],
+      [
+       1024,
+       0.0023544834154483815
+      ],
+      [
+       2048,
+       0.0006466540403650689
+      ],
+      [
+       4096,
+       0.00016948294181493712
+      ]
+     ],
+     "method": "extrapolated then verified",
+     "N_pred": 6070,
+     "checks": [
+      [
+       6070,
+       7.838657061358736e-05
+      ],
+      [
+       6374,
+       7.119816852278055e-05
+      ]
+     ]
+    }
+   }
+  ]
+ }
+}
