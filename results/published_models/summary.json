@@ -257,7 +257,7 @@
     "exact_K": "inf",
     "exact_note": "not computable: p_t underflows on 3,642,688 states at t > 0",
     "W_split": {
-     "window_penalty": 5391.855346108119,
+     "window_penalty": 5392.708257670063,
      "non_normality": 1526.4464332712434,
      "instance_slack": 0.0014884826022267816,
      "label": "exact",
@@ -296,7 +296,7 @@
     "exact_K": 745.5509471174016,
     "exact_note": "standard finite state projection",
     "W_split": {
-     "window_penalty": 6.705497143570476,
+     "window_penalty": 6.697243870558242,
      "non_normality": 57.65927352881822,
      "instance_slack": 0.23759249625495737,
      "label": "exact",
@@ -342,6 +342,9 @@
     "W_split": null,
     "mixed_certificate": null
    }
-  }
+  },
+  "revisions": [
+   "window_penalty recomputed (round 5) as (K - K_continuous) / (2 ln 10), the certificate over the continuous estimate; it was R_schedule - R_continuous, which mixed two measured growths"
+  ]
  }
 }

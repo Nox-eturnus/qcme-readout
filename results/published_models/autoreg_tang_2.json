@@ -1063,7 +1063,7 @@
    "log10_R": 14.052992408776685
   },
   "decomposition": {
-   "window_penalty": 5.1554355944343175,
+   "window_penalty": 5.460531862939378,
    "non_normality": 8.897174079877384,
    "instance_slack": 0.00038273446498243713,
    "log10_W_c": 0.28191595890079324
@@ -1093,6 +1093,9 @@
    ],
    "valid": true
   },
-  "seconds": 18.959909677505493
+  "seconds": 18.959909677505493,
+  "revisions": [
+   "window_penalty recomputed (round 5) as (K - K_continuous) / (2 ln 10), the certificate over the continuous estimate; it was R_schedule - R_continuous, which mixed two measured growths"
+  ]
  }
 }

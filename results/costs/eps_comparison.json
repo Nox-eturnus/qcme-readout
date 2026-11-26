@@ -1,0 +1,316 @@
+{
+ "name": "eps_comparison",
+ "settings": {
+  "leak_tol": 1e-06,
+  "eps": 0.01,
+  "delta_fail": 0.01,
+  "eps_sweep": [
+   0.1,
+   0.01,
+   0.001,
+   0.0001
+  ],
+  "weighted": {
+   "R-mix(NB,E1)": "mix",
+   "R-NB": "product"
+  },
+  "kernels": [
+   "K1(beta=0.6)",
+   "K1(beta=0.7)",
+   "K1(beta=0.8)",
+   "K2(c=1)",
+   "K2(c=2)"
+  ],
+  "variants": [
+   "single",
+   "per_window"
+  ],
+  "families": [
+   "sqrt_mu",
+   "resolvent"
+  ],
+  "headline_growth": "W",
+  "eta": 0.001,
+  "lchs_safety": 1.25,
+  "eps_second": 0.001
+ },
+ "environment": {
+  "python": "3.13.5",
+  "numpy": "2.2.6",
+  "scipy": "1.17.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "timestamp": "2026-10-23T18:45:00+0530"
+ },
+ "data": {
+  "rows": [
+   {
+    "model": "toggle",
+    "P": 0.04502990240959077,
+    "ssa_total": 1814018295312.0,
+    "ssa_N": 540,
+    "lindblad_best": 5951264497392480.0,
+    "encodings": {
+     "uniform": {
+      "single": 2.8308314571536563e+17,
+      "split": 7.833650740651008e+16,
+      "best": 7.833650740651008e+16
+     },
+     "R-NB": {
+      "single": 8.576395703081816e+18,
+      "split": 1.0764296709900493e+19,
+      "best": 8.576395703081816e+18
+     },
+     "R-mix(NB,E1)": {
+      "single": 5.297356049784632e+19,
+      "split": 7.992630762355533e+19,
+      "best": 5.297356049784632e+19
+     }
+    },
+    "cheapest_encoding": "uniform",
+    "cheapest_total": 7.833650740651008e+16,
+    "ratio_cheapest_to_ssa": 43183.96766391856,
+    "lindblad_over_ssa": 3280.7080903056158,
+    "seconds": 16.59379291534424
+   },
+   {
+    "model": "schlogl",
+    "P": 0.04891679148732259,
+    "ssa_total": 28307760012576.0,
+    "ssa_N": 6847,
+    "lindblad_best": 9807735216626688.0,
+    "encodings": {
+     "uniform": {
+      "single": 7.614244679470766e+17,
+      "split": 2.290629696244692e+17,
+      "best": 2.290629696244692e+17
+     },
+     "R-NB": {
+      "single": 1.454952893809536e+16,
+      "split": 5932098782957952.0,
+      "best": 5932098782957952.0
+     },
+     "R-mix(NB,E1)": {
+      "single": 6.952638293295085e+17,
+      "split": 1.0647594012734094e+18,
+      "best": 6.952638293295085e+17
+     }
+    },
+    "cheapest_encoding": "R-NB",
+    "cheapest_total": 5932098782957952.0,
+    "ratio_cheapest_to_ssa": 209.557336232982,
+    "lindblad_over_ssa": 346.4680784445504,
+    "seconds": 25.734458446502686
+   },
+   {
+    "model": "michaelis_menten",
+    "P": 0.03087739383032518,
+    "ssa_total": 23321704912704.0,
+    "ssa_N": 1382,
+    "lindblad_best": 7.047890976295284e+17,
+    "encodings": {
+     "uniform": {
+      "single": 1.1105221333789426e+19,
+      "split": 2.3616117636276048e+19,
+      "best": 1.1105221333789426e+19
+     },
+     "R-NB": {
+      "single": 2.9282329566278976e+16,
+      "split": 6.999264518015722e+16,
+      "best": 2.9282329566278976e+16
+     },
+     "R-mix(NB,E1)": {
+      "single": 9.211038678561984e+16,
+      "split": 1.8414450591686794e+17,
+      "best": 9.211038678561984e+16
+     }
+    },
+    "cheapest_encoding": "R-NB",
+    "cheapest_total": 2.9282329566278976e+16,
+    "ratio_cheapest_to_ssa": 1255.5827147237444,
+    "lindblad_over_ssa": 30220.307660509403,
+    "seconds": 185.32093238830566
+   },
+   {
+    "model": "self_repressor",
+    "P": 0.030957729157351403,
+    "ssa_total": 1463233207872.0,
+    "ssa_N": 98,
+    "lindblad_best": 5.378750164628467e+16,
+    "encodings": {
+     "uniform": {
+      "single": 1.5909619818471206e+17,
+      "split": 3.22546642681574e+17,
+      "best": 1.5909619818471206e+17
+     },
+     "R-NB": {
+      "single": 7807903158712944.0,
+      "split": 1.1937015591016752e+16,
+      "best": 7807903158712944.0
+     },
+     "R-mix(NB,E1)": {
+      "single": 2.001920147153388e+16,
+      "split": 3.0934288430285856e+16,
+      "best": 2.001920147153388e+16
+     }
+    },
+    "cheapest_encoding": "R-NB",
+    "cheapest_total": 7807903158712944.0,
+    "ratio_cheapest_to_ssa": 5336.062028053671,
+    "lindblad_over_ssa": 36759.35001810721,
+    "seconds": 17.906675338745117
+   },
+   {
+    "model": "cascade2",
+    "P": 0.022731894121531288,
+    "ssa_total": 110783330160.0,
+    "ssa_N": 60,
+    "lindblad_best": 1950312805429152.0,
+    "encodings": {
+     "uniform": {
+      "single": 3.008880947209711e+16,
+      "split": 5070552427589880.0,
+      "best": 5070552427589880.0
+     },
+     "R-NB": {
+      "single": 488832287269824.0,
+      "split": 560449613274000.0,
+      "best": 488832287269824.0
+     },
+     "R-mix(NB,E1)": {
+      "single": 2726515865850048.0,
+      "split": 3715107801446592.0,
+      "best": 2726515865850048.0
+     }
+    },
+    "cheapest_encoding": "R-NB",
+    "cheapest_total": 488832287269824.0,
+    "ratio_cheapest_to_ssa": 4412.507608895876,
+    "lindblad_over_ssa": 17604.749763456217,
+    "seconds": 16.799605131149292
+   },
+   {
+    "model": "cascade3",
+    "P": 0.041978220530293514,
+    "ssa_total": 141484455024.0,
+    "ssa_N": 78,
+    "lindblad_best": 1756868572658160.0,
+    "encodings": {
+     "uniform": {
+      "single": 1.452516471735813e+17,
+      "split": 2.638654407839923e+16,
+      "best": 2.638654407839923e+16
+     },
+     "R-NB": {
+      "single": 1137441184401984.0,
+      "split": 1662365799674496.0,
+      "best": 1137441184401984.0
+     },
+     "R-mix(NB,E1)": {
+      "single": 4044458680174272.0,
+      "split": 6409435996561776.0,
+      "best": 4044458680174272.0
+     }
+    },
+    "cheapest_encoding": "R-NB",
+    "cheapest_total": 1137441184401984.0,
+    "ratio_cheapest_to_ssa": 8039.336789395273,
+    "lindblad_over_ssa": 12417.396472002118,
+    "seconds": 20.965643405914307
+   },
+   {
+    "model": "cascade1",
+    "P": 0.0439759284197242,
+    "ssa_total": 31901371200.0,
+    "ssa_N": 39,
+    "lindblad_best": 10190574691200.0,
+    "encodings": {
+     "uniform": {
+      "single": 1126588717880064.0,
+      "split": 180017586383616.0,
+      "best": 180017586383616.0
+     },
+     "R-NB": {
+      "single": 50040989528736.0,
+      "split": 8786960729568.0,
+      "best": 8786960729568.0
+     },
+     "R-mix(NB,E1)": {
+      "single": 877910699017248.0,
+      "split": 1249077335235600.0,
+      "best": 877910699017248.0
+     }
+    },
+    "cheapest_encoding": "R-NB",
+    "cheapest_total": 8786960729568.0,
+    "ratio_cheapest_to_ssa": 275.441474740371,
+    "lindblad_over_ssa": 319.44002116122203,
+    "seconds": 14.397794961929321
+   },
+   {
+    "model": "cascade4",
+    "P": 0.0028118978606185606,
+    "ssa_total": 999736464672.0,
+    "ssa_N": 101,
+    "lindblad_best": 1.8815176510979904e+16,
+    "encodings": {
+     "uniform": {
+      "single": 2.191655787040738e+19,
+      "split": 3.805877752658776e+18,
+      "best": 3.805877752658776e+18
+     },
+     "R-NB": {
+      "single": 8868540921505200.0,
+      "split": 1.14788232380484e+16,
+      "best": 8868540921505200.0
+     },
+     "R-mix(NB,E1)": {
+      "single": 5.068222265832185e+16,
+      "split": 7.1313926211963864e+16,
+      "best": 5.068222265832185e+16
+     }
+    },
+    "cheapest_encoding": "R-NB",
+    "cheapest_total": 8868540921505200.0,
+    "ratio_cheapest_to_ssa": 8870.878711436066,
+    "lindblad_over_ssa": 18820.136281767926,
+    "seconds": 188.86635637283325
+   },
+   {
+    "model": "birth_death",
+    "P": 0.028531530108285824,
+    "ssa_total": 108604469952.0,
+    "ssa_N": 82,
+    "lindblad_best": 62436970972464.0,
+    "encodings": {
+     "uniform": {
+      "single": 4716563013384288.0,
+      "split": 850928743138848.0,
+      "best": 850928743138848.0
+     },
+     "R-NB": {
+      "single": 114393542049144.0,
+      "split": 26454413181960.0,
+      "best": 26454413181960.0
+     },
+     "R-mix(NB,E1)": {
+      "single": 2308446790352064.0,
+      "split": 3216787680032640.0,
+      "best": 2308446790352064.0
+     }
+    },
+    "cheapest_encoding": "R-NB",
+    "cheapest_total": 26454413181960.0,
+    "ratio_cheapest_to_ssa": 243.58493894083804,
+    "lindblad_over_ssa": 574.902405030468,
+    "seconds": 27.337131023406982
+   }
+  ],
+  "claim_test": {
+   "ssa_cheapest_everywhere": true,
+   "min_ratio_encoding": 209.557336232982,
+   "min_ratio_lindblad": 319.44002116122203,
+   "max_ratio_lindblad": 36759.35001810721
+  }
+ }
+}

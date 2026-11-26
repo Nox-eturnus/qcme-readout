@@ -21,12 +21,13 @@ import time
 
 import numpy as np
 import scipy.sparse as sp
+import scipy.sparse.linalg as spla
 from scipy.special import logsumexp
 
 from .common import (CEILING, FAMILIES, N_CONT, OUT, SUB, TAIL_GROW, best_of, build_setup, certificate_table,
                      checkpoint_load, checkpoint_save, data, inf_if_nan, is_huge, is_large, log10, log_norm_weighted,
                      num, published_model, published_setup, save, schedules, settings, worst_case)
-from qcme import certify, fsp, invariants as inv, models, reference
+from qcme import certify, fsp, invariants as inv, models, network, reference
 
 PART = "published_models"
 VALIDITY_TOL = {"I2": 1e-10, "I3": 1e-12, "I4": 1e-10}
@@ -132,7 +133,8 @@ def references_model(m):
     log_W = worst_case(s, win["_lm0"], win["_lmT"])
     slack = None if log_W is None else log10(log_W) - win["measured_log10_growth_continuous"]
     Rc, Rs = win["log10_R_continuous"][fam], win["schedules"][sn]["log10_R"][fam]
-    dec = {"window_penalty": Rs - Rc, "non_normality": None if slack is None else Rc - slack,
+    dec = {"window_penalty": (K - num(win["K_continuous_estimate"][fam])) / (2 * np.log(10)),  # cert / continuous
+           "non_normality": None if slack is None else Rc - slack,
            "instance_slack": slack, "log10_W_c": None if log_W is None else log10(log_W)}
     # numerical validity of the best combination
     sv = s if not is_huge(s) else build_setup(s.model, tuple(s.model.widths), s.T)
@@ -625,7 +627,8 @@ def stage_worst_case(only=None):
         Rc, Rs = num(d["references"][rn]["log10_R_continuous"][fam]), num(d["best"]["log10_R"])
         slack = res["log10_W"] - meas_c
         res.update({"winner": rn, "family": fam, "schedule": sn, "measured_log10_growth_continuous": meas_c,
-                    "decomposition": {"window_penalty": Rs - Rc, "non_normality": Rc - slack, "instance_slack": slack,
+                    "decomposition": {"window_penalty": (num(d["best"]["K"]) - num(d["references"][rn]["K_continuous_estimate"][fam]))
+                                      / (2 * np.log(10)), "non_normality": Rc - slack, "instance_slack": slack,
                                       "label": "exact" if res["converged"] else
                                       "W lower bound: non-normality is an upper bound, slack a lower bound"},
                     "seconds": time.time() - t0})
@@ -716,9 +719,257 @@ def stage_summary(only=None):
     save(PART, "summary", settings(), {"rows": rows})
 
 
-STAGES = {"references": stage_references, "exact": stage_exact, "exact_log": stage_exact_log,
+# ----------------------------------------------------------------------------- stationary law (reversible instances)
+REVERSIBLE = ("schlogl",)  # one species, every reaction changes the count by +1 or -1: a birth-death chain
+
+
+def log_stationary_birth_death(s):
+    """log pi on the box from detailed balance, pi(x+1)/pi(x) = birth(x)/death(x+1), computed from the network
+    alone (no CME solve)."""
+    X = s.space.states[:, 0]
+    order = np.argsort(X)
+    birth, death = np.zeros(len(X)), np.zeros(len(X))
+    for r in s.model.reactions(s.widths):
+        a = r.prop(s.space.states.astype(float))
+        if tuple(r.nu) == (1,):
+            birth += a
+        elif tuple(r.nu) == (-1,):
+            death += a
+        else:
+            raise ValueError(f"{s.model.name} is not a birth-death chain")
+    lp = np.zeros(len(X))
+    for k in range(1, len(order)):
+        i, j = order[k - 1], order[k]
+        lp[j] = lp[i] + np.log(birth[i]) - np.log(death[j])
+    return lp - logsumexp(lp)
+
+
+def stage_stationary(only=None):
+    """The closed-form stationary law as a fixed reference on the reversible published instance: K_T over the same
+    schedules and weights, the initial term ||p0 / sqrt(pi)||, and the certified readout factor for f = 1, against
+    the uniform factor and the best cheap reference."""
+    for name in (only or REVERSIBLE):
+        t0 = time.time()
+        s, leak, hinfo = published_setup(published_model(name), refs=None)
+        lpi = log_stationary_birth_death(s)
+        ref = reference.Static(lpi, name="stationary")
+        edges = np.array([0.0, s.T])
+        cert = certify.window_certificate(s.gen, ref, edges)
+        K, fam = min((cert.K[f], f) for f in cert.K)
+        pT = fsp.propagate(s.gen.A, s.p0, [s.T])[-1]
+        mT = float(pT.sum())
+        log_psi0 = log_norm_weighted(s.p0, lpi)
+        log_rf = 0.5 * float(logsumexp(lpi)) - np.log(mT)  # ||f sqrt(pi)|| / <f, p_T> with f = 1
+        log_meas = log_norm_weighted(pT, lpi)
+        with np.errstate(divide="ignore"):
+            r = certify.residual(s.gen.A, lpi)
+        dec = data(PART, name)
+        out = {"T": s.T, "widths": s.widths, "n_states": len(s.space), "leak": leak,
+               "reference": "stationary law of the birth-death chain on the box (detailed balance)",
+               "K": {f: float(v) for f, v in cert.K.items()}, "best_K": float(K), "family": fam,
+               "max_residual_minus_leak": float(np.max(r - s.gen.leak)),
+               "log10_psi0": log10(log_psi0),
+               "log10_readout_cert": log10(log_psi0 + 0.5 * max(K, 0.0) + log_rf),
+               "log10_readout_cert_K": log10(log_psi0 + 0.5 * K + log_rf),
+               "log10_readout_meas": log10(log_meas + log_rf),
+               "log10_uniform_factor": float(0.5 * np.log10(len(s.space) * np.sum(pT**2) / mT**2)),
+               "best_cheap": {"K": dec["best"]["K"], "reference": dec["best"]["reference"],
+                              "log10_Gamma": dec["best"]["log10_Gamma"]},
+               "seconds": time.time() - t0}
+        save(PART, f"{name}_stationary", {**settings(), "model": name, "reference": "stationary law"}, out)
+        print(f"  stationary {name}: K = {K:.4g} ({fam}); log10 ||psi0|| = {out['log10_psi0']:.3f}; "
+              f"certified readout factor 10^{out['log10_readout_cert']:.2f} (uniform 10^{out['log10_uniform_factor']:.2f})",
+              flush=True)
+
+
+# ----------------------------------------------------------------------------- stationary laws known in closed form
+# Exact stationary laws are published for these model classes: the autoregulation model of Tang et al. is the
+# feedback loop solved by Grima, Schmidt and Newman (J. Chem. Phys. 2012) with no decay of bound protein, and the
+# burst-with-feedback model of Kuntz et al. is the model of Kumar, Platini and Kulkarni (Phys. Rev. Lett. 2014), with
+# production in one gene state. The law is computed here on a box twice as wide in every unbounded species, closed
+# at its edge, and restricted to the instance box; it stands in for the closed form up to that truncation.
+KNOWN_STATIONARY = ("autoreg_tang_1", "autoreg_tang_2", "autoreg_tang_3", "feedback_b1", "feedback_b10",
+                    "feedback_b100")
+# Instances whose sources study the stationary law only: the readout factor at that law is reported as well.
+STATIONARY_SOURCES = ("schlogl", "toggle_kuntz", "feedback_b1", "feedback_b10", "feedback_b100", "toggle_gardner")
+STATIONARY_GROW = 2.0
+# the Gardner toggle box (3.66 million states) already holds both modes; a wider box is too large for a direct solve
+STATIONARY_GROW_BY = {"toggle_gardner": 1.0}
+
+
+def stationary_on_box(m, widths, grow=STATIONARY_GROW):
+    """log pi on the box `widths`: the stationary law of the generator on a box `grow` times wider in every unbounded
+    species, closed at its edge (outflow removed), restricted to the inner box. Also the mass of pi outside the
+    inner box and the mass in the outer layer of the wide box (a check that the wide box holds the law)."""
+    fixed = np.array(m.binary) | fsp._bounded_by_conservation(m)
+    wide = tuple(int(w) if fx else int(np.ceil(w * grow)) for w, fx in zip(widths, fixed))
+    space = m.space(wide)
+    gen = network.generator(space, m.reactions(wide))
+    C = sp.csr_matrix(gen.A + sp.diags(gen.leak))  # closed box: every column sums to zero
+    n = C.shape[0]
+    X = space.states
+    # one balance equation is redundant: replace it by pi = 1 at the state nearest the rate-equation attractor (a
+    # sparse row, so the factorization keeps its fill low), and normalize afterwards
+    pin = int(np.argmin(np.abs(X - np.maximum(models.relaxation_time(m)[1], 0.0)).sum(axis=1)))
+    A = C.tolil()
+    A[pin, :] = 0.0
+    A[pin, pin] = 1.0
+    b = np.zeros(n)
+    b[pin] = 1.0
+    pi = spla.spsolve(A.tocsc(), b, permc_spec="MMD_AT_PLUS_A")
+    pi = np.maximum(pi, 0.0)
+    pi /= pi.sum()
+    resid = float(np.abs(C @ pi).max())
+    inner = np.all(X < np.array(widths), axis=1)
+    outer = np.any((X >= np.array(wide) - np.maximum(1, np.array(wide) // 10)) & ~fixed, axis=1)
+    small = m.space(tuple(widths)).states
+    index = {tuple(x): i for i, x in enumerate(X)}
+    lp = np.log(pi[[index[tuple(x)] for x in small]])
+    return lp, {"wide_widths": list(wide), "mass_outside_box": float(pi[~inner].sum()),
+                "mass_outer_layer_wide_box": float(pi[outer].sum()), "balance_residual": resid}
+
+
+def stage_stationary_known(only=None):
+    """The stationary law as a fixed reference where it is known, and the readout factor at the stationary law for
+    the instances whose sources study it."""
+    names = only or sorted(set(KNOWN_STATIONARY) | set(STATIONARY_SOURCES), key=[m.name for m in models.published()].index)
+    for name in names:
+        t0 = time.time()
+        m = published_model(name)
+        d = data(PART, name)
+        s = build_setup(m, tuple(d["widths"]), d["T"], refs=None)
+        lpi, check = stationary_on_box(m, s.widths, STATIONARY_GROW_BY.get(name, STATIONARY_GROW))
+        n = len(s.space)
+        out = {"T": s.T, "widths": s.widths, "n_states": n, **check,
+               "log10_readout_factor_at_stationary_law": float(
+                   0.5 * (np.log(n) + logsumexp(2 * lpi) - 2 * logsumexp(lpi)) / np.log(10))}
+        if name in KNOWN_STATIONARY:
+            ref = reference.Static(lpi, name="stationary")
+            cert = certify.window_certificate(s.gen, ref, np.array([0.0, s.T]))
+            K, fam = min((cert.K[f], f) for f in cert.K)
+            pT = fsp.propagate(s.gen.A, s.p0, [s.T])[-1]
+            mT = float(pT.sum())
+            log_psi0 = log_norm_weighted(s.p0, lpi)
+            log_rf = 0.5 * float(logsumexp(lpi)) - np.log(mT)
+            with np.errstate(over="ignore"):
+                r = certify.residual(s.gen.A, lpi)
+            out.update({"K": {f: float(v) for f, v in cert.K.items()}, "best_K": float(K), "family": fam,
+                        "max_residual_minus_leak": float(np.max(r - s.gen.leak)),
+                        "log10_psi0": log10(log_psi0),
+                        "log10_readout_cert": log10(log_psi0 + 0.5 * max(K, 0.0) + log_rf),
+                        "log10_readout_meas": log10(log_norm_weighted(pT, lpi) + log_rf),
+                        "log10_uniform_factor": float(0.5 * np.log10(n * np.sum(pT**2) / mT**2)),
+                        # like-for-like: the certified factor of the uniform encoding, with its normalization c
+                        "log10_uniform_cert": log10(float(np.log(np.linalg.norm(s.p0))) + 0.5 * max(0.0, min(
+                            certify.window_certificate(s.gen, reference.Uniform(n), np.array([0.0, s.T])).K.values()))
+                            + 0.5 * np.log(n) - np.log(mT)),
+                        "best_cheap_K": num(d["best"]["K"])})
+        out["seconds"] = time.time() - t0
+        save(PART, f"{name}_stationary_known", {**settings(), "model": name, "grow": STATIONARY_GROW,
+                                          "reference": "stationary law on a box twice as wide, restricted to the box"},
+             out)
+        print(f"  {name}: factor at the stationary law 10^{out['log10_readout_factor_at_stationary_law']:.2f}"
+              + (f"; K = {out['best_K']:.3g}, certified 10^{out['log10_readout_cert']:.2f}, measured "
+                 f"10^{out['log10_readout_meas']:.2f}, uniform 10^{out['log10_uniform_factor']:.2f}"
+                 if "best_K" in out else "") + f" [{time.time() - t0:.0f}s]", flush=True)
+
+
+# ----------------------------------------------------------------------------- measured weighted readout factors
+def stage_weighted_factors(only=None):
+    """The readout factor of the weighted encoding for f = 1, ||sqrt(mu_T)|| ||p_T / sqrt(mu_T)|| / m_T, for every
+    cheap reference on every published instance (from the stored growth; no CME solve), with the certified factor
+    of the best reference and the uniform factor for comparison."""
+    uni = {r["row"]: r["log10_readout_factor"] for r in data("readout", "published_summary")["published_rows"]}
+    rows = []
+    for m in instances(only):
+        t0 = time.time()
+        d = data(PART, m.name)
+        s = build_setup(m, tuple(d["widths"]), d["T"])
+        log_mT = np.log(1.0 - num(d["leak"]))
+        per = {}
+        for rn, r in d["references"].items():
+            lmT = s.refs[rn].log_mu(s.T)
+            log_rf = 0.5 * float(logsumexp(lmT)) - log_mT
+            per[rn] = {"log10_readout_meas": num(r["log10_psi0"]) + num(r["measured_log10_growth_continuous"])
+                       + log10(log_rf)}
+            if rn == d["best"]["reference"]:
+                per[rn]["log10_readout_cert"] = num(d["best"]["log10_Gamma"]) + log10(log_rf)
+        best = d["best"]["reference"]
+        smallest = min(per, key=lambda k: per[k]["log10_readout_meas"])
+        rows.append({"row": m.name, "uniform": uni[m.name], "best_reference": best,
+                     "best_meas": per[best]["log10_readout_meas"], "best_cert": per[best]["log10_readout_cert"],
+                     "smallest_reference": smallest, "smallest_meas": per[smallest]["log10_readout_meas"],
+                     "by_reference": per, "seconds": time.time() - t0})
+        print(f"  {m.name}: uniform 10^{uni[m.name]:.2f}; best cheap {best} measured 10^{rows[-1]['best_meas']:.2f}; "
+              f"smallest measured {smallest} 10^{rows[-1]['smallest_meas']:.2f}", flush=True)
+    if only:
+        return
+    save(PART, "weighted_factors", settings(), {"rows": rows})
+
+
+SPLIT_NOTE = ("window_penalty recomputed (round 5) as (K - K_continuous) / (2 ln 10), the certificate over the "
+              "continuous estimate; it was R_schedule - R_continuous, which mixed two measured growths")
+
+
+def _rewrite(path, fn):
+    """Apply fn to the data of a stored result in place, keeping its settings and environment, and log the revision."""
+    rec = json.loads(path.read_text(encoding="utf-8"))
+    fn(rec["data"])
+    rec["data"].setdefault("revisions", [])
+    if SPLIT_NOTE not in rec["data"]["revisions"]:
+        rec["data"]["revisions"].append(SPLIT_NOTE)
+    path.write_text(json.dumps(rec, indent=1, ensure_ascii=False), encoding="utf-8")
+
+
+def stage_split(only=None):
+    """Recompute the window term of every stored looseness split from stored values (no new solve): the published
+    instances (Table S11), the W splits of the large boxes, and the toggle references of Figure 2a. Checks the caption
+    identity K / (2 ln 10) = window + non-normality + slack + log10 measured growth on every published row."""
+    ln10 = np.log(10)
+    root = OUT / PART
+    summ_path = root / "summary.json"
+    summ = json.loads(summ_path.read_text(encoding="utf-8"))["data"]["rows"]
+    gaps = {}
+    for key in summ:
+        path = root / f"{key}.json"
+        d = json.loads(path.read_text(encoding="utf-8"))["data"]
+        rn, fam = d["best"]["reference"], d["best"]["family"]
+        K, Kc = num(d["best"]["K"]), num(d["references"][rn]["K_continuous_estimate"][fam])
+        window = (K - Kc) / (2 * ln10)
+        _rewrite(path, lambda x: x["decomposition"].update({"window_penalty": window}))
+        if summ[key].get("W_split"):
+            summ[key]["W_split"]["window_penalty"] = window
+            w = summ[key]["W_split"]
+            meas = w["log10_W"] - w["instance_slack"]
+            gaps[key] = K / (2 * ln10) - (w["window_penalty"] + w["non_normality"] + w["instance_slack"] + meas)
+        else:
+            dec = json.loads(path.read_text(encoding="utf-8"))["data"]["decomposition"]
+            meas = num(d["references"][rn]["measured_log10_growth_continuous"])
+            gaps[key] = K / (2 * ln10) - (dec["window_penalty"] + dec["non_normality"] + dec["instance_slack"] + meas)
+    _rewrite(summ_path, lambda x: x["rows"].update(summ))
+    for name in ("toggle_gardner_worst_case", "lambda_phage_worst_case"):
+        key = name.replace("_worst_case", "")
+        _rewrite(root / f"{name}.json", lambda x, key=key: x["decomposition"].update(
+            {"window_penalty": summ[key]["W_split"]["window_penalty"]}))
+    tog = OUT / "certificates" / "toggle_references.json"
+
+    def fix_toggle(x):
+        for r in x["references"].values():
+            for sname, per in r.get("decomposition", {}).items():
+                for f in per:
+                    per[f]["window_penalty"] = (num(r["schedules"][sname]["K"][f])
+                                                - num(r["K_continuous_estimate"][f])) / (2 * ln10)
+    _rewrite(tog, fix_toggle)
+    worst = max(abs(g) for g in gaps.values())
+    print("identity gaps:", {k: f"{g:.1e}" for k, g in gaps.items()}, flush=True)
+    print(f"largest gap {worst:.1e}: {'PASS' if worst <= 1e-9 else 'FAIL'}", flush=True)
+
+
+STAGES = {"split": stage_split, "references": stage_references, "exact": stage_exact, "exact_log": stage_exact_log,
           "exact_log_uniformization": stage_exact_log_uniformization, "overflow_bounds": stage_overflow_bounds,
-          "worst_case": stage_worst_case, "resolvent": stage_resolvent, "summary": stage_summary}
+          "worst_case": stage_worst_case, "resolvent": stage_resolvent, "stationary": stage_stationary,
+          "stationary_known": stage_stationary_known, "weighted_factors": stage_weighted_factors,
+          "summary": stage_summary}
 
 if __name__ == "__main__":
     args = sys.argv[1:]

@@ -1,0 +1,148 @@
+{
+ "name": "ssa_time",
+ "settings": {
+  "batch": 100000,
+  "seed": 20261125,
+  "eps": 0.01,
+  "delta_fail": 0.01,
+  "method": "vectorized NumPy direct method, one process"
+ },
+ "environment": {
+  "python": "3.13.5",
+  "numpy": "2.2.6",
+  "scipy": "1.17.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "timestamp": "2026-11-25T21:26:02+0530"
+ },
+ "data": {
+  "rows": [
+   {
+    "model": "toggle",
+    "T": 3.000000000234531,
+    "P_fsp": 0.04502990240959077,
+    "P_ssa": 0.04394,
+    "std_error": 0.0006557607055822536,
+    "within_4_se": true,
+    "batch": 100000,
+    "batch_seconds": 4.359845500002848,
+    "seconds_per_trajectory": 4.359845500002848e-05,
+    "mean_events_per_trajectory": 169.19297,
+    "trajectories_needed": 1407094.0,
+    "seconds_for_needed": 61.34712443981007
+   },
+   {
+    "model": "schlogl",
+    "T": 0.5721441766824563,
+    "P_fsp": 0.04891679148732259,
+    "P_ssa": 0.04838,
+    "std_error": 0.0006820845915127273,
+    "within_4_se": true,
+    "batch": 100000,
+    "batch_seconds": 2.11302990000695,
+    "seconds_per_trajectory": 2.1130299000069498e-05,
+    "mean_events_per_trajectory": 105.58015,
+    "trajectories_needed": 1290015.0,
+    "seconds_for_needed": 27.258402664574653
+   },
+   {
+    "model": "michaelis_menten",
+    "T": 3.06969549596953,
+    "P_fsp": 0.03087739383032518,
+    "P_ssa": 0.03147,
+    "std_error": 0.0005470281563189611,
+    "within_4_se": true,
+    "batch": 100000,
+    "batch_seconds": 6.985272799996892,
+    "seconds_per_trajectory": 6.985272799996892e-05,
+    "mean_events_per_trajectory": 285.09404,
+    "trajectories_needed": 2082439.0,
+    "seconds_for_needed": 145.46404504352728
+   },
+   {
+    "model": "self_repressor",
+    "T": 0.7511129840431403,
+    "P_fsp": 0.030957729157351403,
+    "P_ssa": 0.03114,
+    "std_error": 0.0005477166070402785,
+    "within_4_se": true,
+    "batch": 100000,
+    "batch_seconds": 0.585705900011817,
+    "seconds_per_trajectory": 5.85705900011817e-06,
+    "mean_events_per_trajectory": 18.68303,
+    "trajectories_needed": 2076863.0,
+    "seconds_for_needed": 12.164309126162424
+   },
+   {
+    "model": "cascade2",
+    "T": 1.0000000000267555,
+    "P_fsp": 0.022731894121531288,
+    "P_ssa": 0.02289,
+    "std_error": 0.0004713295567984123,
+    "within_4_se": true,
+    "batch": 100000,
+    "batch_seconds": 0.15860669998801313,
+    "seconds_per_trajectory": 1.5860669998801314e-06,
+    "mean_events_per_trajectory": 5.90339,
+    "trajectories_needed": 2852413.0,
+    "seconds_for_needed": 4.524118129329085
+   },
+   {
+    "model": "cascade3",
+    "T": 1.0000000000267555,
+    "P_fsp": 0.041978220530293514,
+    "P_ssa": 0.0423,
+    "std_error": 0.0006341612534001391,
+    "within_4_se": true,
+    "batch": 100000,
+    "batch_seconds": 0.1880671999824699,
+    "seconds_per_trajectory": 1.880671999824699e-06,
+    "mean_events_per_trajectory": 5.99958,
+    "trajectories_needed": 1514208.0,
+    "seconds_for_needed": 2.847728587510558
+   },
+   {
+    "model": "cascade1",
+    "T": 1.0000000000267555,
+    "P_fsp": 0.0439759284197242,
+    "P_ssa": 0.04342,
+    "std_error": 0.0006483983817017706,
+    "within_4_se": true,
+    "batch": 100000,
+    "batch_seconds": 0.09446130000287667,
+    "seconds_per_trajectory": 9.446130000287667e-07,
+    "mean_events_per_trajectory": 5.48717,
+    "trajectories_needed": 1442408.0,
+    "seconds_for_needed": 1.3625173481454933
+   },
+   {
+    "model": "cascade4",
+    "T": 1.0000000000267555,
+    "P_fsp": 0.002811897860618557,
+    "P_ssa": 0.00285,
+    "std_error": 0.00016745121949511164,
+    "within_4_se": true,
+    "batch": 100000,
+    "batch_seconds": 0.16988230001879856,
+    "seconds_per_trajectory": 1.6988230001879856e-06,
+    "mean_events_per_trajectory": 6.01629,
+    "trajectories_needed": 23529447.0,
+    "seconds_for_needed": 39.972365745304195
+   },
+   {
+    "model": "birth_death",
+    "T": 1.0000000000378577,
+    "P_fsp": 0.028531530108285824,
+    "P_ssa": 0.02898,
+    "std_error": 0.0005264739490038021,
+    "within_4_se": true,
+    "batch": 100000,
+    "batch_seconds": 0.2273879999993369,
+    "seconds_per_trajectory": 2.273879999993369e-06,
+    "mean_events_per_trajectory": 14.95967,
+    "trajectories_needed": 2259113.0,
+    "seconds_for_needed": 5.13695186842502
+   }
+  ]
+ }
+}

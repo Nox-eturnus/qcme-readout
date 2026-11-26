@@ -250,11 +250,14 @@
   "schedule": "geometric J=20",
   "measured_log10_growth_continuous": 3.7729901643814214,
   "decomposition": {
-   "window_penalty": 5391.855346108119,
+   "window_penalty": 5392.708257670063,
    "non_normality": 1526.4464332712434,
    "instance_slack": 0.0014884826022267816,
    "label": "exact"
   },
-  "seconds": 14653.336690664291
+  "seconds": 14653.336690664291,
+  "revisions": [
+   "window_penalty recomputed (round 5) as (K - K_continuous) / (2 ln 10), the certificate over the continuous estimate; it was R_schedule - R_continuous, which mixed two measured growths"
+  ]
  }
 }

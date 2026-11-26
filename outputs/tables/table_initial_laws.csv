@@ -1,0 +1,13 @@
+Instance,Initial means,Initial law taken from,T,Horizon
+schlogl,25,chosen here; the source studies the stationary law,0.5721,one relaxation time
+toggle_hegland,"(30, 5)",source (a discrete Gaussian at these means),146.7,one relaxation time
+toggle_kuntz,"(0, 0)",chosen here; the source studies the stationary law,1.477,one relaxation time
+toggle_gardner,"(0, 0)",chosen here; the source studies the stationary law,6.151,one relaxation time
+feedback_b1,"gene off, no protein",chosen here; the source studies the stationary law,0.5,one relaxation time
+feedback_b10,"gene off, no protein",chosen here; the source studies the stationary law,0.5,one relaxation time
+feedback_b100,"gene off, no protein",chosen here; the source studies the stationary law,0.5,one relaxation time
+lambda_phage,0.15 for each species,source (the mean of its multinomial initial law),10,source horizon
+toggle_tang,"genes free, no protein",source,54.2,one relaxation time
+autoreg_tang_1,"gene free, no protein",source,1.684,one relaxation time
+autoreg_tang_2,"gene free, no protein",source,1.327,one relaxation time
+autoreg_tang_3,"gene free, no protein",source,1.149,one relaxation time

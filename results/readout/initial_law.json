@@ -1,0 +1,408 @@
+{
+ "name": "initial_law",
+ "settings": {
+  "instances": [
+   "schlogl",
+   "toggle_hegland",
+   "toggle_kuntz",
+   "feedback_b1",
+   "feedback_b10",
+   "autoreg_tang_1",
+   "autoreg_tang_2",
+   "autoreg_tang_3"
+  ]
+ },
+ "environment": {
+  "python": "3.13.5",
+  "numpy": "2.2.6",
+  "scipy": "1.17.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "timestamp": "2026-10-12T14:10:13+0530"
+ },
+ "data": {
+  "rows": [
+   {
+    "row": "schlogl",
+    "T": 0.5721441766824563,
+    "widths": [
+     200
+    ],
+    "initial_means": [
+     25.0
+    ],
+    "attractor": [
+     5.781209402555368
+    ],
+    "by_initial_law": {
+     "poisson at the initial means": {
+      "widths": [
+       200
+      ],
+      "n_states": 200,
+      "leak": -3.7969627442180354e-13,
+      "log10_readout_factor": 0.34114549505414943
+     },
+     "point mass at the initial means": {
+      "widths": [
+       200
+      ],
+      "n_states": 200,
+      "leak": -4.3098857815948577e-13,
+      "log10_readout_factor": 0.3682189788649685
+     },
+     "poisson at the attractor": {
+      "widths": [
+       200
+      ],
+      "n_states": 200,
+      "leak": -3.934630399271555e-13,
+      "log10_readout_factor": 0.6504635510521019
+     }
+    },
+    "spread": 0.3093180559979524
+   },
+   {
+    "row": "toggle_hegland",
+    "T": 146.65919551398179,
+    "widths": [
+     64,
+     64
+    ],
+    "initial_means": [
+     30.0,
+     5.0
+    ],
+    "attractor": [
+     3.520396442912982,
+     1.9628305296875788
+    ],
+    "by_initial_law": {
+     "poisson at the initial means": {
+      "widths": [
+       64,
+       64
+      ],
+      "n_states": 4096,
+      "leak": 2.1394576110722596e-09,
+      "log10_readout_factor": 0.8830981102268212
+     },
+     "point mass at the initial means": {
+      "widths": [
+       64,
+       64
+      ],
+      "n_states": 4096,
+      "leak": -8.815170815523743e-14,
+      "log10_readout_factor": 0.8821926673773604
+     },
+     "poisson at the attractor": {
+      "widths": [
+       51,
+       51
+      ],
+      "n_states": 2601,
+      "leak": 4.904321082577212e-08,
+      "log10_readout_factor": 0.7285794094027329
+     }
+    },
+    "spread": 0.15451870082408825
+   },
+   {
+    "row": "toggle_kuntz",
+    "T": 1.4772159721873772,
+    "widths": [
+     60,
+     30
+    ],
+    "initial_means": [
+     0.0,
+     0.0
+    ],
+    "attractor": [
+     28.920295019700788,
+     0.334221303413471
+    ],
+    "by_initial_law": {
+     "poisson at the initial means": {
+      "widths": [
+       60,
+       30
+      ],
+      "n_states": 1800,
+      "leak": 6.342250058466448e-10,
+      "log10_readout_factor": 0.712077543932727
+     },
+     "point mass at the initial means": {
+      "widths": [
+       60,
+       30
+      ],
+      "n_states": 1800,
+      "leak": 6.330214130656486e-10,
+      "log10_readout_factor": 0.7121405827818774
+     },
+     "poisson at the attractor": {
+      "widths": [
+       75,
+       38
+      ],
+      "n_states": 2850,
+      "leak": 4.5272230408954783e-11,
+      "log10_readout_factor": 0.934390651719277
+     }
+    },
+    "spread": 0.22231310778655
+   },
+   {
+    "row": "feedback_b1",
+    "T": 0.49999999998242406,
+    "widths": [
+     2,
+     40
+    ],
+    "initial_means": [
+     0.0,
+     0.0
+    ],
+    "attractor": [
+     0.09049875621124594,
+     0.9049875621116368
+    ],
+    "by_initial_law": {
+     "poisson at the initial means": {
+      "widths": [
+       2,
+       40
+      ],
+      "n_states": 80,
+      "leak": 2.3042678876095124e-12,
+      "log10_readout_factor": 0.7805422035946278
+     },
+     "point mass at the initial means": {
+      "widths": [
+       2,
+       40
+      ],
+      "n_states": 80,
+      "leak": 2.296829393344524e-12,
+      "log10_readout_factor": 0.781028789048989
+     },
+     "poisson at the attractor": {
+      "widths": [
+       2,
+       40
+      ],
+      "n_states": 80,
+      "leak": 2.663980147588063e-12,
+      "log10_readout_factor": 0.6560611323450269
+     }
+    },
+    "spread": 0.12496765670396204
+   },
+   {
+    "row": "feedback_b10",
+    "T": 0.4999999999910364,
+    "widths": [
+     2,
+     157
+    ],
+    "initial_means": [
+     0.0,
+     0.0
+    ],
+    "attractor": [
+     0.030645828918789614,
+     3.0630868058748395
+    ],
+    "by_initial_law": {
+     "poisson at the initial means": {
+      "widths": [
+       2,
+       157
+      ],
+      "n_states": 314,
+      "leak": 1.662966011561906e-07,
+      "log10_readout_factor": 1.055661060003138
+     },
+     "point mass at the initial means": {
+      "widths": [
+       2,
+       157
+      ],
+      "n_states": 314,
+      "leak": 1.6597254259842487e-07,
+      "log10_readout_factor": 1.0562634120084053
+     },
+     "poisson at the attractor": {
+      "widths": [
+       2,
+       157
+      ],
+      "n_states": 314,
+      "leak": 9.031681991178431e-08,
+      "log10_readout_factor": 0.8436780289877478
+     }
+    },
+    "spread": 0.21258538302065755
+   },
+   {
+    "row": "autoreg_tang_1",
+    "T": 1.6844414635210374,
+    "widths": [
+     2,
+     2,
+     60
+    ],
+    "initial_means": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "attractor": [
+     0.9007734508894015,
+     0.09922654911059949,
+     10.35476301747882
+    ],
+    "by_initial_law": {
+     "poisson at the initial means": {
+      "widths": [
+       2,
+       2,
+       60
+      ],
+      "n_states": 120,
+      "leak": 1.1368683772161603e-13,
+      "log10_readout_factor": 0.5347000799559554
+     },
+     "point mass at the initial means": {
+      "widths": [
+       2,
+       2,
+       60
+      ],
+      "n_states": 120,
+      "leak": 1.1302070390684094e-13,
+      "log10_readout_factor": 0.5347055210662534
+     },
+     "poisson at the attractor": {
+      "widths": [
+       2,
+       2,
+       60
+      ],
+      "n_states": 120,
+      "leak": 5.372158273786454e-11,
+      "log10_readout_factor": 0.48310411962370764
+     }
+    },
+    "spread": 0.051601401442545713
+   },
+   {
+    "row": "autoreg_tang_2",
+    "T": 1.3265203495533686,
+    "widths": [
+     2,
+     2,
+     60
+    ],
+    "initial_means": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "attractor": [
+     0.23053770210332677,
+     0.7694622978966725,
+     32.900040749748854
+    ],
+    "by_initial_law": {
+     "poisson at the initial means": {
+      "widths": [
+       2,
+       2,
+       60
+      ],
+      "n_states": 120,
+      "leak": 3.0044556842412362e-09,
+      "log10_readout_factor": 0.4801842838480299
+     },
+     "point mass at the initial means": {
+      "widths": [
+       2,
+       2,
+       60
+      ],
+      "n_states": 120,
+      "leak": 2.9977781368373257e-09,
+      "log10_readout_factor": 0.4802071886283296
+     },
+     "poisson at the attractor": {
+      "widths": [
+       2,
+       2,
+       75
+      ],
+      "n_states": 150,
+      "leak": 5.256034569800505e-07,
+      "log10_readout_factor": 0.26645067373767833
+     }
+    },
+    "spread": 0.21375651489065128
+   },
+   {
+    "row": "autoreg_tang_3",
+    "T": 1.1487726510616922,
+    "widths": [
+     2,
+     2,
+     60
+    ],
+    "initial_means": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "attractor": [
+     0.10336720214045192,
+     0.8966327978595474,
+     47.70836673635396
+    ],
+    "by_initial_law": {
+     "poisson at the initial means": {
+      "widths": [
+       2,
+       2,
+       60
+      ],
+      "n_states": 120,
+      "leak": 8.087372749265853e-08,
+      "log10_readout_factor": 0.8324746452638941
+     },
+     "point mass at the initial means": {
+      "widths": [
+       2,
+       2,
+       60
+      ],
+      "n_states": 120,
+      "leak": 7.936891521787004e-08,
+      "log10_readout_factor": 0.8325571876155136
+     },
+     "poisson at the attractor": {
+      "widths": [
+       2,
+       2,
+       94
+      ],
+      "n_states": 188,
+      "leak": 4.650835765396266e-07,
+      "log10_readout_factor": 0.35333987401420375
+     }
+    },
+    "spread": 0.4792173136013098
+   }
+  ],
+  "max_spread": 0.4792173136013098
+ }
+}

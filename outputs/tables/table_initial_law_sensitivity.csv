@@ -1,0 +1,9 @@
+Instance,Poisson at the initial means (default),Point mass at the initial means,Poisson at the attractor,Spread
+schlogl,0.34,0.37,0.65,0.31
+toggle_hegland,0.88,0.88,0.73,0.15
+toggle_kuntz,0.71,0.71,0.93,0.22
+feedback_b1,0.78,0.78,0.66,0.12
+feedback_b10,1.06,1.06,0.84,0.21
+autoreg_tang_1,0.53,0.53,0.48,0.05
+autoreg_tang_2,0.48,0.48,0.27,0.21
+autoreg_tang_3,0.83,0.83,0.35,0.48

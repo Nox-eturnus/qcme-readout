@@ -3,7 +3,7 @@
 | schlogl | 1 | 200 | 0.5721 | 0.34 |
 | toggle_hegland | 2 | 4096 | 146.7 | 0.88 |
 | toggle_kuntz | 2 | 1800 | 1.477 | 0.71 |
-| toggle_gardner |  | 3655744 | 6.151 | not computed |
+| toggle_gardner | 2 | 3655744 | 6.151 | 1.47 |
 | feedback_b1 | 1 | 80 | 0.5 | 0.78 |
 | feedback_b10 | 1 | 314 | 0.5 | 1.06 |
 | feedback_b100 | 1 | 3126 | 0.5 | 1.55 |

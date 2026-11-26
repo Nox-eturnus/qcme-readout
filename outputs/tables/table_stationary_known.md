@@ -1,0 +1,11 @@
+| Instance | K_T | Weighted, certified | Weighted, measured | Uniform at T, measured | Uniform at the stationary law | Stationary mass outside the box |
+| --- | --- | --- | --- | --- | --- | --- |
+| schlogl | 0 | 1.30 | 0.91 | 0.34 | 0.25 | 9e-13 |
+| toggle_kuntz | no known law |  |  | 0.71 | 0.81 | 3e-07 |
+| toggle_gardner | no known law |  |  | 1.47 | 2.20 | 0 |
+| feedback_b1 | 0 | 0.23 | 0.10 | 0.78 | 0.64 | 3e-13 |
+| feedback_b10 | 0 | 0.36 | 0.20 | 1.06 | 0.76 | 1e-08 |
+| feedback_b100 | 0 | 0.48 | 0.32 | 1.55 | 1.05 | 3e-09 |
+| autoreg_tang_1 | 0 | 1.88 | 0.09 | 0.53 | 0.46 | 7e-10 |
+| autoreg_tang_2 | 0 | 2.16 | 0.60 | 0.48 | 0.16 | 0.0005 |
+| autoreg_tang_3 | 0 | 0.61 | 0.42 | 0.83 | 0.25 | 0.08 |

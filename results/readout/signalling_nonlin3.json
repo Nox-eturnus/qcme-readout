@@ -1,0 +1,93 @@
+{
+ "name": "signalling_nonlin3",
+ "settings": {
+  "leak_tol": 1e-06,
+  "ceiling": 10000000,
+  "start_sd": 3.0,
+  "cut_tol": 1e-06,
+  "lna_sd": 4.0
+ },
+ "environment": {
+  "python": "3.13.5",
+  "numpy": "2.2.6",
+  "scipy": "1.17.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "timestamp": "2026-10-24T10:57:17+0530"
+ },
+ "data": {
+  "model": "signalling_nonlin3",
+  "kind": "nonlinear",
+  "d": 3,
+  "T": 1.0,
+  "start_widths": [
+   15,
+   39,
+   53
+  ],
+  "widths": [
+   24,
+   62,
+   84
+  ],
+  "n_states": 124992,
+  "leak": 1.4102291989726012e-07,
+  "capped": false,
+  "log10_readout_factor": 0.768956976467886,
+  "fitted": {
+   "full_box": 0.768956976467886,
+   "cut": {
+    "n_states": 88872,
+    "mass": 0.9999994011658786,
+    "log10_readout_factor": 0.6948985435373976,
+    "bounds": {
+     "X1": [
+      0,
+      22
+     ],
+     "X2": [
+      0,
+      55
+     ],
+     "X3": [
+      0,
+      68
+     ]
+    }
+   },
+   "moment": {
+    "n_states": 50508,
+    "mass": 0.999828141807363,
+    "log10_readout_factor": 0.5722705235697956,
+    "bounds": {
+     "X1": [
+      0,
+      17
+     ],
+     "X2": [
+      0,
+      45
+     ],
+     "X3": [
+      0,
+      60
+     ]
+    }
+   }
+  },
+  "S_eff_over_product_of_marginals": 0.6406157930299071,
+  "correlation_last_two": 0.6076727223570619,
+  "provenance": "nonlinear signalling cascade, Gupta, Schwab, Khammash, PLoS Comput. Biol. 17, e1009623 (2021), Secs 5.2-5.4, and their code (github.com/ankitgupta83/DeepCME, ReactionNetworkExamples.py); also Tang et al. 2023, Supplementary Note 2 G; zero initial copies, final time 1",
+  "params": {
+   "d": 3,
+   "kind": "nonlinear",
+   "beta0": 10.0,
+   "gamma": 1.0,
+   "b": 1.0,
+   "km": 100.0,
+   "k0": 10.0,
+   "H": 1.0
+  },
+  "seconds": 7.592581272125244
+ }
+}

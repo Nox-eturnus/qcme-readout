@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this code, please cite the article."
-title: "qcme-readout: code and data for 'Readout costs decide whether quantum computers can speed up stochastic simulation of gene networks'"
+title: "qcme-readout: code and data for 'Readout costs limit claimed exponential speedups of amplitude-encoded master-equation solvers'"
 version: 1.0.0
 license: MIT
 authors:

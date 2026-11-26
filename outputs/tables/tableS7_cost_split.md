@@ -1,0 +1,11 @@
+| Network | Cheapest encoding | Uses (log10) | Toffolis per use (log10) | Total (log10) | SSA uses (log10) | SSA Toffolis per use (log10) | SSA total (log10) | Ratio |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| toggle | uniform | 7.71 | 8.10 | 15.81 | 5.44 | 5.79 | 11.23 | 3.77e+04 |
+| schlogl | R-NB | 5.55 | 9.11 | 14.66 | 5.43 | 7.01 | 12.44 | 167 |
+| michaelis_menten | R-NB | 5.69 | 9.55 | 15.24 | 5.53 | 6.76 | 12.29 | 892 |
+| self_repressor | R-NB | 5.93 | 8.73 | 14.66 | 5.53 | 5.51 | 11.04 | 4.22e+03 |
+| birth_death | R-NB | 5.68 | 6.61 | 12.29 | 5.55 | 4.43 | 9.97 | 208 |
+| cascade1 | R-NB | 5.61 | 6.19 | 11.80 | 5.45 | 3.97 | 9.42 | 242 |
+| cascade2 | R-NB | 5.65 | 7.83 | 13.49 | 5.60 | 4.37 | 9.97 | 3.31e+03 |
+| cascade3 | R-NB | 5.59 | 8.24 | 13.82 | 5.46 | 4.61 | 10.07 | 5.62e+03 |
+| cascade4 | R-NB | 6.06 | 8.66 | 14.72 | 6.06 | 4.89 | 10.95 | 5.95e+03 |

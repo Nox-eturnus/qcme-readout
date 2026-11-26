@@ -1,0 +1,35 @@
+{
+ "name": "conversion_T10_d3",
+ "settings": {
+  "leak_tol": 1e-06,
+  "ceiling": 10000000
+ },
+ "environment": {
+  "python": "3.13.5",
+  "numpy": "2.2.6",
+  "scipy": "1.17.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "timestamp": "2026-11-26T11:22:04+0530"
+ },
+ "data": {
+  "family": "conversion",
+  "T": 10.0,
+  "d": 3,
+  "widths": [
+   24,
+   24,
+   24
+  ],
+  "n_states": 13824,
+  "leak": 2.3317786590482115e-09,
+  "capped": false,
+  "means": [
+   3.999818442413975,
+   3.99800289615748,
+   3.9889251777650014
+  ],
+  "log10_readout_factor": 0.8056581968529047,
+  "seconds": 3.3061790466308594
+ }
+}

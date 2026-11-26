@@ -1,0 +1,90 @@
+{
+ "name": "signalling_lin3",
+ "settings": {
+  "leak_tol": 1e-06,
+  "ceiling": 10000000,
+  "start_sd": 3.0,
+  "cut_tol": 1e-06,
+  "lna_sd": 4.0
+ },
+ "environment": {
+  "python": "3.13.5",
+  "numpy": "2.2.6",
+  "scipy": "1.17.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "timestamp": "2026-10-23T18:32:49+0530"
+ },
+ "data": {
+  "model": "signalling_lin3",
+  "kind": "linear",
+  "d": 3,
+  "T": 1.0,
+  "start_widths": [
+   15,
+   33,
+   55
+  ],
+  "widths": [
+   30,
+   67,
+   109
+  ],
+  "n_states": 219090,
+  "leak": 3.726266646353338e-07,
+  "capped": false,
+  "log10_readout_factor": 0.9388487829341584,
+  "fitted": {
+   "full_box": 0.9388487829341584,
+   "cut": {
+    "n_states": 154080,
+    "mass": 0.9999992789489366,
+    "log10_readout_factor": 0.8624107914626653,
+    "bounds": {
+     "X1": [
+      0,
+      23
+     ],
+     "X2": [
+      0,
+      59
+     ],
+     "X3": [
+      0,
+      106
+     ]
+    }
+   },
+   "moment": {
+    "n_states": 47520,
+    "mass": 0.9984127246485102,
+    "log10_readout_factor": 0.6076648845656031,
+    "bounds": {
+     "X1": [
+      0,
+      17
+     ],
+     "X2": [
+      0,
+      39
+     ],
+     "X3": [
+      0,
+      65
+     ]
+    }
+   }
+  },
+  "S_eff_over_product_of_marginals": 0.4089938402643001,
+  "correlation_last_two": 0.8133888864918715,
+  "provenance": "linear signalling cascade, Gupta, Schwab, Khammash, PLoS Comput. Biol. 17, e1009623 (2021), Secs 5.2-5.4, and their code (github.com/ankitgupta83/DeepCME, ReactionNetworkExamples.py); also Tang et al. 2023, Supplementary Note 2 G; zero initial copies, final time 1",
+  "params": {
+   "d": 3,
+   "kind": "linear",
+   "beta0": 10.0,
+   "k": 5.0,
+   "gamma": 1.0
+  },
+  "seconds": 132.67037224769592
+ }
+}

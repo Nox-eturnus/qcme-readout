@@ -629,7 +629,320 @@ def stage_observable_aware_ssa(only=None):
     save(PART, "observable_aware_ssa", cost_settings(), {"rows": rows, "lindblad_vs_ssa_aware": lvs})
 
 
-STAGES = {"circuit_checks": stage_circuit_checks, "encodings": stage_encodings, "baselines": stage_baselines,
+# ----------------------------------------------------------------------------- per-use costs on larger cascades
+SCALING_DS = tuple(range(1, 13))
+SCALING_WIDTH = 15
+SCALING_KERNEL = "K2(c=2)"
+SCALING_SCHEDULE = "geometric J=20"
+
+
+class CascadeStructure:
+    """Every input of the per-use counts of the conversion cascade (width SCALING_WIDTH, T = 1, tail of the last
+    species, R-NB reference, sqrt(mu) weight, the measured growth), computed from the network alone.
+
+    On this cascade the R-NB reference and the law are products over species, every reaction touches at most two
+    neighbouring species, and the CW bound max(r - l) is a maximum of a chain-structured sum, found by dynamic
+    programming. So the window normalizations, the jump sizes, the readout of the tail and the measured growth are
+    exact without the state space, whose size 15^d rules out the full pipeline beyond d = 5."""
+
+    def __init__(self, d, width=SCALING_WIDTH):
+        self.d, self.w = d, width
+        self.m = models.cascade(d, width=width)
+        self.k, self.c, self.g = (self.m.params[x] for x in ("k", "c", "g"))
+        self.T = float(models.relaxation_time(self.m)[0])
+        self.mom = reference.MomentTrajectory(self.m, self.T)
+        self.x = np.arange(width, dtype=float)
+        bits = R.species_bits((width,) * d)
+        deps = [set()] + [{i} for i in range(d - 1)] + [{d - 1}]
+        supp = [{0}] + [{i, i + 1} for i in range(d - 1)] + [{d - 1}]
+        self.st = R.ModelStructure((width,) * d, bits, deps, supp, d + 1, None, width**d)
+        self.Lambda = self.k + (d - 1) * self.c * (width - 1) + self.g * (width - 1)
+
+    def marginals(self, t):
+        """Per species (log mu_i, dlog mu_i) of R-NB at time t, on 0..width-1 (the branch logic of reference.Product)."""
+        m, md, v, vd = self.mom.at(t)
+        out = []
+        for i in range(self.d):
+            lam = max(m[i], reference.SAFETY_FLOOR)
+            lamd = md[i] if m[i] > reference.SAFETY_FLOOR else 0.0
+            if v[i] > lam:
+                e = v[i] / lam - 1
+                ed = (vd[i] * lam - v[i] * lamd) / lam**2
+                out.append(reference._nb_terms(self.x, lam, e, lamd, ed))
+            else:
+                out.append((reference._log_poisson(self.x, lam), (self.x / lam - 1) * lamd))
+        return out
+
+    def cw_sqrt_mu(self, t):
+        """(1/2) max_x (r - l)(x) by dynamic programming along the chain. The reference is held fixed on each window,
+        so r = (A_S mu)/mu carries no time derivative (as in certify.window_certificate)."""
+        L = self.marginals(t)
+        d, w, x = self.d, self.w, self.x
+        top = w - 1
+        U = [np.zeros(w) for _ in range(d)]
+        l0 = L[0][0]
+        U[0][1:] += self.k * np.exp(l0[:-1] - l0[1:])  # inflow by birth
+        U[0] -= self.k  # a0: birth
+        U[0][top] -= self.k  # leak: birth at the edge
+        ld = L[d - 1][0]
+        U[d - 1][:-1] += self.g * (x[:-1] + 1) * np.exp(ld[1:] - ld[:-1])  # inflow by death of the last species
+        U[d - 1] -= self.g * x  # a0: death
+        V = []
+        for i in range(d - 1):
+            li, lj = L[i][0], L[i + 1][0]
+            Vi = np.zeros((w, w))
+            # inflow by conversion i from (x_i + 1, x_j - 1): x_i <= top - 1, x_j >= 1
+            Vi[:-1, 1:] += self.c * (x[:-1, None] + 1) * np.exp((li[1:] - li[:-1])[:, None] + (lj[:-1] - lj[1:])[None, :])
+            Vi -= self.c * x[:, None]  # a0: conversion i
+            Vi[:, top] -= self.c * x  # leak: conversion i into x_j = top
+            V.append(Vi)
+        f = U[0].copy()
+        for i in range(d - 1):
+            f = U[i + 1] + np.max(f[:, None] + V[i], axis=0)
+        return 0.5 * float(np.max(f))
+
+    def bmax(self, t):
+        """sum_k max_x b_k(x), b_k = a_k(x) exp((log mu(x) - log mu(x + nu_k))/2) over x with x + nu_k in S."""
+        L = [l for l, _ in self.marginals(t)]
+        x = self.x
+        up = [np.exp(0.5 * (l[:-1] - l[1:])) for l in L]  # x -> x + 1, x <= top - 1
+        down = [x[1:] * np.exp(0.5 * (l[1:] - l[:-1])) for l in L]  # x * ratio for x -> x - 1, x >= 1
+        tot = self.k * float(up[0].max())
+        for i in range(self.d - 1):
+            tot += self.c * float(down[i].max()) * float(up[i + 1].max())
+        tot += self.g * float(down[self.d - 1].max())
+        return tot
+
+    def ptp_half(self, t1, t2):
+        a, b = self.marginals(t1), self.marginals(t2)
+        return 0.5 * float(sum(np.ptp(la - lb) for (la, _), (lb, _) in zip(a, b)))
+
+    def law(self):
+        """Per-species Poisson marginals of p_T (product Poisson with the rate-equation means), on the box."""
+        m = self.mom.at(self.T)[0]
+        return [np.exp(reference._log_poisson(self.x, mi)) for mi in m]
+
+
+def cascade_per_use(d, kernel=SCALING_KERNEL, eps=EPS):
+    cs = CascadeStructure(d)
+    edges = certify.geometric_edges(cs.T, 20)
+    J = len(edges) - 1
+    cw = np.array([cs.cw_sqrt_mu(edges[j]) for j in range(J)])
+    a0max = cs.Lambda
+    alphas = np.array([cs.bmax(edges[j]) + a0max + cw[j] for j in range(J)])
+    Dmax = np.array([cs.ptp_half(edges[j], edges[j + 1]) for j in range(J - 1)])
+    lmT = [l for l, _ in cs.marginals(edges[J - 1])]
+    p = cs.law()
+    s_idx = d - 1
+    tail_marg = np.cumsum(p[s_idx][::-1])[::-1] * float(np.prod([q.sum() for q in p[:s_idx]]))
+    theta = int(np.nonzero(tail_marg <= 0.05)[0][0])
+    E_f = float(tail_marg[theta])
+    fmu = float(np.prod([np.exp(l).sum() for l in lmT[:s_idx]])) * float(np.exp(lmT[s_idx][theta:]).sum())
+    R_f = float(np.sqrt(fmu) / E_f)
+    log_meas = 0.5 * float(sum(np.log(np.sum(q**2 * np.exp(-l))) for q, l in zip(p, lmT)))
+    st = cs.st
+    prep = lambda b: 2 * R.product_state_prep(st.bits, b)
+    rc = R.weighted_readout(st, "product", float(np.exp(log_meas)), R_f, eps, DELTA_FAIL, alphas, np.diff(edges),
+                            Dmax, KERNELS[kernel], "single", prep, include_s=False)
+    ssa = BL.coherent_ssa_cost(st, None, cs.T, E_f, eps, DELTA_FAIL, 2 * R.cmp_const(st.bits[s_idx]),
+                               "uniformization", Lam=cs.Lambda)
+    return {"d": d, "T": cs.T, "Lambda": cs.Lambda, "theta": theta, "E_f": E_f, "R_f": R_f, "log_meas": log_meas,
+            "alphas": alphas, "cw": cw, "Dmax": Dmax, "sum_alpha_dt": float(np.sum(alphas * np.diff(edges))),
+            "toffoli_U": rc.toffoli_U, "walk_steps": rc.lchs.walk_steps, "query": rc.lchs.query, "b": rc.lchs.b,
+            "s": rc.lchs.s, "K_cut": rc.lchs.K, "eta": rc.eta, "toffoli_total": rc.toffoli_total, "N_U": rc.N_U,
+            "ssa_N": ssa.N_steps, "ssa_step": ssa.step, "ssa_per_A": ssa.per_A, "ssa_b": ssa.b, "ssa_total": ssa.total,
+            "ssa_uses": ssa.uses}
+
+
+def pipeline_per_use(d, kernel=SCALING_KERNEL, eps=EPS):
+    """The same counts from the full pipeline (state space, generator, FSP), with the same schedule, weight and
+    growth: the validation of CascadeStructure for d <= 4."""
+    s = setup(f"cascade{d}")
+    ref = s.refs["R-NB"]
+    edges = certify.geometric_edges(s.T, 20)
+    cert = certify.window_certificate(s.gen, ref, edges, families=("sqrt_mu",))
+    al, Dm, lms = window_alphas(s, ref, edges, cert.cw["sqrt_mu"])
+    pT = fsp.propagate(s.gen.A, s.p0, [0.0, s.T])[-1]
+    o = observables(s, pT)["tail"]
+    E_f = float(o["f"] @ pT)
+    R_f = float(np.linalg.norm(o["f"] * np.exp(0.5 * lms[-1])) / E_f)
+    log_meas = log_norm_weighted(pT, lms[-1])
+    prep, _ = prep_costs(s, "product", o)
+    rc = R.weighted_readout(s.st, "product", float(np.exp(log_meas)), R_f, eps, DELTA_FAIL, al, np.diff(edges), Dm,
+                            KERNELS[kernel], "single", prep, include_s=False)
+    ssa = BL.coherent_ssa_cost(s.st, s.gen, s.T, E_f, eps, DELTA_FAIL, 2 * R.cmp_const(s.st.bits[o["species"]]),
+                               "uniformization")
+    return {"d": d, "widths": s.widths, "leak": s.leak, "deps": [sorted(x) for x in s.st.deps],
+            "supp": [sorted(x) for x in s.st.supp], "Lambda": ssa.Lambda, "theta": o["theta"], "E_f": E_f, "R_f": R_f,
+            "log_meas": log_meas, "alphas": al, "cw": cert.cw["sqrt_mu"], "Dmax": Dm, "toffoli_U": rc.toffoli_U,
+            "walk_steps": rc.lchs.walk_steps, "query": rc.lchs.query, "b": rc.lchs.b, "ssa_N": ssa.N_steps,
+            "ssa_step": ssa.step, "ssa_per_A": ssa.per_A}
+
+
+def stage_per_use_scaling(only=None):
+    """Per-use costs of the cheapest encoding (R-NB) and of coherent SSA on the conversion cascade, d = 1..12, from
+    the network structure (CascadeStructure), validated against the full pipeline for d = 1..4."""
+    val = []
+    for d in (1, 2, 3, 4):
+        a, b = cascade_per_use(d), pipeline_per_use(d)
+        chk = {"d": d, "widths": b["widths"], "leak": b["leak"],
+               "structure_equal": [sorted(x) for x in CascadeStructure(d).st.deps] == b["deps"]
+               and [sorted(x) for x in CascadeStructure(d).st.supp] == b["supp"],
+               "max_rel_alpha": float(np.max(np.abs(a["alphas"] / b["alphas"] - 1))),
+               "max_abs_cw": float(np.max(np.abs(a["cw"] - b["cw"]))),
+               "max_abs_Dmax": float(np.max(np.abs(a["Dmax"] - b["Dmax"]))),
+               "rel_R_f": abs(a["R_f"] / b["R_f"] - 1), "abs_log_meas": abs(a["log_meas"] - b["log_meas"]),
+               "same_theta": a["theta"] == b["theta"], "same_Lambda": a["Lambda"] == b["Lambda"],
+               "same_walk_steps": a["walk_steps"] == b["walk_steps"], "same_query": a["query"] == b["query"],
+               "same_b": a["b"] == b["b"], "rel_toffoli_U": abs(a["toffoli_U"] / b["toffoli_U"] - 1),
+               "same_ssa_per_A": a["ssa_per_A"] == b["ssa_per_A"]}
+        chk["pass"] = bool(chk["structure_equal"] and chk["same_theta"] and chk["same_Lambda"] and chk["same_walk_steps"]
+                           and chk["same_query"] and chk["same_b"] and chk["rel_toffoli_U"] <= 1e-6
+                           and chk["same_ssa_per_A"])
+        val.append(chk)
+        print(f"   validation d={d}: pass={chk['pass']} alpha {chk['max_rel_alpha']:.1e} cw {chk['max_abs_cw']:.1e} "
+              f"U {chk['rel_toffoli_U']:.1e}", flush=True)
+    rows = []
+    for d in SCALING_DS:
+        t0 = time.time()
+        r = cascade_per_use(d)
+        r["per_use_ratio"] = float(np.log10(r["toffoli_U"] / r["ssa_per_A"]))
+        r["steps_ratio"] = float(np.log10(r["walk_steps"] / r["ssa_N"]))
+        r["per_step_ratio"] = r["per_use_ratio"] - r["steps_ratio"]
+        r["seconds"] = time.time() - t0
+        rows.append(r)
+        print(f"-- d={d}: walk {r['walk_steps']} x {r['toffoli_U'] / r['walk_steps']:.0f}, SSA {r['ssa_N']} x "
+              f"{r['ssa_per_A'] / r['ssa_N']:.0f}; per-use ratio 10^{r['per_use_ratio']:.3f}", flush=True)
+    inc = np.diff([r["per_use_ratio"] for r in rows]).tolist()
+    late = [r["per_use_ratio"] for r in rows if r["d"] >= 4]
+    test = {"rise_d4_to_d12": late[-1] - late[0], "increments": inc, "increments_d5_to_d12": inc[3:],
+            "mean_first_four": float(np.mean(inc[3:7])), "mean_last_four": float(np.mean(inc[7:11]))}
+    test["supported"] = bool(test["rise_d4_to_d12"] < 0.5 and test["mean_last_four"] < test["mean_first_four"])
+    # per-reaction (marginal) costs at the largest sizes: one more species adds one reaction
+    q = [r["query"] for r in rows]
+    st = [r["ssa_step"] for r in rows]
+    test["query_increment_last"] = q[-1] - q[-2]
+    test["ssa_step_increment_last"] = st[-1] - st[-2]
+    save(PART, "per_use_scaling", {"width": SCALING_WIDTH, "kernel": SCALING_KERNEL, "schedule": SCALING_SCHEDULE,
+                                   "weight": "sqrt_mu", "growth": "measured", "observable": "tail", "eps": EPS,
+                                   "delta_fail": DELTA_FAIL}, {"validation": val, "rows": rows, "claim_test": test})
+
+
+EPS_SECOND = 1e-3
+
+
+def stage_eps_comparison(only=None):
+    """The comparison on the tail probability at a second precision, EPS_SECOND: every encoding (growth W, headline
+    kernel and variant) under both oracle designs, coherent SSA and the Lindblad embedding (both orders)."""
+    rows = []
+    for name in (only or COST_MODELS):
+        t0 = time.time()
+        s = setup(name)
+        c = data(PART, name)
+        pT = fsp.propagate(s.gen.A, s.p0, [0.0, s.T])[-1]
+        o = observables(s, pT)["tail"]
+        P = float(o["f"] @ pT)
+        f_cost = 2 * R.cmp_const(s.st.bits[o["species"]])
+        ssa = BL.coherent_ssa_cost(s.st, s.gen, s.T, P, EPS_SECOND, DELTA_FAIL, f_cost, "uniformization")
+        lind = []
+        for order in (1, 2):
+            N, err, _ = BL.lindblad_steps(s.gen, s.nus, order, s.T, s.p0, o["f"], P, EPS_SECOND * P / 4)
+            if N is not None:
+                lind.append(BL.lindblad_cost(s.st, s.gen, s.nus, order, s.T, N, P, EPS_SECOND, DELTA_FAIL, f_cost,
+                                             err).total)
+        enc = {}
+        for e, rt in ENCS.items():
+            info = c["encodings"][e]
+            per = c["costs"][e]["tail"]
+            sweep = next((r for r in per["eps_sweep"] if abs(r["eps"] - EPS_SECOND) < 1e-15), None)
+            single = None if sweep is None else num(sweep["toffoli_total"])
+            gam, inc = growth_inputs(info, "W")
+            split = None
+            if gam is not None:
+                prep, _ = prep_costs(s, rt, {"theta": per["theta"], "species": per["species"]})
+                rc = R.weighted_readout(s.st, rt, gam, per["R_f"], EPS_SECOND, DELTA_FAIL, split_alphas(s, info),
+                                        np.diff(np.asarray(info["edges"], float)), info["Dmax"],
+                                        KERNELS[per["best_headline"]["kernel"]], "single", prep, include_s=inc,
+                                        diag="split")
+                split = rc.toffoli_total
+            enc[e] = {"single": single, "split": split,
+                      "best": min(x for x in (single, split) if x is not None)}
+        cheapest = min(enc, key=lambda e: enc[e]["best"])
+        row = {"model": name, "P": P, "ssa_total": ssa.total, "ssa_N": ssa.N_steps, "lindblad_best": min(lind),
+               "encodings": enc, "cheapest_encoding": cheapest, "cheapest_total": enc[cheapest]["best"],
+               "ratio_cheapest_to_ssa": enc[cheapest]["best"] / ssa.total, "lindblad_over_ssa": min(lind) / ssa.total,
+               "seconds": time.time() - t0}
+        rows.append(row)
+        print(f"-- {name}: cheapest {cheapest} / SSA = {row['ratio_cheapest_to_ssa']:.3g}, "
+              f"Lindblad / SSA = {row['lindblad_over_ssa']:.3g} [{row['seconds']:.0f}s]", flush=True)
+    if only:
+        return
+    test = {"ssa_cheapest_everywhere": all(r["ratio_cheapest_to_ssa"] > 1 and r["lindblad_over_ssa"] > 1 for r in rows),
+            "min_ratio_encoding": min(r["ratio_cheapest_to_ssa"] for r in rows),
+            "min_ratio_lindblad": min(r["lindblad_over_ssa"] for r in rows),
+            "max_ratio_lindblad": max(r["lindblad_over_ssa"] for r in rows)}
+    save(PART, "eps_comparison", {**cost_settings(), "eps_second": EPS_SECOND}, {"rows": rows, "claim_test": test})
+
+
+SSA_BATCH = 100_000
+SSA_SEED = 20261125
+
+
+def stage_ssa_time(only=None):
+    """Wall-clock time of classical stochastic simulation for the tail probability on the nine counted networks: a
+    vectorized NumPy direct-method SSA (one process, one core), one batch of SSA_BATCH trajectories from the initial
+    law. The tail estimate is checked against the FSP value (within 4 standard errors), and the time for the number of
+    trajectories of Table S20 is the measured time per trajectory times that number."""
+    name = "ssa_time"
+    prev = data(PART, name) or {"rows": []}
+    rows = [r for r in prev["rows"] if not only or r["model"] not in only]
+    done = {r["model"] for r in rows}
+    for mname in (only or COST_MODELS):
+        if mname in done:
+            continue
+        s = setup(mname)
+        pT = fsp.propagate(s.gen.A, s.p0, [0.0, s.T])[-1]
+        o = observables(s, pT)["tail"]
+        P = float(o["f"] @ pT)
+        need = classical_ssa_samples(P, EPS, DELTA_FAIL)
+        rx = s.model.reactions(s.widths)
+        nu = np.array([r.nu for r in rx], dtype=float)
+        rng = np.random.default_rng(SSA_SEED)
+        p0 = s.p0 / s.p0.sum()
+        X = s.space.states[rng.choice(len(s.space), size=SSA_BATCH, p=p0)].astype(float)
+        t = np.zeros(SSA_BATCH)
+        events = np.zeros(SSA_BATCH)
+        active = np.arange(SSA_BATCH)
+        t0 = time.perf_counter()
+        while active.size:
+            Xa = X[active]
+            a = np.column_stack([np.broadcast_to(np.asarray(r.prop(Xa), float), (len(Xa),)) for r in rx])
+            a0 = a.sum(axis=1)
+            live = a0 > 0
+            tn = t[active] + rng.exponential(size=active.size) / np.where(live, a0, 1.0)
+            go = live & (tn <= s.T)
+            u = rng.random(active.size) * a0
+            j = np.minimum((np.cumsum(a, axis=1) < u[:, None]).sum(axis=1), len(rx) - 1)
+            idx = active[go]
+            X[idx] += nu[j[go]]
+            t[idx] = tn[go]
+            events[idx] += 1
+            active = idx
+        secs = time.perf_counter() - t0
+        est = float(np.mean(X[:, o["species"]] >= o["theta"]))
+        se = float(np.sqrt(P * (1 - P) / SSA_BATCH))
+        per = secs / SSA_BATCH
+        rows.append({"model": mname, "T": s.T, "P_fsp": P, "P_ssa": est, "std_error": se,
+                     "within_4_se": bool(abs(est - P) <= 4 * se), "batch": SSA_BATCH, "batch_seconds": secs,
+                     "seconds_per_trajectory": per, "mean_events_per_trajectory": float(events.mean()),
+                     "trajectories_needed": need, "seconds_for_needed": per * need})
+        print(f"-- {mname}: P_fsp={P:.4f} P_ssa={est:.4f} (se {se:.1e}) {secs:.1f}s per batch, "
+              f"{per * need:.1f}s for {need:.3g} trajectories", flush=True)
+        save(PART, name, {"batch": SSA_BATCH, "seed": SSA_SEED, "eps": EPS, "delta_fail": DELTA_FAIL,
+                          "method": "vectorized NumPy direct method, one process"}, {"rows": rows})
+
+
+STAGES = {"ssa_time": stage_ssa_time, "eps_comparison": stage_eps_comparison, "per_use_scaling": stage_per_use_scaling, "circuit_checks": stage_circuit_checks, "encodings": stage_encodings, "baselines": stage_baselines,
           "comparison": stage_comparison, "split_design": stage_split_design,
           "observable_aware_ssa": stage_observable_aware_ssa}
 

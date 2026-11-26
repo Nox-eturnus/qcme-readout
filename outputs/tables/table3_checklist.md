@@ -1,7 +1,7 @@
-| No. | Question |
-| --- | --- |
-| 1 | Which encoding is used (p/‖p‖, √p or a weighted variant), and what does the readout measure? |
-| 2 | Is the amplitude or norm that the readout estimates bounded in the claimed scaling variable, such as species, dimension or state-space size? Is its cost included in the stated complexity? |
-| 3 | If a classical guess or weight is used, is the growth of the encoded state certified, or only measured on small instances? |
-| 4 | Is the precision relative or additive, and is it adequate for the observable, for example a rare switching probability? |
-| 5 | Does the claim beat quantum Monte Carlo over trajectories (amplitude estimation over stochastic simulation), counted at the same precision? |
+| No. | Question | What counts as an answer |
+| --- | --- | --- |
+| 1 | Which encoding is used (p/‖p‖, √p or a weighted variant), and what does the readout measure? | The encoding and the readout procedure are both named, down to the state the result is compared with. |
+| 2 | Is the amplitude or norm that the readout estimates bounded in the claimed scaling variable, such as species, dimension or state-space size? Is its cost included in the stated complexity? | The quantity is bounded by an expression in the scaling variable, or computed over a stated range of it, and the bound enters the stated complexity. |
+| 3 | If a classical guess or weight is used, is the growth of the encoded state certified, or only measured on small instances? | A certificate that does not use the solution is given. Measured growth on small instances is an acceptable interim answer only if it is labelled as uncertified. |
+| 4 | Is the precision relative or additive, and is it adequate for the observable, for example a rare switching probability? For a rare event, how does the cost scale with its probability? | The precision is stated relative to the size of the observable, and the cost is given as a function of the probability of the event. |
+| 5 | Does the claim beat quantum-accelerated Monte Carlo over trajectories (amplitude estimation over stochastic simulation), and the best classical method, such as finite state projection or rare-event stochastic simulation, counted at the same precision? | The same observable, precision and failure probability are used on both sides, and the unit of cost (gates, samples or time at a stated gate rate) is stated. |

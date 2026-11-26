@@ -1,0 +1,11 @@
+| Network | Cheapest encoding | Coherent SSA | Cheapest encoding total | Lindblad | Encoding over SSA | Lindblad over SSA |
+| --- | --- | --- | --- | --- | --- | --- |
+| toggle | uniform | 12.26 | 16.89 | 15.77 | 4.32e+04 | 3.28e+03 |
+| schlogl | NB-weighted | 13.45 | 15.77 | 15.99 | 210 | 346 |
+| michaelis_menten | NB-weighted | 13.37 | 16.47 | 17.85 | 1.26e+03 | 3.02e+04 |
+| self_repressor | NB-weighted | 12.17 | 15.89 | 16.73 | 5.34e+03 | 3.68e+04 |
+| birth_death | NB-weighted | 11.04 | 13.42 | 13.80 | 244 | 575 |
+| cascade1 | NB-weighted | 10.50 | 12.94 | 13.01 | 275 | 319 |
+| cascade2 | NB-weighted | 11.04 | 14.69 | 15.29 | 4.41e+03 | 1.76e+04 |
+| cascade3 | NB-weighted | 11.15 | 15.06 | 15.24 | 8.04e+03 | 1.24e+04 |
+| cascade4 | NB-weighted | 12.00 | 15.95 | 16.27 | 8.87e+03 | 1.88e+04 |

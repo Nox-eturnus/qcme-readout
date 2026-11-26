@@ -76,7 +76,7 @@ def propensity_value_cost(st, b):
 
 
 def coherent_ssa_cost(st, gen, T, P, eps, delta_fail, f_cost=0, method="uniformization", label="",
-                      N=None):
+                      N=None, Lam=None):
     """AE over a coherent SSA with a fixed number of steps.
 
     uniformization: Lambda = max_S a_0; jump count ~ Poisson(Lambda T) drawn coherently by alias
@@ -88,8 +88,9 @@ def coherent_ssa_cost(st, gen, T, P, eps, delta_fail, f_cost=0, method="uniformi
       reciprocal (as exp(-ln a_0) with a ln evaluation) and one multiplication, time accumulation and a
       comparison with T.
     The step circuits keep the uniform draws and choice bits as garbage (AE uses the circuit and its
-    inverse), and uncompute the propensity arithmetic before the shift."""
-    Lam = uniformization_rate(gen)
+    inverse), and uncompute the propensity arithmetic before the shift. Lam, when given, replaces max_S a_0 (for
+    counts made from the network structure without the state space; gen is then unused)."""
+    Lam = uniformization_rate(gen) if Lam is None else float(Lam)
     tail = eps * P / 4
     if N is None:  # default rule; costs.observable_aware_ssa passes an N matched to the observable
         N = poisson_truncation(Lam * T, tail)

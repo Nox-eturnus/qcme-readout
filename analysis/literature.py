@@ -13,19 +13,20 @@ SHORT = {
     "R1": ("CME, 1 species (Schlögl), eigenproblem", "p/‖p‖ (zero mode)", "components of a 2-4 qubit state", "qubit count"),
     "R2": ("reaction–diffusion master equation", "p/‖p‖", "overlap with uniform state", "removes exponential post-processing"),
     "R3": ("Fokker–Planck (reversible)", "exact stationary weight", "basis sampling", "Schrödingerisation cost"),
-    "R4": ("Fokker–Planck of low-dim. ODEs", "p/‖p‖", "post-selection (norm decay noted)", "potential advantage"),
+    "R4": ("Fokker–Planck of low-dim. ODEs", "p/‖p‖", "post-selection (falling success probability discussed)", "potential advantage"),
     "R5": ("Kolmogorov forward (option baskets)", "p/‖p‖", "swap tests, cost O(1/V₀²)", "exponential in assets"),
     "R20": ("non-reversible Markov chains", "√π", "sampling", "up-to-exponential (mixing)"),
     "R25": ("Fokker–Planck reaction rates (reversible)", "exact √Boltzmann weight", "Hadamard test", "polynomial in particles"),
     "R27": ("Fokker–Planck via linear solvers", "p/‖p‖", "normalized state only", "exponential in dimension"),
     "R28": ("Gibbs sampling (Langevin)", "√σ", "sampling", "up to quartic"),
-    "ZHANG": ("PDF transport, reacting flows", "p/‖p‖", "Hadamard test vs fixed state", "polylog in system size"),
+    "ZHANG": ("PDF transport, reacting flows", "p/‖p‖", "Hadamard test vs fixed state", "polylog in grid points × time steps"),
     "GOPAL": ("whole-cell CME / SSA (perspective)", "p/‖p‖", "not specified", "log in state-space dimension"),
     "DEVEREUX": ("drift–diffusion, d dimensions", "p/‖p‖", "AE tomography, additive error", "advantage at fixed time"),
     "GOVAERS": ("Fokker–Planck prediction (Bayesian)", "√p", "sampling", "polynomial in grid points"),
     "HARIHARAN": ("multiscale kinetics (perspective)", "walk operators", "phase / amplitude estimation", "conditional on readout"),
 }
-VERDICT_ORDER = {"omitted, growing": 0, "omitted, bounded": 1, "accounted": 2}
+VERDICT_ORDER = {"omitted, growing": 0, "omitted, growing (conditional)": 0, "unbounded parameter, growing": 0,
+                 "omitted, bounded": 1, "accounted": 2}
 
 
 def coding():
@@ -38,8 +39,8 @@ def main_table():
     for e in sorted(c["included"], key=lambda r: (VERDICT_ORDER[r["verdict"]], r["key"])):
         task, enc, read, claim = SHORT[e["key"]]
         v = c["display"][e["key"]]
-        rows.append([v["who"], v["ref"], task, enc, read, e["counted"], claim, e["verdict"]])
-    return ["Work", "Reference key", "Task", "Encoding", "Readout", "Cost counted", "Scaling claimed", "Verdict"], rows
+        rows.append([v["who"], v["ref"], task, enc, read, e["counted"], claim, e["claimed_variable"], e["verdict"]])
+    return ["Work", "Reference key", "Task", "Encoding", "Readout", "Cost counted", "Claimed advantage", "Scaling variable", "Verdict"], rows
 
 
 def coding_table():

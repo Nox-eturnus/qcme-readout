@@ -1,0 +1,37 @@
+{
+ "name": "catalytic_T3_d4",
+ "settings": {
+  "leak_tol": 1e-06,
+  "ceiling": 10000000
+ },
+ "environment": {
+  "python": "3.13.5",
+  "numpy": "2.2.6",
+  "scipy": "1.17.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "timestamp": "2026-11-26T11:26:20+0530"
+ },
+ "data": {
+  "family": "catalytic",
+  "T": 3.0,
+  "d": 4,
+  "widths": [
+   24,
+   24,
+   24,
+   24
+  ],
+  "n_states": 331776,
+  "leak": 4.4948831412483514e-07,
+  "capped": false,
+  "means": [
+   3.800900242300054,
+   3.203601318538263,
+   2.307655814752522,
+   1.4117148344993071
+  ],
+  "log10_readout_factor": 1.419009234533466,
+  "seconds": 200.12087392807007
+ }
+}

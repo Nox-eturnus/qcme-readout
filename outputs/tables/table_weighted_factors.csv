@@ -1,0 +1,13 @@
+Instance,"Uniform, measured",Best cheap reference,"Weighted, measured","Weighted, certified",Smallest measured reference,"Weighted, smallest measured"
+schlogl,0.34,"R-mix(NB,E1)",0.02,2.73,"R-mix(NB,E1)",0.02
+toggle_hegland,0.88,"R-mix(NB,E1)",0.91,34.8,R-NB,0.91
+toggle_kuntz,0.71,"R-mix(NB,E2)",0.82,5.88,R-NB,0.82
+toggle_gardner,1.47,"R-mix(NB,E2)",3.77,6.92e+03,R-NB,3.77
+feedback_b1,0.78,"R-mix(NB,E1)",0.01,8.97,R-NB,0.01
+feedback_b10,1.06,"R-mix(NB,E1)",0.06,66.5,"R-mix(NB,E1)",0.06
+feedback_b100,1.55,"R-mix(NB,E1)",0.18,4.49e+03,"R-mix(NB,E1)",0.18
+lambda_phage,2.18,"R-mix(NB,E2)",1.83,66.4,"R-mix(NB,E1)",1.83
+toggle_tang,1.18,"R-mix(NB,E2)",0.75,285,"R-mix(NB,E2)",0.75
+autoreg_tang_1,0.53,"R-mix(NB,E1)",0.33,10.2,"R-mix(NB,E1)",0.33
+autoreg_tang_2,0.48,"R-mix(NB,E2)",0.18,14.5,"R-mix(NB,E1)",0.18
+autoreg_tang_3,0.83,"R-mix(NB,E1)",0.48,48.7,"R-mix(NB,E1)",0.48

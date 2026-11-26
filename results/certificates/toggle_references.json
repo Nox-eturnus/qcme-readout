@@ -1329,72 +1329,72 @@
     "decomposition": {
      "uniform J=5": {
       "sqrt_mu": {
-       "window_penalty": -0.6859435789169197,
+       "window_penalty": -1.2540145115855486,
        "non_normality": 216.8477969658819,
        "instance_slack": 0.7686116096002635
       },
       "resolvent": {
-       "window_penalty": 0.6968642160368042,
+       "window_penalty": 0.12879328336817128,
        "non_normality": 24.98556166609084,
        "instance_slack": 0.7686116096002635
       }
      },
      "uniform J=10": {
       "sqrt_mu": {
-       "window_penalty": -0.11085201028805614,
+       "window_penalty": -0.3889326773284681,
        "non_normality": 216.8477969658819,
        "instance_slack": 0.7686116096002635
       },
       "resolvent": {
-       "window_penalty": 0.8099101788806458,
+       "window_penalty": 0.5318295118402161,
        "non_normality": 24.98556166609084,
        "instance_slack": 0.7686116096002635
       }
      },
      "uniform J=20": {
       "sqrt_mu": {
-       "window_penalty": 0.29565009212450377,
+       "window_penalty": 0.15821355771192686,
        "non_normality": 216.8477969658819,
        "instance_slack": 0.7686116096002635
       },
       "resolvent": {
-       "window_penalty": 0.8894518771454294,
+       "window_penalty": 0.752015342732836,
        "non_normality": 24.98556166609084,
        "instance_slack": 0.7686116096002635
       }
      },
      "uniform J=40": {
       "sqrt_mu": {
-       "window_penalty": 0.531185748431227,
+       "window_penalty": 0.4628794229622548,
        "non_normality": 216.8477969658819,
        "instance_slack": 0.7686116096002635
       },
       "resolvent": {
-       "window_penalty": 0.9357681197223044,
+       "window_penalty": 0.8674617942533409,
        "non_normality": 24.98556166609084,
        "instance_slack": 0.7686116096002635
       }
      },
      "uniform J=80": {
       "sqrt_mu": {
-       "window_penalty": 0.6582611628208213,
+       "window_penalty": 0.6242121826423215,
        "non_normality": 216.8477969658819,
        "instance_slack": 0.7686116096002635
       },
       "resolvent": {
-       "window_penalty": 0.9616723546352794,
+       "window_penalty": 0.9276233744567676,
        "non_normality": 24.98556166609084,
        "instance_slack": 0.7686116096002635
       }
      },
      "geometric J=20": {
       "sqrt_mu": {
-       "window_penalty": -2.276115177724307,
+       "window_penalty": -3.0065371637477316,
        "non_normality": 216.8477969658819,
        "instance_slack": 0.7686116096002635
       },
       "resolvent": {
-       "window_penalty": 0.3847144795095119,
+       "window_penalty": -0.345707506513924,
        "non_normality": 24.98556166609084,
        "instance_slack": 0.7686116096002635
       }
@@ -2487,72 +2487,72 @@
     "decomposition": {
      "uniform J=5": {
       "sqrt_mu": {
-       "window_penalty": 39.3637864821293,
+       "window_penalty": 39.504614349350746,
        "non_normality": 20.801479904182735,
        "instance_slack": 0.40880257568366907
       },
       "resolvent": {
-       "window_penalty": 8.47044142366867,
+       "window_penalty": 8.611269290890132,
        "non_normality": 3.4984684567207838,
        "instance_slack": 0.40880257568366907
       }
      },
      "uniform J=10": {
       "sqrt_mu": {
-       "window_penalty": 22.242937707787025,
+       "window_penalty": 22.293300599993064,
        "non_normality": 20.801479904182735,
        "instance_slack": 0.40880257568366907
       },
       "resolvent": {
-       "window_penalty": 5.872112854892929,
+       "window_penalty": 5.922475747098967,
        "non_normality": 3.4984684567207838,
        "instance_slack": 0.40880257568366907
       }
      },
      "uniform J=20": {
       "sqrt_mu": {
-       "window_penalty": 15.785095566180214,
+       "window_penalty": 15.805960009383673,
        "non_normality": 20.801479904182735,
        "instance_slack": 0.40880257568366907
       },
       "resolvent": {
-       "window_penalty": 4.811187252344501,
+       "window_penalty": 4.832051695547962,
        "non_normality": 3.4984684567207838,
        "instance_slack": 0.40880257568366907
       }
      },
      "uniform J=40": {
       "sqrt_mu": {
-       "window_penalty": 12.948413016857014,
+       "window_penalty": 12.957838782037493,
        "non_normality": 20.801479904182735,
        "instance_slack": 0.40880257568366907
       },
       "resolvent": {
-       "window_penalty": 4.342344904846017,
+       "window_penalty": 4.351770670026489,
        "non_normality": 3.4984684567207838,
        "instance_slack": 0.40880257568366907
       }
      },
      "uniform J=80": {
       "sqrt_mu": {
-       "window_penalty": 11.550596010057834,
+       "window_penalty": 11.555065652466311,
        "non_normality": 20.801479904182735,
        "instance_slack": 0.40880257568366907
       },
       "resolvent": {
-       "window_penalty": 4.10674499761406,
+       "window_penalty": 4.111214640022532,
        "non_normality": 3.4984684567207838,
        "instance_slack": 0.40880257568366907
       }
      },
      "geometric J=20": {
       "sqrt_mu": {
-       "window_penalty": 13.587865094060088,
+       "window_penalty": 13.79991904473679,
        "non_normality": 20.801479904182735,
        "instance_slack": 0.40880257568366907
       },
       "resolvent": {
-       "window_penalty": 4.4984997215272795,
+       "window_penalty": 4.710553672203977,
        "non_normality": 3.4984684567207838,
        "instance_slack": 0.40880257568366907
       }
@@ -3645,72 +3645,72 @@
     "decomposition": {
      "uniform J=5": {
       "sqrt_mu": {
-       "window_penalty": -4890293.273293421,
+       "window_penalty": -4890294.850843557,
        "non_normality": 39672270.33083464,
        "instance_slack": 46.70763482629056
       },
       "resolvent": {
-       "window_penalty": 494.0986434900515,
+       "window_penalty": 492.52109335317095,
        "non_normality": 25469.60931431023,
        "instance_slack": 46.70763482629056
       }
      },
      "uniform J=10": {
       "sqrt_mu": {
-       "window_penalty": -2488189.2107364386,
+       "window_penalty": -2488190.0421896223,
        "non_normality": 39672270.33083464,
        "instance_slack": 46.70763482629056
       },
       "resolvent": {
-       "window_penalty": 188.27089060392973,
+       "window_penalty": 187.43943741898462,
        "non_normality": 25469.60931431023,
        "instance_slack": 46.70763482629056
       }
      },
      "uniform J=20": {
       "sqrt_mu": {
-       "window_penalty": -1289714.3142428622,
+       "window_penalty": -1289714.7385165854,
        "non_normality": 39672270.33083464,
        "instance_slack": 46.70763482629056
       },
       "resolvent": {
-       "window_penalty": 84.92212072560505,
+       "window_penalty": 84.49784699940928,
        "non_normality": 25469.60931431023,
        "instance_slack": 46.70763482629056
       }
      },
      "uniform J=40": {
       "sqrt_mu": {
-       "window_penalty": -671116.1301150694,
+       "window_penalty": -671116.3441668294,
        "non_normality": 39672270.33083464,
        "instance_slack": 46.70763482629056
       },
       "resolvent": {
-       "window_penalty": 65.0635722117695,
+       "window_penalty": 64.8495204458024,
        "non_normality": 25469.60931431023,
        "instance_slack": 46.70763482629056
       }
      },
      "uniform J=80": {
       "sqrt_mu": {
-       "window_penalty": -341506.66815628856,
+       "window_penalty": -341506.7756354388,
        "non_normality": 39672270.33083464,
        "instance_slack": 46.70763482629056
       },
       "resolvent": {
-       "window_penalty": 65.31292840182505,
+       "window_penalty": 65.2054492509929,
        "non_normality": 25469.60931431023,
        "instance_slack": 46.70763482629056
       }
      },
      "geometric J=20": {
       "sqrt_mu": {
-       "window_penalty": -4678474.899613105,
+       "window_penalty": -4678476.833239562,
        "non_normality": 39672270.33083464,
        "instance_slack": 46.70763482629056
       },
       "resolvent": {
-       "window_penalty": -539.3909145579164,
+       "window_penalty": -541.3245410110446,
        "non_normality": 25469.60931431023,
        "instance_slack": 46.70763482629056
       }
@@ -4803,72 +4803,72 @@
     "decomposition": {
      "uniform J=5": {
       "sqrt_mu": {
-       "window_penalty": 0.3765971867215896,
+       "window_penalty": 0.36426300343482193,
        "non_normality": 54.504740363370516,
        "instance_slack": 0.3393454236854403
       },
       "resolvent": {
-       "window_penalty": 0.3868636400436056,
+       "window_penalty": 0.3745294567568429,
        "non_normality": 14.584169618833249,
        "instance_slack": 0.3393454236854403
       }
      },
      "uniform J=10": {
       "sqrt_mu": {
-       "window_penalty": 0.2916318510121556,
+       "window_penalty": 0.2857687904583988,
        "non_normality": 54.504740363370516,
        "instance_slack": 0.3393454236854403
       },
       "resolvent": {
-       "window_penalty": 0.35753515430355165,
+       "window_penalty": 0.3516720937497944,
        "non_normality": 14.584169618833249,
        "instance_slack": 0.3393454236854403
       }
      },
      "uniform J=20": {
       "sqrt_mu": {
-       "window_penalty": 0.2517637261925856,
+       "window_penalty": 0.24890494403153776,
        "non_normality": 54.504740363370516,
        "instance_slack": 0.3393454236854403
       },
       "resolvent": {
-       "window_penalty": 0.35062563468582475,
+       "window_penalty": 0.34776685252478434,
        "non_normality": 14.584169618833249,
        "instance_slack": 0.3393454236854403
       }
      },
      "uniform J=40": {
       "sqrt_mu": {
-       "window_penalty": 0.2471089956892243,
+       "window_penalty": 0.2456973613668817,
        "non_normality": 54.504740363370516,
        "instance_slack": 0.3393454236854403
       },
       "resolvent": {
-       "window_penalty": 0.3491093434805155,
+       "window_penalty": 0.34769770915817716,
        "non_normality": 14.584169618833249,
        "instance_slack": 0.3393454236854403
       }
      },
      "uniform J=80": {
       "sqrt_mu": {
-       "window_penalty": 0.2450932644244972,
+       "window_penalty": 0.2443918325951921,
        "non_normality": 54.504740363370516,
        "instance_slack": 0.3393454236854403
       },
       "resolvent": {
-       "window_penalty": 0.34912553286634385,
+       "window_penalty": 0.34842410103704546,
        "non_normality": 14.584169618833249,
        "instance_slack": 0.3393454236854403
       }
      },
      "geometric J=20": {
       "sqrt_mu": {
-       "window_penalty": -0.26740062826493727,
+       "window_penalty": -0.2835381118615638,
        "non_normality": 54.504740363370516,
        "instance_slack": 0.3393454236854403
       },
       "resolvent": {
-       "window_penalty": 0.1250724891419921,
+       "window_penalty": 0.1089350055453753,
        "non_normality": 14.584169618833249,
        "instance_slack": 0.3393454236854403
       }
@@ -5961,72 +5961,72 @@
     "decomposition": {
      "uniform J=5": {
       "sqrt_mu": {
-       "window_penalty": 1.0670946908437315,
+       "window_penalty": 0.7131041251074319,
        "non_normality": 214.47594441948243,
        "instance_slack": 0.7677215033108915
       },
       "resolvent": {
-       "window_penalty": 0.6803786785075125,
+       "window_penalty": 0.3263881127711903,
        "non_normality": 24.94996658322002,
        "instance_slack": 0.7677215033108915
       }
      },
      "uniform J=10": {
       "sqrt_mu": {
-       "window_penalty": 0.8796235121189966,
+       "window_penalty": 0.7468786695138261,
        "non_normality": 214.47594441948243,
        "instance_slack": 0.7677215033108915
       },
       "resolvent": {
-       "window_penalty": 0.7376327585721327,
+       "window_penalty": 0.6048879159669337,
        "non_normality": 24.94996658322002,
        "instance_slack": 0.7677215033108915
       }
      },
      "uniform J=20": {
       "sqrt_mu": {
-       "window_penalty": 0.8358004262414909,
+       "window_penalty": 0.7810168408934617,
        "non_normality": 214.47594441948243,
        "instance_slack": 0.7677215033108915
       },
       "resolvent": {
-       "window_penalty": 0.7989798567670263,
+       "window_penalty": 0.744196271418966,
        "non_normality": 24.94996658322002,
        "instance_slack": 0.7677215033108915
       }
      },
      "uniform J=40": {
       "sqrt_mu": {
-       "window_penalty": 0.8321711449860913,
+       "window_penalty": 0.8075112214801475,
        "non_normality": 214.47594441948243,
        "instance_slack": 0.7677215033108915
       },
       "resolvent": {
-       "window_penalty": 0.8393722038239204,
+       "window_penalty": 0.8147122803179537,
        "non_normality": 24.94996658322002,
        "instance_slack": 0.7677215033108915
       }
      },
      "uniform J=80": {
       "sqrt_mu": {
-       "window_penalty": 0.8360964038116094,
+       "window_penalty": 0.8244159795661969,
        "non_normality": 214.47594441948243,
        "instance_slack": 0.7677215033108915
       },
       "resolvent": {
-       "window_penalty": 0.8629827846428277,
+       "window_penalty": 0.8513023603973828,
        "non_normality": 24.94996658322002,
        "instance_slack": 0.7677215033108915
       }
      },
      "geometric J=20": {
       "sqrt_mu": {
-       "window_penalty": -0.2505374938653233,
+       "window_penalty": -0.7511179136744004,
        "non_normality": 214.47594441948243,
        "instance_slack": 0.7677215033108915
       },
       "resolvent": {
-       "window_penalty": 0.3897368633820335,
+       "window_penalty": -0.11084355642705526,
        "non_normality": 24.94996658322002,
        "instance_slack": 0.7677215033108915
       }
@@ -7119,72 +7119,72 @@
     "decomposition": {
      "uniform J=5": {
       "sqrt_mu": {
-       "window_penalty": 8.207390745388512,
+       "window_penalty": 8.34800117659666,
        "non_normality": 16.93189032517138,
        "instance_slack": 0.4357006082948518
       },
       "resolvent": {
-       "window_penalty": 3.7117686945760084,
+       "window_penalty": 3.852379125784154,
        "non_normality": 3.418614460400746,
        "instance_slack": 0.4357006082948518
       }
      },
      "uniform J=10": {
       "sqrt_mu": {
-       "window_penalty": 5.536712318766799,
+       "window_penalty": 5.58701692176337,
        "non_normality": 16.93189032517138,
        "instance_slack": 0.4357006082948518
       },
       "resolvent": {
-       "window_penalty": 2.938447940023532,
+       "window_penalty": 2.9887525430201003,
        "non_normality": 3.418614460400746,
        "instance_slack": 0.4357006082948518
       }
      },
      "uniform J=20": {
       "sqrt_mu": {
-       "window_penalty": 4.306242952644389,
+       "window_penalty": 4.327085032463156,
        "non_normality": 16.93189032517138,
        "instance_slack": 0.4357006082948518
       },
       "resolvent": {
-       "window_penalty": 2.5830889464179325,
+       "window_penalty": 2.6039310262366966,
        "non_normality": 3.418614460400746,
        "instance_slack": 0.4357006082948518
       }
      },
      "uniform J=40": {
       "sqrt_mu": {
-       "window_penalty": 3.6893765837624137,
+       "window_penalty": 3.698792486251082,
        "non_normality": 16.93189032517138,
        "instance_slack": 0.4357006082948518
       },
       "resolvent": {
-       "window_penalty": 2.411037609078898,
+       "window_penalty": 2.420453511567565,
        "non_normality": 3.418614460400746,
        "instance_slack": 0.4357006082948518
       }
      },
      "uniform J=80": {
       "sqrt_mu": {
-       "window_penalty": 3.37699974953561,
+       "window_penalty": 3.3814647550536234,
        "non_normality": 16.93189032517138,
        "instance_slack": 0.4357006082948518
       },
       "resolvent": {
-       "window_penalty": 2.318925757218505,
+       "window_penalty": 2.3233907627365156,
        "non_normality": 3.418614460400746,
        "instance_slack": 0.4357006082948518
       }
      },
      "geometric J=20": {
       "sqrt_mu": {
-       "window_penalty": 4.649766767938438,
+       "window_penalty": 4.861397721508512,
        "non_normality": 16.93189032517138,
        "instance_slack": 0.4357006082948518
       },
       "resolvent": {
-       "window_penalty": 2.5684318314741263,
+       "window_penalty": 2.780062785044197,
        "non_normality": 3.418614460400746,
        "instance_slack": 0.4357006082948518
       }
@@ -8277,72 +8277,72 @@
     "decomposition": {
      "uniform J=5": {
       "sqrt_mu": {
-       "window_penalty": 39.362455474165984,
+       "window_penalty": 39.50328338332434,
        "non_normality": 20.80150574187509,
        "instance_slack": 0.40863157095891434
       },
       "resolvent": {
-       "window_penalty": 8.470079431823466,
+       "window_penalty": 8.610907340981823,
        "non_normality": 3.4984558784419955,
        "instance_slack": 0.40863157095891434
       }
      },
      "uniform J=10": {
       "sqrt_mu": {
-       "window_penalty": 22.242116726358635,
+       "window_penalty": 22.29247963795921,
        "non_normality": 20.80150574187509,
        "instance_slack": 0.40863157095891434
       },
       "resolvent": {
-       "window_penalty": 5.8717958895502065,
+       "window_penalty": 5.9221588011507835,
        "non_normality": 3.4984558784419955,
        "instance_slack": 0.40863157095891434
       }
      },
      "uniform J=20": {
       "sqrt_mu": {
-       "window_penalty": 15.784537302569124,
+       "window_penalty": 15.805401754711962,
        "non_normality": 20.80150574187509,
        "instance_slack": 0.40863157095891434
       },
       "resolvent": {
-       "window_penalty": 4.81090144539262,
+       "window_penalty": 4.831765897535458,
        "non_normality": 3.4984558784419955,
        "instance_slack": 0.40863157095891434
       }
      },
      "uniform J=40": {
       "sqrt_mu": {
-       "window_penalty": 12.947985809922098,
+       "window_penalty": 12.957411579345509,
        "non_normality": 20.80150574187509,
        "instance_slack": 0.40863157095891434
       },
       "resolvent": {
-       "window_penalty": 4.342072545903099,
+       "window_penalty": 4.351498315326507,
        "non_normality": 3.4984558784419955,
        "instance_slack": 0.40863157095891434
       }
      },
      "uniform J=80": {
       "sqrt_mu": {
-       "window_penalty": 11.55023374991799,
+       "window_penalty": 11.554703394387271,
        "non_normality": 20.80150574187509,
        "instance_slack": 0.40863157095891434
       },
       "resolvent": {
-       "window_penalty": 4.106479789820902,
+       "window_penalty": 4.110949434290189,
        "non_normality": 3.4984558784419955,
        "instance_slack": 0.40863157095891434
       }
      },
      "geometric J=20": {
       "sqrt_mu": {
-       "window_penalty": 13.587560957971352,
+       "window_penalty": 13.799614961947013,
        "non_normality": 20.80150574187509,
        "instance_slack": 0.40863157095891434
       },
       "resolvent": {
-       "window_penalty": 4.49826564783125,
+       "window_penalty": 4.7103196518069055,
        "non_normality": 3.4984558784419955,
        "instance_slack": 0.40863157095891434
       }
@@ -9435,72 +9435,72 @@
     "decomposition": {
      "uniform J=5": {
       "sqrt_mu": {
-       "window_penalty": -12.296658751753114,
+       "window_penalty": -12.305775149513424,
        "non_normality": 425.04471219165976,
        "instance_slack": 0.4905836440850093
       },
       "resolvent": {
-       "window_penalty": 5.467188275734898,
+       "window_penalty": 5.458071877974632,
        "non_normality": 75.97229306775907,
        "instance_slack": 0.4905836440850093
       }
      },
      "uniform J=10": {
       "sqrt_mu": {
-       "window_penalty": -1.827754123797888,
+       "window_penalty": -1.832973723419202,
        "non_normality": 425.04471219165976,
        "instance_slack": 0.4905836440850093
       },
       "resolvent": {
-       "window_penalty": 6.255273616227498,
+       "window_penalty": 6.250054016606209,
        "non_normality": 75.97229306775907,
        "instance_slack": 0.4905836440850093
       }
      },
      "uniform J=20": {
       "sqrt_mu": {
-       "window_penalty": 2.504919458716131,
+       "window_penalty": 2.5021857827650327,
        "non_normality": 425.04471219165976,
        "instance_slack": 0.4905836440850093
       },
       "resolvent": {
-       "window_penalty": 6.718605949437162,
+       "window_penalty": 6.715872273486083,
        "non_normality": 75.97229306775907,
        "instance_slack": 0.4905836440850093
       }
      },
      "uniform J=40": {
       "sqrt_mu": {
-       "window_penalty": 5.398806595790518,
+       "window_penalty": 5.397412549491714,
        "non_normality": 425.04471219165976,
        "instance_slack": 0.4905836440850093
       },
       "resolvent": {
-       "window_penalty": 6.956424583766093,
+       "window_penalty": 6.955030537467371,
        "non_normality": 75.97229306775907,
        "instance_slack": 0.4905836440850093
       }
      },
      "uniform J=80": {
       "sqrt_mu": {
-       "window_penalty": 6.439154586833411,
+       "window_penalty": 6.438451137379802,
        "non_normality": 425.04471219165976,
        "instance_slack": 0.4905836440850093
       },
       "resolvent": {
-       "window_penalty": 7.086660913014626,
+       "window_penalty": 7.085957463561096,
        "non_normality": 75.97229306775907,
        "instance_slack": 0.4905836440850093
       }
      },
      "geometric J=20": {
       "sqrt_mu": {
-       "window_penalty": -4.302840120292387,
+       "window_penalty": -4.3132182749867365,
        "non_normality": 425.04471219165976,
        "instance_slack": 0.4905836440850093
       },
       "resolvent": {
-       "window_penalty": 5.7338335697154434,
+       "window_penalty": 5.723455415021141,
        "non_normality": 75.97229306775907,
        "instance_slack": 0.4905836440850093
       }
@@ -10593,72 +10593,72 @@
     "decomposition": {
      "uniform J=5": {
       "sqrt_mu": {
-       "window_penalty": -202.9642802149765,
+       "window_penalty": -202.9642802149766,
        "non_normality": 2111.0649872787335,
        "instance_slack": 1.0317794458968699
       },
       "resolvent": {
-       "window_penalty": -11.127178709129936,
+       "window_penalty": -11.127178709129979,
        "non_normality": 230.38365215317185,
        "instance_slack": 1.0317794458968699
       }
      },
      "uniform J=10": {
       "sqrt_mu": {
-       "window_penalty": -93.52779839533923,
+       "window_penalty": -93.52779839533933,
        "non_normality": 2111.0649872787335,
        "instance_slack": 1.0317794458968699
       },
       "resolvent": {
-       "window_penalty": -0.6885942081322014,
+       "window_penalty": -0.6885942081321971,
        "non_normality": 230.38365215317185,
        "instance_slack": 1.0317794458968699
       }
      },
      "uniform J=20": {
       "sqrt_mu": {
-       "window_penalty": -41.33668190252729,
+       "window_penalty": -41.33668190252742,
        "non_normality": 2111.0649872787335,
        "instance_slack": 1.0317794458968699
       },
       "resolvent": {
-       "window_penalty": 4.036029356982368,
+       "window_penalty": 4.036029356982356,
        "non_normality": 230.38365215317185,
        "instance_slack": 1.0317794458968699
       }
      },
      "uniform J=40": {
       "sqrt_mu": {
-       "window_penalty": -16.180812409675582,
+       "window_penalty": -16.18081240967561,
        "non_normality": 2111.0649872787335,
        "instance_slack": 1.0317794458968699
       },
       "resolvent": {
-       "window_penalty": 6.305715004951281,
+       "window_penalty": 6.305715004951261,
        "non_normality": 230.38365215317185,
        "instance_slack": 1.0317794458968699
       }
      },
      "uniform J=80": {
       "sqrt_mu": {
-       "window_penalty": -4.421295248645038,
+       "window_penalty": -4.421295248645284,
        "non_normality": 2111.0649872787335,
        "instance_slack": 1.0317794458968699
       },
       "resolvent": {
-       "window_penalty": 7.4112301055556316,
+       "window_penalty": 7.411230105555629,
        "non_normality": 230.38365215317185,
        "instance_slack": 1.0317794458968699
       }
      },
      "geometric J=20": {
       "sqrt_mu": {
-       "window_penalty": -78.03080777934997,
+       "window_penalty": -78.03080777934996,
        "non_normality": 2111.0649872787335,
        "instance_slack": 1.0317794458968699
       },
       "resolvent": {
-       "window_penalty": 2.7456453138306927,
+       "window_penalty": 2.7456453138306713,
        "non_normality": 230.38365215317185,
        "instance_slack": 1.0317794458968699
       }
@@ -11768,14 +11768,14 @@
        "instance_slack": 0.7673049473183902
       },
       "resolvent": {
-       "window_penalty": -1517057.405173463,
+       "window_penalty": -1517057.4051734633,
        "non_normality": 1593645.4049569794,
        "instance_slack": 0.7673049473183902
       }
      },
      "uniform J=20": {
       "sqrt_mu": {
-       "window_penalty": -299146060.16851044,
+       "window_penalty": -299146060.16851026,
        "non_normality": 11466195868.167038,
        "instance_slack": 0.7673049473183902
       },
@@ -11787,7 +11787,7 @@
      },
      "uniform J=40": {
       "sqrt_mu": {
-       "window_penalty": 568114832.0437489,
+       "window_penalty": 568114832.0437475,
        "non_normality": 11466195868.167038,
        "instance_slack": 0.7673049473183902
       },
@@ -11799,19 +11799,19 @@
      },
      "uniform J=80": {
       "sqrt_mu": {
-       "window_penalty": -268341160.0520935,
+       "window_penalty": -268341160.05209318,
        "non_normality": 11466195868.167038,
        "instance_slack": 0.7673049473183902
       },
       "resolvent": {
-       "window_penalty": -1529530.8437819567,
+       "window_penalty": -1529530.843781957,
        "non_normality": 1593645.4049569794,
        "instance_slack": 0.7673049473183902
       }
      },
      "geometric J=20": {
       "sqrt_mu": {
-       "window_penalty": 1505005655.6807346,
+       "window_penalty": 1505005655.6807344,
        "non_normality": 11466195868.167038,
        "instance_slack": 0.7673049473183902
       },
@@ -12911,60 +12911,60 @@
     "decomposition": {
      "uniform J=5": {
       "sqrt_mu": {
-       "window_penalty": -5.118528231112817e+22,
+       "window_penalty": -5.118528231112818e+22,
        "non_normality": 7.171150174589385e+22,
        "instance_slack": 0.7136466403520902
       },
       "resolvent": {
-       "window_penalty": -279422277548.70013,
+       "window_penalty": -279422277548.251,
        "non_normality": 579640024453.6475,
        "instance_slack": 0.7136466403520902
       }
      },
      "uniform J=10": {
       "sqrt_mu": {
-       "window_penalty": -3.0026168374000263e+22,
+       "window_penalty": -3.0026168374000267e+22,
        "non_normality": 7.171150174589385e+22,
        "instance_slack": 0.7136466403520902
       },
       "resolvent": {
-       "window_penalty": -150305329155.28784,
+       "window_penalty": -150305329155.08658,
        "non_normality": 579640024453.6475,
        "instance_slack": 0.7136466403520902
       }
      },
      "uniform J=20": {
       "sqrt_mu": {
-       "window_penalty": -1.6147591616511364e+22,
+       "window_penalty": -1.6147591616511368e+22,
        "non_normality": 7.171150174589385e+22,
        "instance_slack": 0.7136466403520902
       },
       "resolvent": {
-       "window_penalty": -77807552513.88922,
+       "window_penalty": -77807552513.7937,
        "non_normality": 579640024453.6475,
        "instance_slack": 0.7136466403520902
       }
      },
      "uniform J=40": {
       "sqrt_mu": {
-       "window_penalty": -8.368559248915892e+21,
+       "window_penalty": -8.368559248915893e+21,
        "non_normality": 7.171150174589385e+22,
        "instance_slack": 0.7136466403520902
       },
       "resolvent": {
-       "window_penalty": -39595856660.99078,
+       "window_penalty": -39595856660.9443,
        "non_normality": 579640024453.6475,
        "instance_slack": 0.7136466403520902
       }
      },
      "uniform J=80": {
       "sqrt_mu": {
-       "window_penalty": -4.2684181871652325e+21,
+       "window_penalty": -4.26841818716523e+21,
        "non_normality": 7.171150174589385e+22,
        "instance_slack": 0.7136466403520902
       },
       "resolvent": {
-       "window_penalty": -19993066090.914795,
+       "window_penalty": -19993066090.891853,
        "non_normality": 579640024453.6475,
        "instance_slack": 0.7136466403520902
       }
@@ -12976,7 +12976,7 @@
        "instance_slack": 0.7136466403520902
       },
       "resolvent": {
-       "window_penalty": -324750642746.69226,
+       "window_penalty": -324750642746.08374,
        "non_normality": 579640024453.6475,
        "instance_slack": 0.7136466403520902
       }
@@ -14076,14 +14076,14 @@
        "instance_slack": 0.5911607483487318
       },
       "resolvent": {
-       "window_penalty": -3.169466477208478e+19,
+       "window_penalty": -3.1694664772084777e+19,
        "non_normality": 3.810732298499142e+19,
        "instance_slack": 0.5911607483487318
       }
      },
      "uniform J=10": {
       "sqrt_mu": {
-       "window_penalty": -9.01140742919263e+38,
+       "window_penalty": -9.011407429192631e+38,
        "non_normality": 1.2087159394278098e+39,
        "instance_slack": 0.5911607483487318
       },
@@ -14100,31 +14100,31 @@
        "instance_slack": 0.5911607483487318
       },
       "resolvent": {
-       "window_penalty": -1.0883759914785812e+19,
+       "window_penalty": -1.0883759914785808e+19,
        "non_normality": 3.810732298499142e+19,
        "instance_slack": 0.5911607483487318
       }
      },
      "uniform J=40": {
       "sqrt_mu": {
-       "window_penalty": -3.070313676448068e+38,
+       "window_penalty": -3.0703136764480687e+38,
        "non_normality": 1.2087159394278098e+39,
        "instance_slack": 0.5911607483487318
       },
       "resolvent": {
-       "window_penalty": -5.666590319437656e+18,
+       "window_penalty": -5.666590319437652e+18,
        "non_normality": 3.810732298499142e+19,
        "instance_slack": 0.5911607483487318
       }
      },
      "uniform J=80": {
       "sqrt_mu": {
-       "window_penalty": -1.6166252649532696e+38,
+       "window_penalty": -1.6166252649532693e+38,
        "non_normality": 1.2087159394278098e+39,
        "instance_slack": 0.5911607483487318
       },
       "resolvent": {
-       "window_penalty": -2.8589878417757143e+18,
+       "window_penalty": -2.8589878417757117e+18,
        "non_normality": 3.810732298499142e+19,
        "instance_slack": 0.5911607483487318
       }
@@ -14136,7 +14136,7 @@
        "instance_slack": 0.5911607483487318
       },
       "resolvent": {
-       "window_penalty": -3.1106259672187806e+19,
+       "window_penalty": -3.11062596721878e+19,
        "non_normality": 3.810732298499142e+19,
        "instance_slack": 0.5911607483487318
       }
@@ -14151,6 +14151,9 @@
    "reference": "R-mix(NB,E1)",
    "family": "resolvent",
    "schedule": "uniform J=80"
-  }
+  },
+  "revisions": [
+   "window_penalty recomputed (round 5) as (K - K_continuous) / (2 ln 10), the certificate over the continuous estimate; it was R_schedule - R_continuous, which mixed two measured growths"
+  ]
  }
 }

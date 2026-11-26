@@ -1,0 +1,69 @@
+{
+ "name": "signalling_lin1",
+ "settings": {
+  "leak_tol": 1e-06,
+  "ceiling": 10000000,
+  "start_sd": 3.0,
+  "cut_tol": 1e-06,
+  "lna_sd": 4.0
+ },
+ "environment": {
+  "python": "3.13.5",
+  "numpy": "2.2.6",
+  "scipy": "1.17.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "timestamp": "2026-10-23T18:30:17+0530"
+ },
+ "data": {
+  "model": "signalling_lin1",
+  "kind": "linear",
+  "d": 1,
+  "T": 1.0,
+  "start_widths": [
+   15
+  ],
+  "widths": [
+   24
+  ],
+  "n_states": 24,
+  "leak": 1.3637972018365474e-07,
+  "capped": false,
+  "log10_readout_factor": 0.21733674413879864,
+  "fitted": {
+   "full_box": 0.21733674413879864,
+   "cut": {
+    "n_states": 23,
+    "mass": 0.999999711711387,
+    "log10_readout_factor": 0.2080951072649558,
+    "bounds": {
+     "X1": [
+      0,
+      22
+     ]
+    }
+   },
+   "moment": {
+    "n_states": 18,
+    "mass": 0.9998918704022304,
+    "log10_readout_factor": 0.1549142677839162,
+    "bounds": {
+     "X1": [
+      0,
+      17
+     ]
+    }
+   }
+  },
+  "S_eff_over_product_of_marginals": 1.0,
+  "provenance": "linear signalling cascade, Gupta, Schwab, Khammash, PLoS Comput. Biol. 17, e1009623 (2021), Secs 5.2-5.4, and their code (github.com/ankitgupta83/DeepCME, ReactionNetworkExamples.py); also Tang et al. 2023, Supplementary Note 2 G; zero initial copies, final time 1",
+  "params": {
+   "d": 1,
+   "kind": "linear",
+   "beta0": 10.0,
+   "k": 5.0,
+   "gamma": 1.0
+  },
+  "seconds": 0.05805802345275879
+ }
+}

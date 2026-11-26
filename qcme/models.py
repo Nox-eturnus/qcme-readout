@@ -180,6 +180,27 @@ def cascade(d, k=4.0, c=1.0, g=1.0, width=12):
                  "synthetic linear cascade", params=dict(d=d, k=k, c=c, g=g))
 
 
+def catalytic_cascade(d, k=4.0, c=1.0, g=1.0, width=12):
+    """A cascade in which each species catalyses the production of the next: 0 -> X1, X_i -> X_i + X_{i+1},
+    X_i -> 0. Unlike the conversion chain of cascade(), its law is not a product law: the counts are positively
+    correlated and more spread than Poisson."""
+    def build(w):
+        rx = [Reaction(tuple([1] + [0] * (d - 1)), lambda X: np.full(len(X), k), name="0 -> X1")]
+        for i in range(d - 1):
+            nu = [0] * d
+            nu[i + 1] = 1
+            rx.append(Reaction(tuple(nu), lambda X, i=i: c * X[:, i], name=f"X{i + 1} -> X{i + 1} + X{i + 2}"))
+        for i in range(d):
+            nu = [0] * d
+            nu[i] = -1
+            rx.append(Reaction(tuple(nu), lambda X, i=i: g * X[:, i], name=f"X{i + 1} -> 0"))
+        return rx
+    means = tuple(k / g * (c / g) ** i for i in range(d))
+    return Model(f"catalytic_cascade{d}", "L1", tuple(f"X{i + 1}" for i in range(d)), build, (width,) * d,
+                 (0.0,) * d, (False,) * d, {"kind": "poisson", "means": means},
+                 "synthetic catalytic cascade", params=dict(d=d, k=k, c=c, g=g))
+
+
 L0_MODELS = (birth_death, telegraph, bursty)
 L1_MODELS = (schlogl, toggle, michaelis_menten, self_repressor, lambda: cascade(2), lambda: cascade(3))
 
@@ -191,7 +212,7 @@ def registry():
 # ----------------------------------------------------------------------------- published set
 # Every value is transcribed from its source (the provenance string gives section, equation and page).
 # Initial means: the source's where it gives a transient study, otherwise x0 = 0 with genes inactive. The E1 envelope "poisson_maxprod"
-# is Poisson with mean max_{x in S}(production of i)/(removal constant of i) (T3(iii) supersolution;
+# is Poisson with mean max_{x in S}(production of i)/(removal constant of i) (a supersolution of the rate equations;
 # Bernoulli(1/2) for gene states), evaluated on the box in use (reference.envelope).
 def toggle_hegland(b=0.4, c=0.05):
     """Hegland et al. 2007 toggle as given in Jahnke & Huisinga 2008 Sec. 4.1, eq. (21), p. 2296."""
@@ -349,6 +370,62 @@ def autoreg_tang(case=1):
                  f"initial delta: one Gu, zero protein (Supp. Fig. 4 caption); t in [0, 10] (Table I)",
                  conservation=(L, np.array([1])),
                  params=dict(case=case, sigma_u=su, sigma_b=sb, rho_u=ru, rho_b=rb, T_source=TANG_AUTOREG_T))
+
+
+GUPTA2021 = ("Gupta, Schwab, Khammash, PLoS Comput. Biol. 17, e1009623 (2021), Secs 5.2-5.4, and their code "
+             "(github.com/ankitgupta83/DeepCME, ReactionNetworkExamples.py); also Tang et al. 2023, Supplementary "
+             "Note 2 G; zero initial copies, final time 1")
+
+
+def signalling_cascade(d, kind="linear", beta0=10.0, k=5.0, gamma=1.0, b=1.0, km=100.0, k0=10.0, H=1.0,
+                       widths=None):
+    """The linear (kind='linear') or nonlinear (kind='nonlinear') signalling cascade of Gupta, Schwab and Khammash
+    2021: 0 -> X1 at beta0; X_i -> X_i + X_(i+1) at k x_i (linear) or b + km x_i^H / (k0 + x_i^H) (nonlinear, Hill
+    activation with a basal rate); X_i -> 0 at gamma x_i. The network is feed-forward, so the law of its first d
+    species is the d-species cascade; the source studies 2, 5 and 10 species."""
+    def act(i):
+        if kind == "linear":
+            return lambda X, i=i: k * X[:, i]
+        return lambda X, i=i: b + km * np.maximum(X[:, i], 0.0) ** H / (k0 + np.maximum(X[:, i], 0.0) ** H)
+
+    def build(w):
+        rx = [Reaction(tuple([1] + [0] * (d - 1)), lambda X: np.full(len(X), beta0), name="0 -> X1")]
+        for i in range(d - 1):
+            nu = [0] * d
+            nu[i + 1] = 1
+            rx.append(Reaction(tuple(nu), act(i), name=f"X{i + 1} -> X{i + 1} + X{i + 2}"))
+        for i in range(d):
+            nu = [0] * d
+            nu[i] = -1
+            rx.append(Reaction(tuple(nu), lambda X, i=i: gamma * X[:, i], name=f"X{i + 1} -> 0"))
+        return rx
+    name = f"signalling_{'lin' if kind == 'linear' else 'nonlin'}{d}"
+    params = dict(d=d, kind=kind, beta0=beta0, k=k, gamma=gamma) if kind == "linear" else \
+        dict(d=d, kind=kind, beta0=beta0, gamma=gamma, b=b, km=km, k0=k0, H=H)
+    return Model(name, "P", tuple(f"X{i + 1}" for i in range(d)), build, tuple(widths or (16,) * d), (0.0,) * d,
+                 (False,) * d, {"kind": "poisson", "means": (beta0 / gamma,) * d},
+                 f"{kind} signalling cascade, {GUPTA2021}", params=params)
+
+
+def signalling_feedback(n=2, k=5.0, gamma=1.0, b=1.0, km=100.0, k0=10.0, H=1.0, widths=None):
+    """The linear signalling cascade with negative feedback of Gupta, Schwab and Khammash 2021: as the linear
+    cascade, with X1 produced at b + km / (k0 + x_n^H) (Hill repression by the last species)."""
+    def build(w):
+        rx = [Reaction(tuple([1] + [0] * (n - 1)),
+                       lambda X: b + km / (k0 + np.maximum(X[:, n - 1], 0.0) ** H), name="0 -> X1")]
+        for i in range(n - 1):
+            nu = [0] * n
+            nu[i + 1] = 1
+            rx.append(Reaction(tuple(nu), lambda X, i=i: k * X[:, i], name=f"X{i + 1} -> X{i + 1} + X{i + 2}"))
+        for i in range(n):
+            nu = [0] * n
+            nu[i] = -1
+            rx.append(Reaction(tuple(nu), lambda X, i=i: gamma * X[:, i], name=f"X{i + 1} -> 0"))
+        return rx
+    return Model(f"signalling_feedback{n}", "P", tuple(f"X{i + 1}" for i in range(n)), build,
+                 tuple(widths or (16,) * n), (0.0,) * n, (False,) * n, {"kind": "poisson", "means": (11.0,) * n},
+                 f"linear signalling cascade with feedback, {GUPTA2021}",
+                 params=dict(n=n, k=k, gamma=gamma, b=b, km=km, k0=k0, H=H))
 
 
 PUBLISHED_MODELS = (schlogl_published, toggle_hegland, toggle_kuntz, toggle_gardner,

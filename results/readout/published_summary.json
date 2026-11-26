@@ -1,10 +1,7 @@
 {
  "name": "published_summary",
  "settings": {
-  "observable": "f = 1 (total probability)",
-  "quantity": "sqrt(|S| / S_eff(p_hat_T)), S_eff = (sum p)^2 / sum p^2 on the Phase F box",
-  "fsp": "qcme.fsp.propagate (uniformization)",
-  "box_and_T": "published_models/<instance>.json"
+  "observable": "f = 1 (total probability)"
  },
  "environment": {
   "python": "3.13.5",
@@ -12,8 +9,7 @@
   "scipy": "1.17.0",
   "platform": "Windows-11-10.0.26300-SP0",
   "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
-  "timestamp": "2026-10-06T19:33:13+0530",
-  "hardware": "Intel Core i9-14900HX, 32 GB RAM; CPU double precision"
+  "timestamp": "2026-10-10T08:34:27+0530"
  },
  "data": {
   "published_rows": [
@@ -46,7 +42,12 @@
    },
    {
     "row": "toggle_gardner",
-    "skipped": "3,655,744 states: too large for one direct solve"
+    "n_states": 3655744,
+    "leak": -7.109868249699502e-13,
+    "S_eff": 4146.481240179396,
+    "readout_factor": 29.69258685460135,
+    "log10_readout_factor": 1.47264803551248,
+    "n_count_species": 2
    },
    {
     "row": "feedback_b1",

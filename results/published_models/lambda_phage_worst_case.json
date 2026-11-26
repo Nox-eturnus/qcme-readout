@@ -253,11 +253,14 @@
   "schedule": "uniform J=80",
   "measured_log10_growth_continuous": 1.8329397972582706,
   "decomposition": {
-   "window_penalty": 6.705497143570476,
+   "window_penalty": 6.697243870558242,
    "non_normality": 57.65927352881822,
    "instance_slack": 0.23759249625495737,
    "label": "exact"
   },
-  "seconds": 34.53528451919556
+  "seconds": 34.53528451919556,
+  "revisions": [
+   "window_penalty recomputed (round 5) as (K - K_continuous) / (2 ln 10), the certificate over the continuous estimate; it was R_schedule - R_continuous, which mixed two measured growths"
+  ]
  }
 }

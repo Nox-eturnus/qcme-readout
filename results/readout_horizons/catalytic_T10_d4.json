@@ -1,0 +1,37 @@
+{
+ "name": "catalytic_T10_d4",
+ "settings": {
+  "leak_tol": 1e-06,
+  "ceiling": 10000000
+ },
+ "environment": {
+  "python": "3.13.5",
+  "numpy": "2.2.6",
+  "scipy": "1.17.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "timestamp": "2026-11-26T13:44:38+0530"
+ },
+ "data": {
+  "family": "catalytic",
+  "T": 10.0,
+  "d": 4,
+  "widths": [
+   38,
+   38,
+   38,
+   38
+  ],
+  "n_states": 2085136,
+  "leak": 8.657957473179323e-08,
+  "capped": false,
+  "means": [
+   3.9998184165090453,
+   3.9980027366881057,
+   3.988924643980828,
+   3.9586649013818387
+  ],
+  "log10_readout_factor": 1.4579645807103045,
+  "seconds": 8297.95206618309
+ }
+}

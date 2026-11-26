@@ -190,7 +190,7 @@ def envelope(model, space):
 def maxprod_means(model, space, removal):
     """E1 rule for published models: per count species, the maximum
     over the state space of its total production rate sum_k max(nu_k,i, 0) a_k(x), divided by its
-    first-order removal constant (the T3(iii) supersolution tail parameter); 1/2 for gene states."""
+    first-order removal constant (the tail parameter of a supersolution); 1/2 for gene states."""
     X = space.X
     prod = np.zeros(X.shape[1])
     rx = model.reactions(tuple(int(w) for w in space.widths))

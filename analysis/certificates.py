@@ -73,7 +73,7 @@ def evaluate(s, rn, P_at, sched):
         for f in FAMILIES:
             Rc = out["log10_R_continuous"][f]
             slack = out["log10_W_over_meas_c"]
-            dec[sname][f] = {"window_penalty": row["log10_R"][f] - Rc,
+            dec[sname][f] = {"window_penalty": (row["K"][f] - out["K_continuous_estimate"][f]) / (2 * np.log(10)),
                              "non_normality": None if slack is None else Rc - slack, "instance_slack": slack}
     out["decomposition"] = dec
     if rn.startswith("R-TT"):

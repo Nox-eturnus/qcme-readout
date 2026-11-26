@@ -1,7 +1,7 @@
 {
  "name": "concept",
  "settings": {
-  "model": "toggle (registry)",
+  "model": "toggle",
   "widths": [
    50,
    50
@@ -9,14 +9,15 @@
   "T": 1.0,
   "reference": "R-mix(NB)",
   "J": 20,
-  "p0": "normalized R-P at t = 0 (registry convention)"
+  "p0": "normalized R-P at t = 0"
  },
  "environment": {
   "python": "3.13.5",
   "numpy": "2.2.6",
-  "platform": "Windows-11-10.0.26200-SP0",
-  "timestamp": "2026-10-05T18:52:05+0530",
-  "hardware": "Intel Core i9-14900HX, 32 GB RAM; CPU double precision"
+  "scipy": "1.17.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "timestamp": "2026-10-12T14:29:42+0530"
  },
  "data": {
   "X": [

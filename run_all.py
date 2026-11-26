@@ -28,6 +28,12 @@ QUICK = [  # (module, stage, only): the calculations that finish in seconds to m
     ("published_models", "references", ["schlogl", "feedback_b1", "autoreg_tang_1", "autoreg_tang_2", "autoreg_tang_3"]),
     ("published_models", "exact", ["schlogl", "feedback_b1", "autoreg_tang_1", "autoreg_tang_2", "autoreg_tang_3"]),
     ("published_models", "exact_log", ["schlogl", "feedback_b1", "autoreg_tang_1", "autoreg_tang_2", "autoreg_tang_3"]),
+    ("published_models", "stationary", None),
+    ("published_models", "stationary_known", ["schlogl", "autoreg_tang_1", "autoreg_tang_2", "autoreg_tang_3",
+                                              "feedback_b1", "feedback_b10", "toggle_kuntz"]),
+    ("readout", "swap_variants", None), ("readout", "cascades_matched", None),
+    ("readout", "horizons", ["conversion:1:1", "conversion:1:2", "conversion:3:2", "catalytic:1:2", "catalytic:10:2"]),
+    ("readout", "cut_horizons", None),
 ]  # the cost stages take 15 minutes or more per model; the test suite checks their formulas and circuits
 FULL = [
     ("readout", "cascade", None), ("readout", "lambda_phage", None), ("readout", "cascade_summary", None),
@@ -36,10 +42,17 @@ FULL = [
     ("published_models", "references", None), ("published_models", "exact", None),
     ("published_models", "exact_log", None), ("published_models", "exact_log_uniformization", None),
     ("published_models", "overflow_bounds", None), ("published_models", "worst_case", None),
-    ("published_models", "resolvent", None), ("published_models", "summary", None),
-    ("readout", "published", None),
+    ("published_models", "resolvent", None), ("published_models", "stationary", None),
+    ("published_models", "summary", None), ("published_models", "split", None),
+    ("readout", "published", ["toggle_gardner"]), ("readout", "published", None), ("readout", "sensitivity", None),
+    ("readout", "initial_law", None), ("readout", "correlated", None), ("readout", "cascades_matched", None),
+    ("readout", "swap_variants", None), ("published_models", "stationary_known", None),
+    ("published_models", "weighted_factors", None),
     ("costs", "circuit_checks", None), ("costs", "encodings", None), ("costs", "baselines", None),
     ("costs", "comparison", None), ("costs", "split_design", None), ("costs", "observable_aware_ssa", None),
+    ("readout", "signalling", None), ("readout", "fitted_boxes", None), ("readout", "lambda_boxes", None),
+    ("costs", "per_use_scaling", None), ("costs", "eps_comparison", None),
+    ("readout", "horizons", None), ("costs", "ssa_time", None), ("readout", "cut_horizons", None),
 ]
 
 
